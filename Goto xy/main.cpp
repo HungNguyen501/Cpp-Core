@@ -26,7 +26,6 @@ int main() {
         Sleep(1000);
     }
 
-
     system("pause");
     return 0;
 }
