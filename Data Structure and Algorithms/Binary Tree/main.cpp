@@ -98,6 +98,18 @@ class Solution{
             return -1;
         }
 
+        Node* find(Node *root, int data) {
+            if (data == root->data) {
+                return root;
+            } else if (data < root->data && root->left != NULL) {
+                return find(root->left, data);
+            } else if (data > root->data && root->right != NULL) {
+                return find(root->right, data);
+            } else {
+                return NULL;
+            }
+        }
+
 };
 
 /*
@@ -125,20 +137,28 @@ int main() {
         root = myTree.insert(root, data);
     }
 
-    int height = myTree.getHeight(root);
-    cout << "Height of tree: " << height << endl;
+    // int height = myTree.getHeight(root);
+    // cout << "Height of tree: " << height << endl;
 
-    cout << "Preorder:" << endl;
-    myTree.preOrder(root);
+    // cout << "Preorder:" << endl;
+    // myTree.preOrder(root);
 
-    cout << "Postorder:" << endl;
-    myTree.postOrder(root);
+    // cout << "Postorder:" << endl;
+    // myTree.postOrder(root);
 
-    cout << "Inorder:" << endl;
-    myTree.inOrder(root);
+    // cout << "Inorder:" << endl;
+    // myTree.inOrder(root);
 
-    cout << "Level order:" << endl;
-    myTree.levelOrder(root);
+    // cout << "Level order:" << endl;
+    // myTree.levelOrder(root);
+
+    Node* my_node = myTree.find(root, 8);
+
+    if (my_node==NULL) {
+        cout << "Not found" << endl;
+    } else {
+        cout << "Bingo: " << my_node << endl;
+    }
 
     system("pause");
     return 0;
