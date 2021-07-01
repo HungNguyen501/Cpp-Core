@@ -28,6 +28,27 @@ class Solution{
           }
       }
 
+      void del(Node *head, int data) {
+        if (head->data == data) {
+            head = head->next;
+            return;
+        }
+
+        Node *r = head->next;
+        Node *last_node = head;
+
+        while (r) {
+            if (r->data == data) {
+                last_node->next = r->next;
+                r = nullptr;
+                return;
+            }
+            last_node = r;
+            r = r->next;
+        }
+        
+    }
+
       void display(Node *head)
       {
           Node *start=head;
