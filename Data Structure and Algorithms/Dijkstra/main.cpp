@@ -1,93 +1,77 @@
-#include <iostream> 
+#include <iostream>
+#include <fstream>
+#include <map>
 #include <limits.h>
-#include <fstream>  
 using namespace std;
 
-int minDistance(long long dist[], bool sptSet[], int n)
-{
-    long long min = LLONG_MAX;
-    int min_index;
-
-    for (int v = 1; v <= n; v++)
-    {
-        if (sptSet[v] == false && dist[v] <= min)
-        {
-            min = dist[v];
-            min_index = v;
+int minIndex(int list_dist[], bool list_node[] ,int n) {
+    int min = INT16_MAX;
+    int min_index = 0;
+    for (int i = 1; i <= n; i++) {
+        if (!list_node[i] && list_dist[i] < min) {
+            min = list_dist[i];
+            min_index = i;
         }
     }
 
     return min_index;
 }
 
-void dijkstra(int graph[3001][3001], int src, int n) {
-    long long dist[3001];
-    bool sptSet[3001] = { false };
+void dijkstra(int graph[100][100], int n, int start) {
+    bool list_node[100] = {false};
+    int list_dist[100];
 
-    for (int i = 0; i <= n; i++)
-        dist[i] = LLONG_MAX;
-    dist[src] = 0;
+    for (int i = 1; i <= n; i++) {
+        list_dist[i] = INT16_MAX;
+    }
 
-    for (int count = 1; count < n; count++) {
-        int u = minDistance(dist, sptSet, n);
+    list_dist[start] = 0;
 
-        sptSet[u] = true;
+    for (int i = 1; i < n; i++) {
+        int u = minIndex(list_dist, list_node, n);
+        list_node[u] = true;
 
-        for (int v = 1; v <= n; v++)
-            if (!sptSet[v] && graph[u][v] && dist[u] != LLONG_MAX && dist[u] + graph[u][v] < dist[v])
-                dist[v] = dist[u] + graph[u][v];
+        for (int v = 1; v <= n; v++) {
+            if (!list_node[v] && graph[u][v] && list_dist[u] != INT16_MAX && list_dist[u] + graph[u][v] < list_dist[v]) {
+                list_dist[v] = list_dist[u] + graph[u][v];
+            }
+        }
     }
 
     for (int i = 1; i <= n; i++) {
-        if (i != src)
-        {
-            if (dist[i] == LLONG_MAX) cout << "-1 ";
-            else cout << dist[i] << " ";
-        } 
+        if (list_dist[i] == INT16_MAX) cout << i << ": -1" << endl;
+        else cout << i << ": " << list_dist[i] << endl;
     }
 
 }
 
-int main()
-{
-    ifstream read;
-    read.open("D:\\Projects\\CPP\\Data Structure and Algorithms\\Dijkstra\\input.txt");
 
-    int numTC;
-    read >> numTC;
+int main() {
+    ifstream input;
+    input.open("D:\\Projects\\CPP\\__test__\\input.txt");
 
-    for (int tc = 0; tc < numTC; tc++)
-    {
-        int(*graph)[3001] = new int[3001][3001];
-        int n, starting_position;
-        long m;
+    int graph[100][100];
+    int start;
+    int n, m;
+    input >> n >> m;
 
-        read >> n >> m;
-
-        for (int i = 1; i <= n; i++)
-        {
-            for (int j = 1; j <= n; j++) {
-                graph[i][j] = 0;
-            }
+    // clean matrix
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++) {
+            graph[i][j] = 0;
         }
-
-        for (int i = 0; i < m; i++)
-        {
-            int u, v, distance;
-            
-            read >> u >> v >> distance;
-            if (graph[u][v] > 0) {
-                distance = (distance < graph[u][v]) ? distance : graph[u][v];
-            }
-            graph[u][v] = distance;
-            graph[v][u] = distance;
-        }
-        read >> starting_position;
-
-        dijkstra(graph, starting_position, n);
-        cout << endl;
     }
 
+    for (int i = 0; i < m; i++) {
+        int u, v, distance;
+        input >> u >> v >> distance;
+        graph[u][v] = distance;
+        graph[v][u] = distance;
+    }
+
+    input >> start;
+
+    dijkstra(graph, n, start);
 
     system("pause");
     return 0;
