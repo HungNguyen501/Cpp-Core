@@ -40,35 +40,31 @@ class Solution{
         void preOrder(Node *root) {
             if (root == NULL) {
                 return;
-            } else {
-                cout << root ->data << endl;
-            }
+            } 
 
+            cout << root ->data << endl;
             preOrder(root->left);
             preOrder(root->right);
         }
 
         void postOrder(Node *root) {
-            if ( root != NULL ) {
-                if (root->left == NULL && root->right == NULL) {
-                    cout << root->data << endl;
-                }           
-                else
-                {
-                    //Node* cur;
-                    postOrder(root->left);
-                    postOrder(root->right);
-                    cout << root->data << endl;
-                }
-            }
+            if (root == NULL) {
+                return;
+            } 
+            
+            postOrder(root->left);
+            postOrder(root->right);
+            cout << root->data << endl;
         }
 
         void inOrder(Node *root) {
-            if (root != NULL) {
-                inOrder(root->left);
-                cout << root->data << endl;
-                inOrder(root->right);
-            }
+            if (root == NULL) {
+                return;
+            } 
+            
+            inOrder(root->left);
+            cout << root->data << endl;
+            inOrder(root->right);
         }
 
 		void levelOrder(Node* root){
@@ -90,12 +86,11 @@ class Solution{
         }
 
         int getHeight(Node* root){
-            if(root != NULL) {
-                int h_l = getHeight(root->left);
-                int h_r = getHeight(root->right);
-                return ( 1 + ( (h_r > h_l) ? h_r : h_l ) );
-            }
-            return -1;
+            if(root == NULL) return -1;
+            
+            int h_l = getHeight(root->left);
+            int h_r = getHeight(root->right);
+            return ( 1 + ( (h_r > h_l) ? h_r : h_l ) );
         }
 
         Node* find(Node *root, int data) {
@@ -137,20 +132,20 @@ int main() {
         root = myTree.insert(root, data);
     }
 
-    // int height = myTree.getHeight(root);
-    // cout << "Height of tree: " << height << endl;
+    int height = myTree.getHeight(root);
+    cout << "Height of tree: " << height << endl;
 
-    // cout << "Preorder:" << endl;
-    // myTree.preOrder(root);
+    cout << "Preorder:" << endl;
+    myTree.preOrder(root);
 
-    // cout << "Postorder:" << endl;
-    // myTree.postOrder(root);
+    cout << "Postorder:" << endl;
+    myTree.postOrder(root);
 
-    // cout << "Inorder:" << endl;
-    // myTree.inOrder(root);
+    cout << "Inorder:" << endl;
+    myTree.inOrder(root);
 
-    // cout << "Level order:" << endl;
-    // myTree.levelOrder(root);
+    cout << "Level order:" << endl;
+    myTree.levelOrder(root);
 
     Node* my_node = myTree.find(root, 8);
 
