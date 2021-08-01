@@ -10,7 +10,7 @@ void swap(int *a, int *b) {
 void quickSort(int arr[], int l, int r) {
     if (l >= r) return;
 
-    int pivot = arr[(l + r)/2];
+    int pivot = arr[l];
     int i = l;
     int j = r;
 
