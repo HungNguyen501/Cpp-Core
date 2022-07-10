@@ -119,7 +119,7 @@ class Solution{
 
 int main() {
     ifstream input;
-    input.open("CPP\\Data Structure and Algorithms\\Binary Tree\\input.txt");
+    input.open("D:\\Projects\\CPP\\Data Structure and Algorithms\\Binary Tree\\input.txt");
 
     Solution myTree;
     Node* root = NULL;
