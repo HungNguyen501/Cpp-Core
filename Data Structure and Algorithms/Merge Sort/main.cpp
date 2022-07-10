@@ -2,12 +2,13 @@
 #include <fstream>
 using namespace std;
 
-void mergeHalfs(int *a, int leftStart, int rightEnd, long long &inver) {
+void mergeHalfs(int *a, int leftStart, int rightEnd) {
     int leftEnd = (leftStart + rightEnd) / 2;
     int rightStart = leftEnd + 1;
     int left = leftStart, right = rightStart;
-    int temp[100009];
-    int index = leftStart;
+
+    int temp[rightEnd - leftStart + 1];
+    int index = 0;
     while (left <= leftEnd && right <= rightEnd)
     {
         if (a[left] <= a[right]) {
@@ -17,7 +18,6 @@ void mergeHalfs(int *a, int leftStart, int rightEnd, long long &inver) {
         else {
             temp[index] = a[right];
             right++;
-            inver += (leftEnd - left + 1);
         }
         index++;
     }
@@ -36,18 +36,18 @@ void mergeHalfs(int *a, int leftStart, int rightEnd, long long &inver) {
         index++;
     }
 
-    for (int i = leftStart; i <= rightEnd; i++)
-        a[i] = temp[i];
-    int debug = 0;
+    for (int i = leftStart; i <= rightEnd; i++) {
+        a[i] = temp[i - leftStart];
+    }
 }
 
-void mergeSort(int *a, int leftStart, int rightEnd, long long &inver) {
+void mergeSort(int *a, int leftStart, int rightEnd) {
     if (leftStart >= rightEnd)
         return;
     int middle = (leftStart + rightEnd) / 2;
-    mergeSort(a, leftStart, middle, inver);
-    mergeSort(a, middle + 1, rightEnd, inver);
-    mergeHalfs(a, leftStart, rightEnd, inver);
+    mergeSort(a, leftStart, middle);
+    mergeSort(a, middle + 1, rightEnd);
+    mergeHalfs(a, leftStart, rightEnd);
 }
 
 int main() {
@@ -59,12 +59,15 @@ int main() {
     for (int tc = 0; tc < testcase; tc++) {
         int n;
         int *a = new int[100009];
-        long long inver = 0;
         read >> n;
         for (int i = 0; i < n; i++)
             read >> a[i];
-        mergeSort(a, 0, n - 1, inver);
-        cout << inver << endl;
+        mergeSort(a, 0, n - 1);
+        
+        for (int i = 0; i < n; i++) {
+            cout << a[i] << " ";
+        }
+        cout << endl;
     }
     
     system("pause");
