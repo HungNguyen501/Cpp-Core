@@ -2,8 +2,7 @@
 #include <fstream>
 using namespace std;	
 
-class Node
-{
+class Node {
     public:
     int data;
     Node *next;
@@ -15,7 +14,7 @@ class Node
     }
 };
 
-class Solution{
+class Solution {
     public:
 
     Node* insert(Node *head,int data)
@@ -76,8 +75,7 @@ class Solution{
     }
 };
 
-int main()
-{
+int main() {
     ifstream read;
     read.open("CPP\\Data Structure and Algorithms\\Linked List\\input.txt");
 
