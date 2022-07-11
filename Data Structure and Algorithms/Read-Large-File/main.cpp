@@ -1,69 +1,66 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <random>
+#include <time.h>
 #include "FileEngine.h"
 #include "StringEngine.h"
 using namespace std;
 
-long long getTotalLines(char *folder_path) {
-    long long total_lines = 0;
-    // vector<string> list_files = listFiles(folder_path);
+// Read random line of file
+void randLine() {
+    // Get info from
+    FILE *fi = openFile("partition_info.txt", "r");
+    char buffer[10000];
 
-    // for (int i = 0; i < list_files.size(); i++) {
-    //     if
-    //     string index = strtok(list_files[i], "_");
-    //     string num_rows = "";
+    // Read total_partiton, partition_size, num_lines_last_partition
+    fgets(buffer, 10000, fi);
+    vector<string> info  = split(string(buffer), ' ');
+    // Remove break line character for last element
+    info[2].pop_back();
+    // Read total_lines
+    fgets(buffer, 10000, fi);
+    info.push_back(string(buffer));
 
+    unsigned long long total_lines = strtoull(info[3].c_str(), nullptr, 10);
+    unsigned long long partition_size = strtoull(info[1].c_str(), nullptr, 10);
+    cout << "total_lines=" << total_lines << endl;
+    cout << "partition_size=" << partition_size << endl;
 
-    // }
-    return 1;
-}
+    default_random_engine generator(time(NULL)); // Get random value when re-running
+    // default_random_engine generator;
+    uniform_int_distribution<long long unsigned> distribution(0,total_lines);
 
-template <typename T>
-void printVector(vector<T> v, bool reverse, string seperator) {
-    if (reverse) {
-        for (int i = v.size() - 1; i >= 0; i--)
-            cout << v[i] << seperator;
-    } else {
-        for (int i = 0; i < v.size(); i++)
-            cout << v[i] << seperator;
+    for (int i = 0; i < 7; i++) {
+        unsigned long long rand_number = distribution(generator);
+        cout << "rand_number=" << rand_number << endl;
+
+        unsigned long long partition = rand_number/partition_size;
+        unsigned long long index = rand_number%partition_size;
+
+        cout << "partition=" << partition << endl;
+        cout << "index=" << index << endl;
+
+        char *line = getLineContent(partition+1, index);
+
+        cout << line << endl;
     }
     
-    cout << endl;  
+
 }
-
-// // Read random line of file
-// char *randLine(string rand_line) {
-
-// }
 
 int main() {
     char input_file[] = "input.txt";
     char folder_path[] = ".\\partition_file";
-    // partitionFile(input_file, 100000);
-
-    // string *list_files = listFiles(folder_path);
-
     
-    // getTotalLines(folder_path);
+    // Partition input file and print random line
+    partitionFile(input_file, 100000);
 
-    //  vector<string> result = split("10_1000.txt", '_');
+    /*
+    After reading input file, read random in range of 1-total lines
+    */
+    // randLine();
 
-    //  cout << list_files[0] << endl;
-    //  cout << list_files[4] << endl;
-    //  cout << result[1] << endl;
-
-    vector<int> list_files = listFiles(folder_path);
-
-    printVector(list_files, false, " ");
-
-    // vector<int> a;
-    // a.push_back(9);
-    // vector<int> m1 = multiple(a, 2);
-    // m1 = sum(m1, m1);
-
-
-    
 
     system("Pause");
     return 0;

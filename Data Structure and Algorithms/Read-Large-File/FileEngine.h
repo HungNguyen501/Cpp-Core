@@ -6,11 +6,13 @@
 #include <string>
 #include <cstring>
 #include <vector>
-#include <dirent.h>
+#include <random>
 #include "StringEngine.h"
 using namespace std;
 
+// INT32_MAX=2,147,483,647
 #define MAX_BUFFER_SIZE INT32_MAX
+#define MAX_NUM_LINE INT32_MAX
 int const MAX_NUM_PARTITION = 1000;
 
 FILE *openFile(char *file_name, char *mode) 
@@ -25,6 +27,25 @@ FILE *openFile(char *file_name, char *mode)
     return fp;
 }
 
+// Return total lines of file
+string totalLines(int _partition_size, 
+                    int _total_partiton, 
+                    int _num_lines_last_partition)
+{
+    vector<int> partition_size = numberToVector(_partition_size);
+    vector<int> total_partiton = numberToVector(_total_partiton - 1);
+    vector<int> num_lines_last_partition = numberToVector(_num_lines_last_partition);
+
+    vector<int> score = sum(multiple(partition_size, total_partiton), num_lines_last_partition);
+
+    string total_lines = "";
+    for (int i = score.size() - 1; i >= 0; i--) {
+        total_lines+=to_string(score[i]);
+    }
+
+    return total_lines;
+}
+
 // Partition a file to multiple files
 void partitionFile(char *input_file, 
             int partition_size) // number of lines for each partition_file
@@ -34,17 +55,37 @@ void partitionFile(char *input_file,
 
     char *buffer = new char[MAX_BUFFER_SIZE];
     char index_file[50];
-    long long count_line = 1;
+    int count_line = 0;
     int count_partition = 1;
+    unsigned long long current_line = 1;
 
-    while(!feof(fi)) {
-        fgets(buffer, MAX_BUFFER_SIZE, fi);
+    default_random_engine generator(time(NULL)); // Get random value when re-running
+    // default_random_engine generator;
+    string rand_line;
 
-        if (buffer[strlen(buffer) -1 ] != '\n') {
+    while(fgets(buffer, MAX_BUFFER_SIZE, fi)) {
+        // Calculate uniform distribution while adding a new line
+        uniform_real_distribution<long double> distribution(0 ,current_line);
+
+        if (distribution(generator) <= 1) {
+            rand_line = convertToString(buffer, strlen(buffer));
+        }
+        current_line++;
+
+        // Handle when line is not loaded fully to buffer
+        if (buffer[strlen(buffer) -1 ] != '\n' && !feof(fi)) {            
+        	// Warning buffer overflow for reading that line
             cout << "Line " << count_line << " of partition " << count_partition << " is not loaded fully" << endl;
+
+            // Keep reading still for end of that line
+            while(fgets(buffer, sizeof(buffer), fi)) {
+                if (buffer[strlen(buffer) -1] == '\n') {
+                    break;
+                }
+            }
         }
 
-        if (count_line == 1) {
+        if (count_line == 0) {
             // Assign indexfile="(count_line).txt"
             snprintf(index_file, sizeof(index_file), ".\\partition_file\\%d.txt", count_partition);
             fo = openFile(index_file, "w");
@@ -53,94 +94,51 @@ void partitionFile(char *input_file,
         fwrite(buffer, sizeof(char), strlen(buffer), fo);
         count_line++;
 
-        if (count_line == partition_size || feof(fi)) {
+        if (count_line == partition_size) {
             // Close partition_file
             fclose(fo);
 
-            if (feof(fi)) {
-                // Rename partition_file by adding total lines to file_name
-                char new_name[50];
-                snprintf(new_name, sizeof(new_name), ".\\partition_file\\%d_%d.txt", count_partition, count_line);
-                
-                if (rename(index_file, new_name) != 0) {
-                    perror("Error while rename file.\n");
-                    exit(EXIT_FAILURE);
-                }
-            }
-
-            count_line = 1;
+            count_line = 0;
             count_partition++;
-        }
+        }              
         
     }
-
     fclose(fi);
-}
 
-// string *listFiles(char *path) {
-//     string *list_files = new string[MAX_NUM_PARTITION];
-//     // Pointer for directory entry
-//     struct dirent *de;
-  
-//     DIR *dr = opendir(path);
-  
-//     // opendir returns NULL if couldn't open directory
-//     if (dr == NULL) {
-//         cout << "Could not open current directory" << endl;
-//         return list_files;
-//     }
+    // Print rand_line after reading file completely
+    cout << "Random line: " << endl;
+    cout << rand_line << endl;
 
-//     int i = 0;
-//     while( (de = readdir(dr)) != NULL) {
-//         string file_name = de->d_name;
-//         if (file_name != "." && file_name != "..") {
-//             list_files[i] = file_name.substr(0, file_name.length() - 4);
-//             i++;
-//         }
-//     }  
-//     closedir(dr); 
+    // Save info of last partition_file to file
+    FILE *fp = openFile("partition_info.txt", "wb");
+    char info[100000];
+    
+    // Save count_partition count_line 
+    auto format = "%d %d";
+    snprintf(info, sizeof(info), "%d %d %d\n", count_partition, partition_size, count_line);
+    fwrite(info, sizeof(char), strlen(info), fp);
+                    
+    string total_lines = totalLines(partition_size, count_partition, count_line);
+    strcpy(info, total_lines.c_str());
+    fwrite(info, sizeof(char), total_lines.length(), fp);
+    
+    fclose(fp);
+}    
 
-//     return list_files;
-// }
+char *getLineContent(int partition, 
+                    int index)
+{
+    char partition_file[10000];
+    snprintf(partition_file, sizeof(partition_file), ".\\partition_file\\%d.txt", partition);
+    
+    FILE* fi = openFile(partition_file, "r");
+    char *buffer = new char[MAX_BUFFER_SIZE];
 
-vector<int> listFiles(char *path) {    
-    DIR *dr = opendir(path);
-  
-    // opendir returns NULL if couldn't open directory
-    if (dr == NULL) {
-        cout << "Could not open current directory" << endl;
-        return vector<int> ();
+    for (int i = 0; i < index; i++) {
+        fgets(buffer, MAX_BUFFER_SIZE, fi);
     }
 
-    // Pointer for directory entry
-    // struct dirent *de1;
-    // int num_files = 0;
-    // while( (de1 = readdir(dr)) != NULL) {
-    //     num_files++;
-    // }
-
-    // num_files-=2;
-
-    vector<int> list_files(13, 0);
-    // Pointer for directory entry
-    struct dirent *de2;
-    while( (de2 = readdir(dr)) != NULL) {
-        string file_name = de2->d_name;
-        if (file_name != "." && file_name != "..") {
-            file_name = file_name.substr(0, file_name.length() - 4);
-
-
-            if (contain(file_name, '_')) {
-                vector<string> split_str = split(file_name, '_');
-                list_files[stoi(split_str[0]) - 1] = stoi(split_str[1]);
-                break;
-            }
-        }
-    }
-
-    closedir(dr); 
-
-    return list_files;
-}
+    return buffer;
+}                    
 
 #endif
