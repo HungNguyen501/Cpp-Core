@@ -4,8 +4,6 @@
 #include "BinaryTree.h"
 using namespace std;	
 
-
-
 /*
                 3
                / \
