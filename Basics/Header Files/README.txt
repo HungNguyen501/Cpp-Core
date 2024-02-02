@@ -1,1 +1,0 @@
-g++ main.cpp Libs.cpp -o output
