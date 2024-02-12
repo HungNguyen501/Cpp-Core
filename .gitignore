@@ -1,5 +1,5 @@
 check_list.md
-__test__/
+__test__
 .vscode/
 
 # Prerequisites
@@ -15,7 +15,7 @@ __test__/
 *.gch
 *.pch
 
-# Compiled Dynamic libraries
+# Compiled Dynamic librargit ies
 *.so
 *.dylib
 *.dll
