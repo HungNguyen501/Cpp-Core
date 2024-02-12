@@ -52,7 +52,7 @@ void mergeSort(int *a, int leftStart, int rightEnd) {
 
 int main() {
     ifstream read;
-    read.open("D:\\Projects\\CPP\\Data Structure and Algorithms\\Merge Sort\\input.txt");
+    read.open("MergeSort/input.txt");
 
     int testcase;
     read >> testcase;
@@ -70,6 +70,5 @@ int main() {
         cout << endl;
     }
     
-    system("pause");
     return 0;
 }

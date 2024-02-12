@@ -40,7 +40,7 @@ void bfs(int starting_node, int a[1001][1001], int n, Node node[]) {
 
 int main() {
     ifstream read;
-    read.open("D:\\Projects\\CPP\\Data Structure and Algorithms\\BFS(Breadth First Search)\\input.txt");
+    read.open("BFS/input.txt");
 
     int queries;
 
@@ -80,7 +80,6 @@ int main() {
         cout << endl;
     }
 
-    system("pause");
     return 0;
 }
 

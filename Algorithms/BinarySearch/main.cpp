@@ -46,7 +46,7 @@ int binarySearch(vector <Contact> contact, string name, int l, int h)
 
 int main() {
     ifstream input;
-    input.open("CPP\\Data Structure and Algorithms\\Binary Search\\input.txt");
+    input.open("BinarySearch/input.txt");
 
     int n;
     string name;
@@ -68,6 +68,5 @@ int main() {
         }
     }
 
-    system("pause");
     return 0;
 }

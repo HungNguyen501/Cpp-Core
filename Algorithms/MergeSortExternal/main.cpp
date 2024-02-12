@@ -79,7 +79,7 @@ void mergeFiles(char *output_file,
     for (int i = 0; i < num_files; i++) {
         char file_name[16];
        // Convert i to file_name (int to char array)
-        snprintf(file_name, sizeof(file_name), "partition=%d.txt", i);
+        snprintf(file_name, sizeof(file_name), "MergeSortExternal/partition=%d.txt", i);
 
         fi[i] = openFile(file_name, "r");
     }
@@ -143,8 +143,8 @@ int main() {
     // Size of each partiton
     int run_size = 1000;
 
-    char input_file[] = "input.txt";
-    char output_file[] = "output_file.txt";
+    char input_file[] = "MergeSortExternal/input.txt";
+    char output_file[] = "MergeSortExternal/output_file.txt";
 
     FILE *fi = openFile(input_file, "w");
     // srand(time(NULL));
@@ -159,6 +159,5 @@ int main() {
     // Run external sort
     externalSort(input_file, output_file, num_ways, run_size);
 
-    system("Pause");
     return 0;
 }

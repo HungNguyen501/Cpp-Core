@@ -50,6 +50,5 @@ int main() {
 
     search(t, p);
 
-    system("pause");
     return 0;
 }

@@ -55,7 +55,7 @@ bool joinable(long u, long v) {
 
 int main() {
     ifstream read;
-    read.open("D:\\Projects\\CPP\\Data Structure and Algorithms\\Kruskal MST\\input.txt");
+    read.open("KruskalMST/input.txt");
 
     long n, m;
     edge *edges = new edge[45009];
@@ -80,6 +80,5 @@ int main() {
 
     cout << weight_sum << endl;
 
-    system("pause");
     return 0;
 }

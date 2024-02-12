@@ -48,7 +48,7 @@ void dijkstra(int graph[100][100], int n, int start) {
 
 int main() {
     ifstream input;
-    input.open("D:\\Projects\\CPP\\__test__\\input.txt");
+    input.open("Dijkstra/input.txt");
 
     int graph[100][100];
     int start;
@@ -73,6 +73,5 @@ int main() {
 
     dijkstra(graph, n, start);
 
-    system("pause");
     return 0;
 }
