@@ -10,6 +10,9 @@ endef
 BFS:
 	@$(call run_module)
 
+DFS:
+	@$(call run_module)
+
 QuickSort:
 	@$(call run_module)
 

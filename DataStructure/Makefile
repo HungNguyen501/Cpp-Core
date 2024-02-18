@@ -16,6 +16,9 @@ LinkedList:
 Stack:
 	@$(call run_module)
 
+HeapSort:
+	@$(call run_module)
+
 clean:
 	@-find ./ -type f -name "*.o"  -exec rm -rf {} +
 
