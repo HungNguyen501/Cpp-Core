@@ -2,7 +2,7 @@
 #include <fstream>
 #include <queue>
 #include <vector>
-#include "../../Data Structure and Algorithms/BinaryTree/BinaryTree.h"
+#include "../../DataStructure/BinaryTree/BinaryTree.h"
 using namespace std;
 
 void findLargestValueInTreeRow(BinaryTree btree) {

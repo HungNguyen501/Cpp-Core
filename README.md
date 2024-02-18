@@ -1,6 +1,10 @@
-# CPP
+CPP Project
+---
 
-## How to run a CPP file
+- How to run a CPP file
 ```bash
-g++ solution.cpp -o solution.o && ./solution.o
+g++ main.cpp -o main.o && ./main.o
+
+# Makefile
+make [-B] ${module_name}
 ```

@@ -1,4 +1,4 @@
-ProjectName := Algorithms
+ProjectName := DataStructure
 CC := clang++
 CFLAGS := -std=c++11
 
@@ -7,28 +7,13 @@ define run_module
 	@$(CC) $(CFLAGS) $@/main.cpp -o $@/main.o && ./$@/main.o
 endef
 
-BFS:
+BinaryTree:
 	@$(call run_module)
 
-QuickSort:
+LinkedList:
 	@$(call run_module)
 
-BoyerMoore:
-	@$(call run_module)
-
-BinarySearch:
-	@$(call run_module)
-
-Dijkstra:
-	@$(call run_module)
-
-MergeSort:
-	@$(call run_module)
-
-MergeSortExternal:
-	@$(call run_module)
-
-KruskalMST:
+Stack:
 	@$(call run_module)
 
 clean:

@@ -49,7 +49,5 @@ int main() {
         }
     }
     printMatrix(a);
-
-    system("pause");
     return 0;
 }

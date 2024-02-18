@@ -77,7 +77,7 @@ class Solution {
 
 int main() {
     ifstream read;
-    read.open("CPP\\Data Structure and Algorithms\\Linked List\\input.txt");
+    read.open("LinkedList/input.txt");
 
 	Node* head=NULL;
   	Solution mylist;
@@ -91,7 +91,5 @@ int main() {
 
     Node* reverseNode = mylist.reverse(head);
     mylist.display(reverseNode);
-	
-    system("pause");
     return 0;
 }

@@ -1,4 +1,4 @@
-ProjectName := Algorithms
+ProjectName := ProblemSolving
 CC := clang++
 CFLAGS := -std=c++11
 
@@ -7,29 +7,30 @@ define run_module
 	@$(CC) $(CFLAGS) $@/main.cpp -o $@/main.o && ./$@/main.o
 endef
 
-BFS:
+FindLargestValueInTreeRow:
 	@$(call run_module)
 
-QuickSort:
+HanoiTower:
 	@$(call run_module)
 
-BoyerMoore:
+LongestPalindromicSubstring:
 	@$(call run_module)
 
-BinarySearch:
+MaximumSumSubarray:
 	@$(call run_module)
 
-Dijkstra:
+MergeTwoSortedArrays:
 	@$(call run_module)
 
-MergeSort:
+RadioTransmitters:
 	@$(call run_module)
 
-MergeSortExternal:
+ReadLargeFile:
 	@$(call run_module)
 
-KruskalMST:
+RotateImage:
 	@$(call run_module)
+
 
 clean:
 	@-find ./ -type f -name "*.o"  -exec rm -rf {} +

@@ -66,6 +66,5 @@ int main() {
     s.pop();
     s.printStack();
 
-    system("pause");
     return 0;
 }

@@ -16,7 +16,5 @@ int main() {
     }
 
     cout << max_sum << endl;
-
-    system("pause");
     return 0;
 }
