@@ -6,5 +6,7 @@ CPP Project
 g++ main.cpp -o main.o && ./main.o
 
 # Makefile
-make [-B] ${module_name}
+make help # Show modules
+make [-B] ${module_name} # Run module coresponding to its name
+make clean # Clean CPP output files
 ```

@@ -31,6 +31,8 @@ ReadLargeFile:
 RotateImage:
 	@$(call run_module)
 
+SmallestSubarrayWithKDistinctNumbers:
+	@$(call run_module)
 
 clean:
 	@-find ./ -type f -name "*.o"  -exec rm -rf {} +
