@@ -39,6 +39,8 @@ HeapSort:
 
 clean:
 	@-find ./ -type f -name "*.o"  -exec rm -rf {} +
+	@-find ./ -type d -name "main.dSYM"  -exec rm -rf {} +
+	@-find ./ -type d -name "main.o.dSYM"  -exec rm -rf {} +
 
 .PHONY: help
 all: help

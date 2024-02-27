@@ -1,6 +1,18 @@
 #include <iostream>
 using namespace std;
 
+/*
+    QuickSort: https://www.programiz.com/dsa/quick-sort
+    Time complexity:
+        Stability: No
+        Space complexity: O(logn)
+        Time complexity:
+            Best case: O(nlogn), when pivot element is always the middle element or near to the middle element of array
+            Average case: O(nlogn)
+            Worst case: O(n2), it occurs when the pivot element picked is either the smallest or the greatest element of sub array,
+                It leads to the case in which one sub-array is always empty and another contains n-1 elements.
+*/
+
 void swap(int *a, int *b) {
     int temp = *a;
     *a = *b;

@@ -2,6 +2,7 @@ check_list.md
 __test__
 .vscode/
 main.dSYM
+main.o.dSYM
 
 # Prerequisites
 *.d

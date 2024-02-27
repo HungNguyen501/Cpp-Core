@@ -2,6 +2,16 @@
 #include <fstream>
 using namespace std;
 
+/*
+    MergeSort: https://www.programiz.com/dsa/merge-sort
+    Space complexity: O(n)
+    Time complexity
+        Best case: O(n*log n)
+        Worst case: O(n*log n)
+        Average case: O(n*log n)
+
+*/
+
 void mergeHalfs(int *a, int leftStart, int rightEnd) {
     int leftEnd = (leftStart + rightEnd) / 2;
     int rightStart = leftEnd + 1;
