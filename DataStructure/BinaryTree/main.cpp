@@ -2,7 +2,7 @@
 #include <fstream>
 #include <queue>
 #include "BinaryTree.h"
-using namespace std;	
+using namespace mrroot501;
 
 /*
                 3
@@ -16,12 +16,12 @@ using namespace std;
 
 int main() {
     ifstream input;
-    input.open("input.txt");
-
     int n;
     int data;
+    
+    input.open("BinaryTree/input.txt");
     input >> n >> data;
-    BinaryTree btree(data);
+    BinaryTree<int, TreeNode<int>> btree(data);
 
     for (int i = 0; i < n - 1; i++) {
         input >> data;
