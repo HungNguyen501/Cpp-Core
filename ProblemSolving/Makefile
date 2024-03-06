@@ -22,6 +22,9 @@ MaximumSumSubarray:
 MergeTwoSortedArrays:
 	@$(call run_module)
 
+MergeKSortedArrays:
+	@$(call run_module)
+
 RadioTransmitters:
 	@$(call run_module)
 

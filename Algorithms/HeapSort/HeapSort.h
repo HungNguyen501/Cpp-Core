@@ -30,7 +30,7 @@ public:
     int size;
     virtual void heapify(int n, int rootElement) = 0;
     HeapNode<T> getRoot() {
-        return &pointer[0];
+        return pointer[0];
     }
     void heapSort() {
         for (int i = this->size - 1; i >= 0; i--) {
