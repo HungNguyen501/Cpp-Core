@@ -1,163 +1,103 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "MinHeap.h"
-#include "MergeSort.h"
+#include "../HeapSort/HeapSort.h"
+#include "../MergeSort/MergeSort.h"
+using namespace mrroot501;
 using namespace std;
 
-FILE *openFile(char *file_name, char *mode) {
-    FILE *fp = fopen(file_name, mode);
-    if (fp == NULL) {
-        perror("Error while opening file.\n");
-        exit(EXIT_FAILURE);
+string DATA_PATH = "MergeSortExternal/data/";
+string INPUT_FILE = DATA_PATH + "input.txt";
+string OUTPUT_FILE = DATA_PATH + "output.txt";
+string PARTITION_FILE_FORMAT = DATA_PATH + "partition=%d.txt";
+
+/* Split large input_file , sort and save to multiple output_files
+*/
+void dumpSortedSmallFiles(int numPartitions, int chunkSize) {
+    ifstream finput(INPUT_FILE);
+    ofstream foutputs[numPartitions];
+
+    for (int i = 0; i < numPartitions; i++) {
+        char outputFile[100];
+        snprintf(outputFile, sizeof(outputFile), PARTITION_FILE_FORMAT.c_str(), i);
+        foutputs[i].open(outputFile);
     }
-
-    return fp;
-}
-
-// Split large input_file , sort and save to multiple output_files
-void createInitialRun(char *input_file,
-                    int run_size, 
-                    int num_ways)
-{
-    // Read input file
-    FILE *fi = openFile(input_file, "r");
-
-    // Initial output files
-    FILE *fo[num_ways];
-    char output_file[16];
-
-    for (int i = 0; i < num_ways; i++) {
-        // Convert i to output_file (int to char array)
-        snprintf(output_file, sizeof(output_file), "partition=%d.txt", i);
-
-        fo[i] = openFile(output_file, "w");
-    }
-    // Allocate a dynamic array large enough to accomodate runs of size run_size
-    int *arr = (int*)malloc(run_size*sizeof(int));
-
-    bool more_input = true;
-    int next_output_file = 0;
-
-    int i;
-    while(more_input) {
-        // Write run_size elements into arr from input_file
-        for (i = 0; i < run_size; i++) {
-            if (fscanf(fi, "%d ", &arr[i]) != 1) { // Function fscanf return number of arguments that are read
-                more_input = false;
-                break;
+    // Allocate a dynamic array large enough to accomodate runs of size chunk size
+    int *arr = (int*)malloc(chunkSize * sizeof(int));
+    int item, count = 0, countFiles = 0;
+    while (finput >> item) {
+        arr[count] = item;
+        count++;
+        if (count == chunkSize) {
+            mergeSort(arr, 0, count - 1);
+            for (int j = 0; j < count; j++) {
+                foutputs[countFiles] << arr[j] << " ";
             }
+            count = 0;
+            countFiles++;
         }
-
-        // Sort array using merge sort
-        mergeSort(arr, 0, i-1);
-
-        // Write score to output_file
-        for (int j = 0; j < i; j++) {
-            fprintf(fo[next_output_file], "%d ", arr[j]);
-        }
-
-        next_output_file++;
     }
-
-    // Close input and output files
-    fclose(fi);
-
-    for (int i = 0; i < num_ways; i++) {
-        fclose(fo[i]);
+    if (count > 0) {
+        mergeSort(arr, 0, count -1 );
+        for (int j = 0; j < count; j++) {
+            foutputs[countFiles] << arr[j] << " ";
+        }
+    }
+    finput.close();
+    for (int i = 0; i < numPartitions; i++) {
+        foutputs[i].close();
     }
 
 }
 
-// Merge k sorted files
-void mergeFiles(char *output_file, 
-                int num_files) 
-{
-    FILE *fi[num_files];
-
-    // Read all partitioned files
-    for (int i = 0; i < num_files; i++) {
-        char file_name[16];
-       // Convert i to file_name (int to char array)
-        snprintf(file_name, sizeof(file_name), "MergeSortExternal/partition=%d.txt", i);
-
-        fi[i] = openFile(file_name, "r");
+/* Merge k sorted files
+*/
+void mergeFiles(int numPartitions) {
+    ifstream finputs[numPartitions];
+    ofstream foutput(OUTPUT_FILE);
+    HeapNode<int> *heapNodeArr = new HeapNode<int>[numPartitions];
+    // Open all partitioned files and fill up heapNodeArr
+    for (int i = 0; i < numPartitions; i++) {
+        char inputFile[100];
+        snprintf(inputFile, sizeof(inputFile), PARTITION_FILE_FORMAT.c_str(), i);
+        finputs[i].open(inputFile);
+        finputs[i] >> heapNodeArr[i].data;
+        heapNodeArr[i].index = i;
     }
-
-    // Write to output_file
-    FILE *fo = openFile(output_file, "w");
-
-    // Creat MinHeapNode array
-    MinHeapNode *heap_arr = new MinHeapNode[num_files];    
-    int i;
-    for (i = 0; i < num_files; i++) {
-        // Get the minimum elements of all partition files to heap_arr
-        if (fscanf(fi[i], "%d ", &heap_arr[i].data) != 1) { // function fscanf return number of parameter returned
-            break;
-        }
-        // Store index of partition file in MinHeap
-        heap_arr[i].index = i;
-    }
-
     // Create MinHeap
-    MinHeap minHeap(heap_arr, i);
-
+    MinHeap<int> minHeap = MinHeap<int>(heapNodeArr, numPartitions);
     int count = 0;
-    while(count != i) {
-        MinHeapNode root = minHeap.getRoot();
+    while(count < numPartitions) {
+        int fileIndex = minHeap.pointer[0].index;
         // Save the root data (minimum element) of MinHeap to output_file
-        fprintf(fo, "%d ", root.data);
-
-        if (fscanf(fi[root.index], "%d ", &root.data) != 1) {
-            root.data = INT32_MAX;
+        foutput << minHeap.pointer[0].data << " ";
+        int nextItem;
+        finputs[fileIndex] >> nextItem;
+        minHeap.pointer[0].data = nextItem;
+        // Case that pointer goes to end of file
+        if (finputs[fileIndex].fail()) {
+            minHeap.pointer[0].data = INT32_MAX;
+            finputs[fileIndex].close();
             count++;
         }
-
-        // Replace root
-        minHeap.rearrangeMinHeap(root);
+        // heapify MinHeap to gain actual root after root is updated by new value
+        minHeap.heapify(minHeap.size, 0);
     }
-
-    // Close all input and output files
-    for (int i = 0; i < num_files; i++) {
-        fclose(fi[i]);
-    }
-
-    fclose(fo);
-
+    foutput.close();
 }
 
-void externalSort(char *input_file, 
-                char *output_file, 
-                int num_ways, 
-                int run_size)
-{
-    createInitialRun(input_file, run_size, num_ways);
-
-    mergeFiles(output_file, num_ways);
-}            
-
-
-int main() {    
-    // Partitioning input file
-    int num_ways = 10;
-    // Size of each partiton
-    int run_size = 1000;
-
-    char input_file[] = "MergeSortExternal/input.txt";
-    char output_file[] = "MergeSortExternal/output_file.txt";
-
-    FILE *fi = openFile(input_file, "w");
-    // srand(time(NULL));
-
-    // Generate input
-    for (int i = 0; i < num_ways*run_size; i++) {
-        fprintf(fi, "%d ", rand());
+int main() {
+    string command = "rm -rf " + DATA_PATH + "*.txt"; // Generate a command to erase data folder
+    system(command.c_str());
+    int numElements = 111;
+    int chunkSize = 7, numPartitions = numElements / chunkSize + (numElements%chunkSize > 0);
+    ofstream fo(INPUT_FILE);
+    srand(time(NULL));
+    for (int i = 0; i < numElements; i++) {
+        fo << rand() / 10000000 << " ";
     }
-
-    fclose(fi);
-
-    // Run external sort
-    externalSort(input_file, output_file, num_ways, run_size);
-
+    fo.close();
+    dumpSortedSmallFiles(numPartitions, chunkSize);
+    mergeFiles(numPartitions);
     return 0;
 }
