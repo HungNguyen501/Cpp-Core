@@ -37,6 +37,9 @@ RotateImage:
 SmallestSubarrayWithKDistinctNumbers:
 	@$(call run_module)
 
+ExtraLongFactorial:
+	@$(call run_module)
+
 clean:
 	@-find ./ -type f -name "*.o"  -exec rm -rf {} +
 
