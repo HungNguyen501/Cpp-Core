@@ -1,11 +1,6 @@
-ProjectName := Algorithms
-CC := clang++
-CFLAGS := -std=c++11
+include ../Makefile
 
-define run_module
-	@echo "Running" $@ "..."
-	@$(CC) $(CFLAGS) $@/main.cpp -o $@/main.o && ./$@/main.o
-endef
+ProjectName := Algorithms
 
 BFS:
 	@$(call run_module)
@@ -38,12 +33,12 @@ HeapSort:
 	@$(call run_module)
 
 clean:
-	@-find ./ -type f -name "*.o"  -exec rm -rf {} +
-	@-find ./ -type d -name "main.dSYM"  -exec rm -rf {} +
-	@-find ./ -type d -name "main.o.dSYM"  -exec rm -rf {} +
+	@$(call runClean)
+
+validateTargets: Makefile
+	@$(call validateTargets)
 
 .PHONY: help
 all: help
 help: Makefile
-	@echo "Choose a module to run in project $(ProjectName), syntax: make -B {module}"
-	@ls -d */ | awk '{print "- ", $$1}'
+	@$(call runHelp)

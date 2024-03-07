@@ -1,11 +1,6 @@
-ProjectName := DataStructure
-CC := clang++
-CFLAGS := -std=c++11
+include ../Makefile
 
-define run_module
-	@echo "Running" $@ "..."
-	@$(CC) $(CFLAGS) $@/main.cpp -o $@/main.o && ./$@/main.o
-endef
+ProjectName := DataStructure
 
 BinaryTree:
 	@$(call run_module)
@@ -17,10 +12,12 @@ Stack:
 	@$(call run_module)
 
 clean:
-	@-find ./ -type f -name "*.o"  -exec rm -rf {} +
+	@$(call runClean)
+
+validateTargets: Makefile
+	@$(call validateTargets)
 
 .PHONY: help
 all: help
 help: Makefile
-	@echo "Choose a module to run in project $(ProjectName), syntax: make -B {module}"
-	@ls -d */ | awk '{print "- ", $$1}'
+	@$(call runHelp)
