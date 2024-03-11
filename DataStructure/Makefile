@@ -11,6 +11,9 @@ LinkedList:
 Stack:
 	@$(call run_module)
 
+SegmentTree:
+	@$(call run_module)
+
 clean:
 	@$(call runClean)
 

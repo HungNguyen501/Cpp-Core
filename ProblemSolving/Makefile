@@ -35,6 +35,9 @@ SmallestSubarrayWithKDistinctNumbers:
 ExtraLongFactorial:
 	@$(call run_module)
 
+RangeSumQueriesWithoutUpdates:
+	@$(call run_module)
+
 clean:
 	@$(call runClean)
 
