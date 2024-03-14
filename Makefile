@@ -1,6 +1,6 @@
 ProjectName := Commons
 CC := clang++
-CFLAGS := -std=c++11
+CFLAGS := -std=c++17
 
 define run_module
 	@echo "Running" $@ "..."
