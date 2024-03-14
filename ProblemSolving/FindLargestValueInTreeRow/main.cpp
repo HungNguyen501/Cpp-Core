@@ -3,11 +3,12 @@
 #include <queue>
 #include <vector>
 #include "../../DataStructure/BinaryTree/BinaryTree.h"
+using namespace std;
 using namespace mrroot501;
 
-void findLargestValueInTreeRow(BinaryTree<int, TreeNode<int>> btree) {
+void findLargestValueInTreeRow(BinaryTree<int> btree) {
     vector<int> result;
-    queue<TreeNode<int> *> row;
+    queue<TreeNode<int>*> row;
     row.push(btree.root);
     while (!row.empty()) {
         int max = row.front()->data;
@@ -47,7 +48,7 @@ int main() {
     read.open("FindLargestValueInTreeRow/input.txt");
     read >> n;
     read >> data;
-    BinaryTree<int, TreeNode<int>> btree(data);
+    BinaryTree<int> btree(data);
     for (int i = 0; i < n - 1; i++) {
         read >> data;
         btree.root = btree.insert(btree.root, data);

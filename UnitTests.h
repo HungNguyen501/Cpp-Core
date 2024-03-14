@@ -1,20 +1,22 @@
 #ifndef _UnitTests_
 #define _UnitTests_
 
-#define BOLD_ON "\e[1m"
-#define BOLD_OFF "\e[0m"
+#define BOLD "\033[1m"
+#define GREEN "\033[32m"
+#define RED "\033[31m"
+#define ESCAPE "\033[0m"
 
 template<typename T>
 void runTest(T actual, T expected) {
-    std::cout << BOLD_ON;
+    std::cout << BOLD;
     if ( actual != expected) {
-        std::cout << "<Failed> ";
+        std::cout << RED << "[Failed] ";
     } else {
-        std::cout << "<Passed> ";
+        std::cout << GREEN << "[Passed] ";
     }
-    std::cout << BOLD_OFF;
     std::cout << "expected=" << expected << " vs "
         << "actual=" << actual << "\n";
+    std::cout << ESCAPE;
 }
 
 
