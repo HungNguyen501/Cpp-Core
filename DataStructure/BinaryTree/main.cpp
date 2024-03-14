@@ -1,7 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <queue>
+#include <vector>
+#include <tuple>
 #include "BinaryTree.h"
+#include "../../UnitTests.h"
+using namespace std;
 using namespace mrroot501;
 
 /*
@@ -18,28 +22,19 @@ int main() {
     ifstream input;
     int n;
     int data;
-    
     input.open("BinaryTree/input.txt");
     input >> n >> data;
-    BinaryTree<int, TreeNode<int>> btree(data);
-
+    BinaryTree<int> btree(data);
     for (int i = 0; i < n - 1; i++) {
         input >> data;
         btree.root = btree.insert(btree.root, data);
     }
-
-    int heightTreeResult = btree.getHeight(btree.root);
-    int expectedHeightTree = 4;
-    if (heightTreeResult != expectedHeightTree) {
-        cout << "Unit tests failed because height of is not " << heightTreeResult << ". It should be " << expectedHeightTree << "\n";
-        return 0;
-    }
-
-    int item = 8;
-    if (btree.find(btree.root, item) != NULL) {
-        cout << "Unit test failed because node valued " << item << " exists in btree\n";
-    }
-
-    cout << "All test cases passed\n";
+    runTest<int>(btree.getHeight(btree.root), 4);
+    runTest<int>(btree.find(btree.root, 6)->data, 6);
+    runTest<TreeNode<int>*>(btree.find(btree.root, 8), NULL);
+    // btree.levelOrder();
+    TreeNode<int>* temp = btree.deleteNode(btree.root, 5);
+    btree.levelOrder();
+    
     return 0;
 }
