@@ -38,6 +38,9 @@ ExtraLongFactorial:
 RangeSumQueriesWithoutUpdates:
 	@$(call run_module)
 
+ShortestPathInBinaryMatrix:
+	@$(call run_module)
+
 clean:
 	@$(call runClean)
 
