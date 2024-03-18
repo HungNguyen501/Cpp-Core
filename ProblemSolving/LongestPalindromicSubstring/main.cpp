@@ -1,5 +1,7 @@
 #include <iostream>
-#include <string.h>
+#include <vector>
+#include <string>
+#include "../../UnitTests.h"
 using namespace std;
 
 /*
@@ -34,18 +36,16 @@ string findLongestPalindromicSubstring(string s) {
 }
 
 int main() {
-    string inputs[] = {"nothing", "abcbedrardea", "findnitianhere", "axdabcddcbaaaa"};
-    string expectedOutputs[] = {"n", "edrarde", "indni", "abcddcba"};
-    int n = sizeof(inputs)/sizeof(inputs[0]);
-    for (int i = 0; i < n; i++) {
-        string expect = expectedOutputs[i];
-        string result = findLongestPalindromicSubstring(inputs[i]);
-        if (expect != result) {
-            cout << "Unit tests failed, because expected output is " << expect << " while result is " << result << "\n";
-            return 0; 
-        }
+    vector<tuple<string, string>> testCases = {
+        {"nothing","n"},
+        {"abcbedrardea","edrarde"},
+        {"findnitianhere","indni"},
+        {"axdabcddcbaaaa", "abcddcba"}
+    };
+    for (int tc = 0; tc < testCases.size(); tc++) {
+        string expected = get<1>(testCases[tc]);
+        runTest<string>(findLongestPalindromicSubstring(get<0>(testCases[tc])), expected);
     }
-    cout << "All test cases passed\n";
 
     return 0;
 }
