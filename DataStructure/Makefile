@@ -14,6 +14,9 @@ Stack:
 SegmentTree:
 	@$(call run_module)
 
+HashTable:
+	@$(call run_module)
+
 clean:
 	@$(call runClean)
 
