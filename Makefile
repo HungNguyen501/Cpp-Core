@@ -1,6 +1,10 @@
 ProjectName := Commons
 CC := clang++
 CFLAGS := -std=c++17
+RED := \033[1;31m
+GREEN := \033[1;32m
+BLUE := \033[0;34m
+NC := \033[0m# No Color
 
 define run_module
 	@echo "Running" $@ "..."
@@ -16,8 +20,11 @@ define validateTargets
 endef
 
 define runHelp
-	@echo "Choose a module to run in project $(ProjectName), syntax: make -B {module}"
-	@ls -d */ | awk '{print "- ", $$1}'
+	@echo "$(RED)Command helps"
+	@echo "$(GREEN)- make validateTargets$(NC)\nVerify all modules is added to Makefile"
+	@echo "$(GREEN)- make clean$(NC)\nClean output files and dependencies."
+	@echo "$(GREEN)- make -B {module}$(NC)\nRun one of following targets in project $(ProjectName):"
+	@ls -d */ | awk '{printf("$(BLUE)%d. %s$(NC)\n", NR, substr($$1, 0, length($$1) - 1));}'
 endef
 
 define runClean

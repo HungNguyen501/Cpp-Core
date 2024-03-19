@@ -41,6 +41,9 @@ RangeSumQueriesWithoutUpdates:
 ShortestPathInBinaryMatrix:
 	@$(call run_module)
 
+LongestComonSubsequence:
+	@$(call run_module)
+
 clean:
 	@$(call runClean)
 
