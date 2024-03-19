@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "../../UnitTests.h"
 using namespace std;
 
 int findLongestCommonSubsequence(string text1, string text2) {
@@ -20,9 +21,18 @@ int findLongestCommonSubsequence(string text1, string text2) {
 }
 
 int main() {
-    string s1 = "AGGTAB";
-    string s2 = "GXTXAYB";
-    cout << findLongestCommonSubsequence(s1, s2) << "\n";
+    vector<tuple<tuple<string, string>, int>> testCases = {
+        {{"AGGTAB", "GXTXAYB"}, 4},
+        {{"abcde", "ace"}, 3},
+        {{"abc", "abc"}, 3},
+        {{"abc", "def"}, 0}
+    };
+    for (int tc = 0; tc < testCases.size(); tc++) {
+        string text1 = get<0>(get<0>(testCases[tc]));
+        string text2 = get<1>(get<0>(testCases[tc]));
+        int expected = get<1>(testCases[tc]);
+        runTest<int>(findLongestCommonSubsequence(text1, text2), expected);
+    }
     return 0;
 }
 

@@ -1,6 +1,9 @@
 #ifndef _UnitTests_
 #define _UnitTests_
 
+#include <vector>
+#include <tuple>
+
 #define BOLD "\033[1m"
 #define GREEN "\033[32m"
 #define RED "\033[31m"
