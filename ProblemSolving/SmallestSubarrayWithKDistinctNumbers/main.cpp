@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <array>
+#include <unordered_map>
 using namespace std;
 
 /*
@@ -15,7 +16,7 @@ array<int, 2> solution(int arr[], int n, int k) {
     for (int i = 0; i < n; i++) {
         int value = arr[i];
         map[value]++;
-        r = i;;
+        r = i;
         if (map.size() < k) {
             continue;
         }
