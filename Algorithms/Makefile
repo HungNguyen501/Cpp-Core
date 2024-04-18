@@ -3,34 +3,34 @@ include ../Makefile
 ProjectName := Algorithms
 
 BFS:
-	@$(call run_module)
+	@$(call runTarget)
 
 DFS:
-	@$(call run_module)
+	@$(call runTarget)
 
 QuickSort:
-	@$(call run_module)
+	@$(call runTarget)
 
 BoyerMoore:
-	@$(call run_module)
+	@$(call runTarget)
 
 BinarySearch:
-	@$(call run_module)
+	@$(call runTarget)
 
 Dijkstra:
-	@$(call run_module)
+	@$(call runTarget)
 
 MergeSort:
-	@$(call run_module)
+	@$(call runTarget)
 
 MergeSortExternal:
-	@$(call run_module)
+	@$(call runTarget)
 
 KruskalMST:
-	@$(call run_module)
+	@$(call runTarget)
 
 HeapSort:
-	@$(call run_module)
+	@$(call runTarget)
 
 clean:
 	@$(call runClean)

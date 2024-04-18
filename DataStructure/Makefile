@@ -3,19 +3,19 @@ include ../Makefile
 ProjectName := DataStructure
 
 BinaryTree:
-	@$(call run_module)
+	@$(call runTarget)
 
 LinkedList:
-	@$(call run_module)
+	@$(call runTarget)
 
 Stack:
-	@$(call run_module)
+	@$(call runTarget)
 
 SegmentTree:
-	@$(call run_module)
+	@$(call runTarget)
 
 HashTable:
-	@$(call run_module)
+	@$(call runTarget)
 
 clean:
 	@$(call runClean)

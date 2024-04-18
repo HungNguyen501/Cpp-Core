@@ -3,46 +3,46 @@ include ../Makefile
 ProjectName := ProblemSolving
 
 FindLargestValueInTreeRow:
-	@$(call run_module)
+	@$(call runTarget)
 
 HanoiTower:
-	@$(call run_module)
+	@$(call runTarget)
 
 LongestPalindromicSubstring:
-	@$(call run_module)
+	@$(call runTarget)
 
 MaximumSumSubarray:
-	@$(call run_module)
+	@$(call runTarget)
 
 MergeTwoSortedArrays:
-	@$(call run_module)
+	@$(call runTarget)
 
 MergeKSortedArrays:
-	@$(call run_module)
+	@$(call runTarget)
 
 RadioTransmitters:
-	@$(call run_module)
+	@$(call runTarget)
 
 ReadLargeFile:
-	@$(call run_module)
+	@$(call runTarget)
 
 RotateImage:
-	@$(call run_module)
+	@$(call runTarget)
 
 SmallestSubarrayWithKDistinctNumbers:
-	@$(call run_module)
+	@$(call runTarget)
 
 ExtraLongFactorial:
-	@$(call run_module)
+	@$(call runTarget)
 
 RangeSumQueriesWithoutUpdates:
-	@$(call run_module)
+	@$(call runTarget)
 
 ShortestPathInBinaryMatrix:
-	@$(call run_module)
+	@$(call runTarget)
 
 LongestComonSubsequence:
-	@$(call run_module)
+	@$(call runTarget)
 
 clean:
 	@$(call runClean)
