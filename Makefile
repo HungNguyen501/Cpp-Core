@@ -32,3 +32,9 @@ define runClean
 	@-find ./ -type d -name "main.dSYM"  -exec rm -rf {} +
 	@-find ./ -type d -name "main.o.dSYM"  -exec rm -rf {} +
 endef
+
+.PHONY: help
+all: help
+help: Makefile
+	@echo "Go to one of following modules and then type make help for helper:" \
+	"$(GREEN)\n.\n├── Algorithms\n├── DataStructure\n├── DynamicProgramming\n└── ProblemSolving$(NC)"
