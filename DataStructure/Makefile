@@ -1,4 +1,4 @@
-include ../Makefile
+include ../Common/MakefileUtils
 
 ProjectName := DataStructure
 

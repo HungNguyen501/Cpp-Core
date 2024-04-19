@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "../../UnitTests.h"
+#include "../../Common/UnitTests.h"
 using namespace std;
 
 int findLongestCommonSubsequence(string text1, string text2) {

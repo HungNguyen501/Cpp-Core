@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "SegmentTree.h"
-#include "../../UnitTests.h"
+#include "../../Common/UnitTests.h"
 using namespace mrroot501;
 using namespace std;
 
