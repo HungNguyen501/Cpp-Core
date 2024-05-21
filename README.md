@@ -7,6 +7,7 @@ Development Guide
 ---
 
 # Prerequisites
+**Installations**<br>
 ```bash
 $ clang++ --version
 Apple clang version 15.0.0 (clang-1500.3.9.4)
@@ -14,6 +15,9 @@ Target: arm64-apple-darwin23.4.0
 Thread model: posix
 InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 ```
+
+**Coding convention**<br>
+[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
 
 # Makefile
 ```bash
