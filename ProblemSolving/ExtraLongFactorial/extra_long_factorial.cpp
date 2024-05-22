@@ -2,7 +2,6 @@
 #include <vector>
 
 namespace mrroot501 {
-
 std::string extraLongFactorial(int n) {
     if (n == 0) return "0";
     if (n == 1) return "1";

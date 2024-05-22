@@ -1,6 +1,3 @@
-#ifndef _HEAPSORT_
-#define _HEAPSORT_
-
 #include <iostream>
 
 namespace mrroot501 {
@@ -58,6 +55,12 @@ public:
             heapify(this->size, i);
         }
     }
+    int getSize() {
+        return this->size;
+    }
+    HeapNode<T> *getPointer() {
+        return this->pointer;
+    }
     void heapify(int n, int rootElementIndex) {
         int largestElementIndex = rootElementIndex;
         int leftChildIndex = 2 * rootElementIndex + 1;
@@ -89,7 +92,12 @@ public:
             heapify(this->size, i);
         }
     }
-
+    int getSize() {
+        return this->size;
+    }
+    HeapNode<T> *getPointer() {
+        return this->pointer;
+    }
     void heapify(int n, int rootElementIndex) {
         int leftChildIndex = 2 * rootElementIndex + 1;
         int rightChildIndex = 2 * rootElementIndex + 2;
@@ -107,6 +115,9 @@ public:
     }
 };
 
-} // namespace mrroot501
+template class HeapNode<int>;
+template class HeapTree<int>;
+template class MaxHeap<int>;
+template class MinHeap<int>;
 
-#endif
+} // mrroot501

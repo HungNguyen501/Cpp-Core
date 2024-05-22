@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "../HeapSort/HeapSort.h"
-#include "../MergeSort/MergeSort.h"
-using namespace mrroot501;
+#include "../HeapSort/heap_sort.h"
+#include "../MergeSort/merge_sort.h"
 using namespace std;
 
 string DATA_PATH = "MergeSortExternal/data/";
@@ -29,7 +28,7 @@ void dumpSortedSmallFiles(int numPartitions, int chunkSize) {
         arr[count] = item;
         count++;
         if (count == chunkSize) {
-            mergeSort(arr, 0, count - 1);
+            mrroot501::mergeSort(arr, 0, count - 1);
             for (int j = 0; j < count; j++) {
                 foutputs[countFiles] << arr[j] << " ";
             }
@@ -38,7 +37,7 @@ void dumpSortedSmallFiles(int numPartitions, int chunkSize) {
         }
     }
     if (count > 0) {
-        mergeSort(arr, 0, count -1 );
+        mrroot501::mergeSort(arr, 0, count -1 );
         for (int j = 0; j < count; j++) {
             foutputs[countFiles] << arr[j] << " ";
         }
@@ -55,7 +54,7 @@ void dumpSortedSmallFiles(int numPartitions, int chunkSize) {
 void mergeFiles(int numPartitions) {
     ifstream finputs[numPartitions];
     ofstream foutput(OUTPUT_FILE);
-    HeapNode<int> *heapNodeArr = new HeapNode<int>[numPartitions];
+    mrroot501::HeapNode<int> *heapNodeArr = new mrroot501::HeapNode<int>[numPartitions];
     // Open all partitioned files and fill up heapNodeArr
     for (int i = 0; i < numPartitions; i++) {
         char inputFile[100];
@@ -65,23 +64,23 @@ void mergeFiles(int numPartitions) {
         heapNodeArr[i].index = i;
     }
     // Create MinHeap
-    MinHeap<int> minHeap = MinHeap<int>(heapNodeArr, numPartitions);
+    mrroot501::MinHeap<int> minHeap = mrroot501::MinHeap<int>(heapNodeArr, numPartitions);
     int count = 0;
     while(count < numPartitions) {
-        int fileIndex = minHeap.pointer[0].index;
+        int fileIndex = minHeap.getPointer()[0].index;
         // Save the root data (minimum element) of MinHeap to output_file
-        foutput << minHeap.pointer[0].data << " ";
+        foutput << minHeap.getPointer()[0].data << " ";
         int nextItem;
         finputs[fileIndex] >> nextItem;
-        minHeap.pointer[0].data = nextItem;
+        minHeap.getPointer()[0].data = nextItem;
         // Case that pointer goes to end of file
         if (finputs[fileIndex].fail()) {
-            minHeap.pointer[0].data = INT32_MAX;
+            minHeap.getPointer()[0].data = INT32_MAX;
             finputs[fileIndex].close();
             count++;
         }
         // heapify MinHeap to gain actual root after root is updated by new value
-        minHeap.heapify(minHeap.size, 0);
+        minHeap.heapify(minHeap.getSize(), 0);
     }
     foutput.close();
 }

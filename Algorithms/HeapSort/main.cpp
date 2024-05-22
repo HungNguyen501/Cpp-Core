@@ -1,6 +1,5 @@
 #include "iostream"
-#include "HeapSort.h"
-using namespace mrroot501;
+#include "heap_sort.h"
 using namespace std;
 
 /*
@@ -14,24 +13,24 @@ int main() {
     int arr1[] = {9, 7, 11, 32, 45, 0, 1, 27, 28, 45, 9};
     int arr2[] = {9, 7, 11, 32, 45, 0, 1, 27, 28, 45, 9};
     int n = sizeof(arr1) / sizeof(arr1[0]);
-    HeapNode<int> *heapTree1 = new HeapNode<int>[n];
-    HeapNode<int> *heapTree2 = new HeapNode<int>[n];
+    mrroot501::HeapNode<int> *heapTree1 = new mrroot501::HeapNode<int>[n];
+    mrroot501::HeapNode<int> *heapTree2 = new mrroot501::HeapNode<int>[n];
     for (int i = 0; i < n; i++) {
         heapTree1[i] = arr1[i];
         heapTree2[i] = arr2[i];
     }
-    MaxHeap<int> maxHeap = MaxHeap<int>(heapTree1, n);
-    MinHeap<int> minHeap = MinHeap<int>(heapTree2, n);
-    maxHeap.heapSort();
-    minHeap.heapSort();
+    mrroot501::MaxHeap<int> *maxHeap = new mrroot501::MaxHeap<int>(heapTree1, n);
+    mrroot501::MinHeap<int> *minHeap = new mrroot501::MinHeap<int>(heapTree2, n);
+    maxHeap->heapSort();
+    minHeap->heapSort();
     cout << "MaxHeap: ";
-    for (int i = 0; i < maxHeap.size; i++) {
-        cout << maxHeap.pointer[i].data << " ";
+    for (int i = 0; i < maxHeap->getSize(); i++) {
+        cout << maxHeap->getPointer()[i].data << " ";
     }
     cout << "\n";
     cout << "MinHeap: ";
-    for (int i = 0; i < minHeap.size; i++) {
-        cout << minHeap.pointer[i].data << " ";
+    for (int i = 0; i < minHeap->getSize(); i++) {
+        cout << minHeap->getPointer()[i].data << " ";
     }
     cout << "\n";
     return 0;
