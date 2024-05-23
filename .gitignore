@@ -4,6 +4,8 @@ __test__
 main.dSYM
 main.o.dSYM
 Algorithms/MergeSortExternal/data/*.txt
+bin/*
+!bin/dummy
 
 # Google test
 googletest-*

@@ -1,31 +1,41 @@
 #include <iostream>
 #include <vector>
-#include <tuple>
-#include "extra_long_factorial.h"
-using namespace std;
+#include <gtest/gtest.h>
 
-#define BOLD_ON "\e[1m"
-#define BOLD_OFF "\e[0m"
+std::string extraLongFactorial(int n) {
+    if (n == 0) return "0";
+    if (n == 1) return "1";
+    std::string result = "";
+    std::vector<int> factorial;
+    factorial.push_back(2);
+    for (int i = 3; i <= n; i++) {
+        int tempScore = 0;
+        for (int j = 0; j < factorial.size(); j++) {
+            tempScore = factorial[j] * i + tempScore;
+            factorial[j] = tempScore % 10;
+            tempScore /= 10;
 
-int main() {
-    vector<tuple<int, string>> testCases;
-    testCases.push_back({0, "0"});
-    testCases.push_back({1, "1"});
-    testCases.push_back({20, "2432902008176640000"});
-    testCases.push_back({27, "10888869450418352160768000000"});
-    testCases.push_back({31, "8222838654177922817725562880000000"});
-    for (int tc = 0; tc < testCases.size(); tc++) {
-        string actual = mrroot501::extraLongFactorial(get<0>(testCases[tc]));
-        string expected = get<1>(testCases[tc]);
-        if ( actual != expected) {
-            cout << "<Failed>";
-        } else {
-            cout << BOLD_ON << "<Passed>" << BOLD_OFF;
+            if (j == factorial.size() - 1 && tempScore > 0) {
+                factorial.push_back(tempScore);
+                break;
+            }
         }
-        cout << " Test case " << tc + 1 << ": ";
-        cout << "expected=" << expected << " vs "
-            << "actual=" << actual << "\n";
     }
+    for (int i = factorial.size() - 1; i >= 0; i--) {
+        result += std::to_string(factorial[i]);
+    }
+    return result;
+}
 
-    return 0;
+TEST(TestExtraLongFactorial, tc1) {
+    EXPECT_EQ(extraLongFactorial(0), "0");
+    EXPECT_EQ(extraLongFactorial(1), "1");
+    EXPECT_EQ(extraLongFactorial(20), "2432902008176640000");
+    EXPECT_EQ(extraLongFactorial(27), "10888869450418352160768000000");
+    EXPECT_EQ(extraLongFactorial(31), "8222838654177922817725562880000000");
+}
+
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }

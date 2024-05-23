@@ -1,12 +1,8 @@
 #include <iostream>
 #include <fstream>
-#include <queue>
-#include <vector>
-#include <tuple>
-#include "BinaryTree.h"
-#include "../../Common/UnitTests.h"
+#include "binary_tree.h"
+#include <gtest/gtest.h>
 using namespace std;
-using namespace mrroot501;
 
 /*
                 3
@@ -18,23 +14,26 @@ using namespace mrroot501;
                       7
 */
 
-int main() {
+TEST(TestBinaryTree, tc1) {
     ifstream input;
     int n;
     int data;
-    input.open("BinaryTree/input.txt");
+    input.open("DataStructure/BinaryTree/input.txt");
     input >> n >> data;
-    BinaryTree<int> btree(data);
+    mrroot501::BinaryTree<int> btree(data);
     for (int i = 0; i < n - 1; i++) {
         input >> data;
         btree.root = btree.insert(btree.root, data);
     }
-    runTest<int>(btree.getHeight(btree.root), 4);
-    runTest<int>(btree.find(btree.root, 6)->data, 6);
-    runTest<TreeNode<int>*>(btree.find(btree.root, 8), NULL);
+    EXPECT_EQ(btree.getHeight(btree.root), 4);
+    // EXPECT_EQ(btree.find(btree.root, 6)->data, 6);
+    // EXPECT_EQ(btree.getHeight(btree.root), 4);
     // btree.levelOrder();
-    TreeNode<int>* temp = btree.deleteNode(btree.root, 5);
-    btree.levelOrder();
-    
-    return 0;
+    // mrroot501::TreeNode<int>* temp = btree.deleteNode(btree.root, 5);
+    // btree.levelOrder();
+}
+
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }

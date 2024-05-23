@@ -130,19 +130,6 @@ googletest/fast:
 .PHONY : googletest/fast
 
 #=============================================================================
-# Target rules for targets named extra_long_factorial
-
-# Build rule for target.
-extra_long_factorial: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 extra_long_factorial
-.PHONY : extra_long_factorial
-
-# fast build rule for target.
-extra_long_factorial/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/extra_long_factorial.dir/build.make CMakeFiles/extra_long_factorial.dir/build
-.PHONY : extra_long_factorial/fast
-
-#=============================================================================
 # Target rules for targets named merge_sort
 
 # Build rule for target.
@@ -169,17 +156,82 @@ heap_sort/fast:
 .PHONY : heap_sort/fast
 
 #=============================================================================
-# Target rules for targets named main
+# Target rules for targets named binary_tree
 
 # Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
-.PHONY : main
+binary_tree: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 binary_tree
+.PHONY : binary_tree
 
 # fast build rule for target.
-main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
+binary_tree/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/binary_tree.dir/build.make CMakeFiles/binary_tree.dir/build
+.PHONY : binary_tree/fast
+
+#=============================================================================
+# Target rules for targets named segment_tree
+
+# Build rule for target.
+segment_tree: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 segment_tree
+.PHONY : segment_tree
+
+# fast build rule for target.
+segment_tree/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segment_tree.dir/build.make CMakeFiles/segment_tree.dir/build
+.PHONY : segment_tree/fast
+
+#=============================================================================
+# Target rules for targets named extra_long_factorial_main
+
+# Build rule for target.
+extra_long_factorial_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 extra_long_factorial_main
+.PHONY : extra_long_factorial_main
+
+# fast build rule for target.
+extra_long_factorial_main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/extra_long_factorial_main.dir/build.make CMakeFiles/extra_long_factorial_main.dir/build
+.PHONY : extra_long_factorial_main/fast
+
+#=============================================================================
+# Target rules for targets named merge_sort_external_main
+
+# Build rule for target.
+merge_sort_external_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 merge_sort_external_main
+.PHONY : merge_sort_external_main
+
+# fast build rule for target.
+merge_sort_external_main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/merge_sort_external_main.dir/build.make CMakeFiles/merge_sort_external_main.dir/build
+.PHONY : merge_sort_external_main/fast
+
+#=============================================================================
+# Target rules for targets named binary_tree_main
+
+# Build rule for target.
+binary_tree_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 binary_tree_main
+.PHONY : binary_tree_main
+
+# fast build rule for target.
+binary_tree_main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/binary_tree_main.dir/build.make CMakeFiles/binary_tree_main.dir/build
+.PHONY : binary_tree_main/fast
+
+#=============================================================================
+# Target rules for targets named segment_tree_main
+
+# Build rule for target.
+segment_tree_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 segment_tree_main
+.PHONY : segment_tree_main
+
+# fast build rule for target.
+segment_tree_main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segment_tree_main.dir/build.make CMakeFiles/segment_tree_main.dir/build
+.PHONY : segment_tree_main/fast
 
 #=============================================================================
 # Target rules for targets named test_extra_long_factorial
@@ -219,6 +271,71 @@ test_heap_sort: cmake_check_build_system
 test_heap_sort/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_heap_sort.dir/build.make CMakeFiles/test_heap_sort.dir/build
 .PHONY : test_heap_sort/fast
+
+#=============================================================================
+# Target rules for targets named test_longest_common_subsequence
+
+# Build rule for target.
+test_longest_common_subsequence: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_longest_common_subsequence
+.PHONY : test_longest_common_subsequence
+
+# fast build rule for target.
+test_longest_common_subsequence/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_longest_common_subsequence.dir/build.make CMakeFiles/test_longest_common_subsequence.dir/build
+.PHONY : test_longest_common_subsequence/fast
+
+#=============================================================================
+# Target rules for targets named test_longest_palindromic_substring
+
+# Build rule for target.
+test_longest_palindromic_substring: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_longest_palindromic_substring
+.PHONY : test_longest_palindromic_substring
+
+# fast build rule for target.
+test_longest_palindromic_substring/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_longest_palindromic_substring.dir/build.make CMakeFiles/test_longest_palindromic_substring.dir/build
+.PHONY : test_longest_palindromic_substring/fast
+
+#=============================================================================
+# Target rules for targets named test_range_sum_queries_without_updates
+
+# Build rule for target.
+test_range_sum_queries_without_updates: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_range_sum_queries_without_updates
+.PHONY : test_range_sum_queries_without_updates
+
+# fast build rule for target.
+test_range_sum_queries_without_updates/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_range_sum_queries_without_updates.dir/build.make CMakeFiles/test_range_sum_queries_without_updates.dir/build
+.PHONY : test_range_sum_queries_without_updates/fast
+
+#=============================================================================
+# Target rules for targets named test_find_largest_value_in_tree_row
+
+# Build rule for target.
+test_find_largest_value_in_tree_row: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_find_largest_value_in_tree_row
+.PHONY : test_find_largest_value_in_tree_row
+
+# fast build rule for target.
+test_find_largest_value_in_tree_row/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_find_largest_value_in_tree_row.dir/build.make CMakeFiles/test_find_largest_value_in_tree_row.dir/build
+.PHONY : test_find_largest_value_in_tree_row/fast
+
+#=============================================================================
+# Target rules for targets named test_shortest_path_in_binary_matrix
+
+# Build rule for target.
+test_shortest_path_in_binary_matrix: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_shortest_path_in_binary_matrix
+.PHONY : test_shortest_path_in_binary_matrix
+
+# fast build rule for target.
+test_shortest_path_in_binary_matrix/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shortest_path_in_binary_matrix.dir/build.make CMakeFiles/test_shortest_path_in_binary_matrix.dir/build
+.PHONY : test_shortest_path_in_binary_matrix/fast
 
 Algorithms/HeapSort/heap_sort.o: Algorithms/HeapSort/heap_sort.cpp.o
 .PHONY : Algorithms/HeapSort/heap_sort.o
@@ -316,36 +433,133 @@ Algorithms/MergeSort/test_merge_sort.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_merge_sort.dir/build.make CMakeFiles/test_merge_sort.dir/Algorithms/MergeSort/test_merge_sort.cpp.s
 .PHONY : Algorithms/MergeSort/test_merge_sort.cpp.s
 
-ProblemSolving/ExtraLongFactorial/extra_long_factorial.o: ProblemSolving/ExtraLongFactorial/extra_long_factorial.cpp.o
-.PHONY : ProblemSolving/ExtraLongFactorial/extra_long_factorial.o
+Algorithms/MergeSortExternal/main.o: Algorithms/MergeSortExternal/main.cpp.o
+.PHONY : Algorithms/MergeSortExternal/main.o
 
 # target to build an object file
-ProblemSolving/ExtraLongFactorial/extra_long_factorial.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/extra_long_factorial.dir/build.make CMakeFiles/extra_long_factorial.dir/ProblemSolving/ExtraLongFactorial/extra_long_factorial.cpp.o
-.PHONY : ProblemSolving/ExtraLongFactorial/extra_long_factorial.cpp.o
+Algorithms/MergeSortExternal/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/merge_sort_external_main.dir/build.make CMakeFiles/merge_sort_external_main.dir/Algorithms/MergeSortExternal/main.cpp.o
+.PHONY : Algorithms/MergeSortExternal/main.cpp.o
 
-ProblemSolving/ExtraLongFactorial/extra_long_factorial.i: ProblemSolving/ExtraLongFactorial/extra_long_factorial.cpp.i
-.PHONY : ProblemSolving/ExtraLongFactorial/extra_long_factorial.i
+Algorithms/MergeSortExternal/main.i: Algorithms/MergeSortExternal/main.cpp.i
+.PHONY : Algorithms/MergeSortExternal/main.i
 
 # target to preprocess a source file
-ProblemSolving/ExtraLongFactorial/extra_long_factorial.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/extra_long_factorial.dir/build.make CMakeFiles/extra_long_factorial.dir/ProblemSolving/ExtraLongFactorial/extra_long_factorial.cpp.i
-.PHONY : ProblemSolving/ExtraLongFactorial/extra_long_factorial.cpp.i
+Algorithms/MergeSortExternal/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/merge_sort_external_main.dir/build.make CMakeFiles/merge_sort_external_main.dir/Algorithms/MergeSortExternal/main.cpp.i
+.PHONY : Algorithms/MergeSortExternal/main.cpp.i
 
-ProblemSolving/ExtraLongFactorial/extra_long_factorial.s: ProblemSolving/ExtraLongFactorial/extra_long_factorial.cpp.s
-.PHONY : ProblemSolving/ExtraLongFactorial/extra_long_factorial.s
+Algorithms/MergeSortExternal/main.s: Algorithms/MergeSortExternal/main.cpp.s
+.PHONY : Algorithms/MergeSortExternal/main.s
 
 # target to generate assembly for a file
-ProblemSolving/ExtraLongFactorial/extra_long_factorial.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/extra_long_factorial.dir/build.make CMakeFiles/extra_long_factorial.dir/ProblemSolving/ExtraLongFactorial/extra_long_factorial.cpp.s
-.PHONY : ProblemSolving/ExtraLongFactorial/extra_long_factorial.cpp.s
+Algorithms/MergeSortExternal/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/merge_sort_external_main.dir/build.make CMakeFiles/merge_sort_external_main.dir/Algorithms/MergeSortExternal/main.cpp.s
+.PHONY : Algorithms/MergeSortExternal/main.cpp.s
+
+DataStructure/BinaryTree/binary_tree.o: DataStructure/BinaryTree/binary_tree.cpp.o
+.PHONY : DataStructure/BinaryTree/binary_tree.o
+
+# target to build an object file
+DataStructure/BinaryTree/binary_tree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/binary_tree.dir/build.make CMakeFiles/binary_tree.dir/DataStructure/BinaryTree/binary_tree.cpp.o
+.PHONY : DataStructure/BinaryTree/binary_tree.cpp.o
+
+DataStructure/BinaryTree/binary_tree.i: DataStructure/BinaryTree/binary_tree.cpp.i
+.PHONY : DataStructure/BinaryTree/binary_tree.i
+
+# target to preprocess a source file
+DataStructure/BinaryTree/binary_tree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/binary_tree.dir/build.make CMakeFiles/binary_tree.dir/DataStructure/BinaryTree/binary_tree.cpp.i
+.PHONY : DataStructure/BinaryTree/binary_tree.cpp.i
+
+DataStructure/BinaryTree/binary_tree.s: DataStructure/BinaryTree/binary_tree.cpp.s
+.PHONY : DataStructure/BinaryTree/binary_tree.s
+
+# target to generate assembly for a file
+DataStructure/BinaryTree/binary_tree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/binary_tree.dir/build.make CMakeFiles/binary_tree.dir/DataStructure/BinaryTree/binary_tree.cpp.s
+.PHONY : DataStructure/BinaryTree/binary_tree.cpp.s
+
+DataStructure/BinaryTree/main.o: DataStructure/BinaryTree/main.cpp.o
+.PHONY : DataStructure/BinaryTree/main.o
+
+# target to build an object file
+DataStructure/BinaryTree/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/binary_tree_main.dir/build.make CMakeFiles/binary_tree_main.dir/DataStructure/BinaryTree/main.cpp.o
+.PHONY : DataStructure/BinaryTree/main.cpp.o
+
+DataStructure/BinaryTree/main.i: DataStructure/BinaryTree/main.cpp.i
+.PHONY : DataStructure/BinaryTree/main.i
+
+# target to preprocess a source file
+DataStructure/BinaryTree/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/binary_tree_main.dir/build.make CMakeFiles/binary_tree_main.dir/DataStructure/BinaryTree/main.cpp.i
+.PHONY : DataStructure/BinaryTree/main.cpp.i
+
+DataStructure/BinaryTree/main.s: DataStructure/BinaryTree/main.cpp.s
+.PHONY : DataStructure/BinaryTree/main.s
+
+# target to generate assembly for a file
+DataStructure/BinaryTree/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/binary_tree_main.dir/build.make CMakeFiles/binary_tree_main.dir/DataStructure/BinaryTree/main.cpp.s
+.PHONY : DataStructure/BinaryTree/main.cpp.s
+
+DataStructure/SegmentTree/main.o: DataStructure/SegmentTree/main.cpp.o
+.PHONY : DataStructure/SegmentTree/main.o
+
+# target to build an object file
+DataStructure/SegmentTree/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segment_tree_main.dir/build.make CMakeFiles/segment_tree_main.dir/DataStructure/SegmentTree/main.cpp.o
+.PHONY : DataStructure/SegmentTree/main.cpp.o
+
+DataStructure/SegmentTree/main.i: DataStructure/SegmentTree/main.cpp.i
+.PHONY : DataStructure/SegmentTree/main.i
+
+# target to preprocess a source file
+DataStructure/SegmentTree/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segment_tree_main.dir/build.make CMakeFiles/segment_tree_main.dir/DataStructure/SegmentTree/main.cpp.i
+.PHONY : DataStructure/SegmentTree/main.cpp.i
+
+DataStructure/SegmentTree/main.s: DataStructure/SegmentTree/main.cpp.s
+.PHONY : DataStructure/SegmentTree/main.s
+
+# target to generate assembly for a file
+DataStructure/SegmentTree/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segment_tree_main.dir/build.make CMakeFiles/segment_tree_main.dir/DataStructure/SegmentTree/main.cpp.s
+.PHONY : DataStructure/SegmentTree/main.cpp.s
+
+DataStructure/SegmentTree/segment_tree.o: DataStructure/SegmentTree/segment_tree.cpp.o
+.PHONY : DataStructure/SegmentTree/segment_tree.o
+
+# target to build an object file
+DataStructure/SegmentTree/segment_tree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segment_tree.dir/build.make CMakeFiles/segment_tree.dir/DataStructure/SegmentTree/segment_tree.cpp.o
+.PHONY : DataStructure/SegmentTree/segment_tree.cpp.o
+
+DataStructure/SegmentTree/segment_tree.i: DataStructure/SegmentTree/segment_tree.cpp.i
+.PHONY : DataStructure/SegmentTree/segment_tree.i
+
+# target to preprocess a source file
+DataStructure/SegmentTree/segment_tree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segment_tree.dir/build.make CMakeFiles/segment_tree.dir/DataStructure/SegmentTree/segment_tree.cpp.i
+.PHONY : DataStructure/SegmentTree/segment_tree.cpp.i
+
+DataStructure/SegmentTree/segment_tree.s: DataStructure/SegmentTree/segment_tree.cpp.s
+.PHONY : DataStructure/SegmentTree/segment_tree.s
+
+# target to generate assembly for a file
+DataStructure/SegmentTree/segment_tree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segment_tree.dir/build.make CMakeFiles/segment_tree.dir/DataStructure/SegmentTree/segment_tree.cpp.s
+.PHONY : DataStructure/SegmentTree/segment_tree.cpp.s
 
 ProblemSolving/ExtraLongFactorial/main.o: ProblemSolving/ExtraLongFactorial/main.cpp.o
 .PHONY : ProblemSolving/ExtraLongFactorial/main.o
 
 # target to build an object file
 ProblemSolving/ExtraLongFactorial/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/ProblemSolving/ExtraLongFactorial/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/extra_long_factorial_main.dir/build.make CMakeFiles/extra_long_factorial_main.dir/ProblemSolving/ExtraLongFactorial/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_extra_long_factorial.dir/build.make CMakeFiles/test_extra_long_factorial.dir/ProblemSolving/ExtraLongFactorial/main.cpp.o
 .PHONY : ProblemSolving/ExtraLongFactorial/main.cpp.o
 
 ProblemSolving/ExtraLongFactorial/main.i: ProblemSolving/ExtraLongFactorial/main.cpp.i
@@ -353,7 +567,8 @@ ProblemSolving/ExtraLongFactorial/main.i: ProblemSolving/ExtraLongFactorial/main
 
 # target to preprocess a source file
 ProblemSolving/ExtraLongFactorial/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/ProblemSolving/ExtraLongFactorial/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/extra_long_factorial_main.dir/build.make CMakeFiles/extra_long_factorial_main.dir/ProblemSolving/ExtraLongFactorial/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_extra_long_factorial.dir/build.make CMakeFiles/test_extra_long_factorial.dir/ProblemSolving/ExtraLongFactorial/main.cpp.i
 .PHONY : ProblemSolving/ExtraLongFactorial/main.cpp.i
 
 ProblemSolving/ExtraLongFactorial/main.s: ProblemSolving/ExtraLongFactorial/main.cpp.s
@@ -361,32 +576,129 @@ ProblemSolving/ExtraLongFactorial/main.s: ProblemSolving/ExtraLongFactorial/main
 
 # target to generate assembly for a file
 ProblemSolving/ExtraLongFactorial/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/ProblemSolving/ExtraLongFactorial/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/extra_long_factorial_main.dir/build.make CMakeFiles/extra_long_factorial_main.dir/ProblemSolving/ExtraLongFactorial/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_extra_long_factorial.dir/build.make CMakeFiles/test_extra_long_factorial.dir/ProblemSolving/ExtraLongFactorial/main.cpp.s
 .PHONY : ProblemSolving/ExtraLongFactorial/main.cpp.s
 
-ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.o: ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.cpp.o
-.PHONY : ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.o
+ProblemSolving/FindLargestValueInTreeRow/main.o: ProblemSolving/FindLargestValueInTreeRow/main.cpp.o
+.PHONY : ProblemSolving/FindLargestValueInTreeRow/main.o
 
 # target to build an object file
-ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_extra_long_factorial.dir/build.make CMakeFiles/test_extra_long_factorial.dir/ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.cpp.o
-.PHONY : ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.cpp.o
+ProblemSolving/FindLargestValueInTreeRow/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_find_largest_value_in_tree_row.dir/build.make CMakeFiles/test_find_largest_value_in_tree_row.dir/ProblemSolving/FindLargestValueInTreeRow/main.cpp.o
+.PHONY : ProblemSolving/FindLargestValueInTreeRow/main.cpp.o
 
-ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.i: ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.cpp.i
-.PHONY : ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.i
+ProblemSolving/FindLargestValueInTreeRow/main.i: ProblemSolving/FindLargestValueInTreeRow/main.cpp.i
+.PHONY : ProblemSolving/FindLargestValueInTreeRow/main.i
 
 # target to preprocess a source file
-ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_extra_long_factorial.dir/build.make CMakeFiles/test_extra_long_factorial.dir/ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.cpp.i
-.PHONY : ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.cpp.i
+ProblemSolving/FindLargestValueInTreeRow/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_find_largest_value_in_tree_row.dir/build.make CMakeFiles/test_find_largest_value_in_tree_row.dir/ProblemSolving/FindLargestValueInTreeRow/main.cpp.i
+.PHONY : ProblemSolving/FindLargestValueInTreeRow/main.cpp.i
 
-ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.s: ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.cpp.s
-.PHONY : ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.s
+ProblemSolving/FindLargestValueInTreeRow/main.s: ProblemSolving/FindLargestValueInTreeRow/main.cpp.s
+.PHONY : ProblemSolving/FindLargestValueInTreeRow/main.s
 
 # target to generate assembly for a file
-ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_extra_long_factorial.dir/build.make CMakeFiles/test_extra_long_factorial.dir/ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.cpp.s
-.PHONY : ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.cpp.s
+ProblemSolving/FindLargestValueInTreeRow/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_find_largest_value_in_tree_row.dir/build.make CMakeFiles/test_find_largest_value_in_tree_row.dir/ProblemSolving/FindLargestValueInTreeRow/main.cpp.s
+.PHONY : ProblemSolving/FindLargestValueInTreeRow/main.cpp.s
+
+ProblemSolving/LongestComonSubsequence/main.o: ProblemSolving/LongestComonSubsequence/main.cpp.o
+.PHONY : ProblemSolving/LongestComonSubsequence/main.o
+
+# target to build an object file
+ProblemSolving/LongestComonSubsequence/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_longest_common_subsequence.dir/build.make CMakeFiles/test_longest_common_subsequence.dir/ProblemSolving/LongestComonSubsequence/main.cpp.o
+.PHONY : ProblemSolving/LongestComonSubsequence/main.cpp.o
+
+ProblemSolving/LongestComonSubsequence/main.i: ProblemSolving/LongestComonSubsequence/main.cpp.i
+.PHONY : ProblemSolving/LongestComonSubsequence/main.i
+
+# target to preprocess a source file
+ProblemSolving/LongestComonSubsequence/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_longest_common_subsequence.dir/build.make CMakeFiles/test_longest_common_subsequence.dir/ProblemSolving/LongestComonSubsequence/main.cpp.i
+.PHONY : ProblemSolving/LongestComonSubsequence/main.cpp.i
+
+ProblemSolving/LongestComonSubsequence/main.s: ProblemSolving/LongestComonSubsequence/main.cpp.s
+.PHONY : ProblemSolving/LongestComonSubsequence/main.s
+
+# target to generate assembly for a file
+ProblemSolving/LongestComonSubsequence/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_longest_common_subsequence.dir/build.make CMakeFiles/test_longest_common_subsequence.dir/ProblemSolving/LongestComonSubsequence/main.cpp.s
+.PHONY : ProblemSolving/LongestComonSubsequence/main.cpp.s
+
+ProblemSolving/LongestPalindromicSubstring/main.o: ProblemSolving/LongestPalindromicSubstring/main.cpp.o
+.PHONY : ProblemSolving/LongestPalindromicSubstring/main.o
+
+# target to build an object file
+ProblemSolving/LongestPalindromicSubstring/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_longest_palindromic_substring.dir/build.make CMakeFiles/test_longest_palindromic_substring.dir/ProblemSolving/LongestPalindromicSubstring/main.cpp.o
+.PHONY : ProblemSolving/LongestPalindromicSubstring/main.cpp.o
+
+ProblemSolving/LongestPalindromicSubstring/main.i: ProblemSolving/LongestPalindromicSubstring/main.cpp.i
+.PHONY : ProblemSolving/LongestPalindromicSubstring/main.i
+
+# target to preprocess a source file
+ProblemSolving/LongestPalindromicSubstring/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_longest_palindromic_substring.dir/build.make CMakeFiles/test_longest_palindromic_substring.dir/ProblemSolving/LongestPalindromicSubstring/main.cpp.i
+.PHONY : ProblemSolving/LongestPalindromicSubstring/main.cpp.i
+
+ProblemSolving/LongestPalindromicSubstring/main.s: ProblemSolving/LongestPalindromicSubstring/main.cpp.s
+.PHONY : ProblemSolving/LongestPalindromicSubstring/main.s
+
+# target to generate assembly for a file
+ProblemSolving/LongestPalindromicSubstring/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_longest_palindromic_substring.dir/build.make CMakeFiles/test_longest_palindromic_substring.dir/ProblemSolving/LongestPalindromicSubstring/main.cpp.s
+.PHONY : ProblemSolving/LongestPalindromicSubstring/main.cpp.s
+
+ProblemSolving/RangeSumQueriesWithoutUpdates/main.o: ProblemSolving/RangeSumQueriesWithoutUpdates/main.cpp.o
+.PHONY : ProblemSolving/RangeSumQueriesWithoutUpdates/main.o
+
+# target to build an object file
+ProblemSolving/RangeSumQueriesWithoutUpdates/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_range_sum_queries_without_updates.dir/build.make CMakeFiles/test_range_sum_queries_without_updates.dir/ProblemSolving/RangeSumQueriesWithoutUpdates/main.cpp.o
+.PHONY : ProblemSolving/RangeSumQueriesWithoutUpdates/main.cpp.o
+
+ProblemSolving/RangeSumQueriesWithoutUpdates/main.i: ProblemSolving/RangeSumQueriesWithoutUpdates/main.cpp.i
+.PHONY : ProblemSolving/RangeSumQueriesWithoutUpdates/main.i
+
+# target to preprocess a source file
+ProblemSolving/RangeSumQueriesWithoutUpdates/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_range_sum_queries_without_updates.dir/build.make CMakeFiles/test_range_sum_queries_without_updates.dir/ProblemSolving/RangeSumQueriesWithoutUpdates/main.cpp.i
+.PHONY : ProblemSolving/RangeSumQueriesWithoutUpdates/main.cpp.i
+
+ProblemSolving/RangeSumQueriesWithoutUpdates/main.s: ProblemSolving/RangeSumQueriesWithoutUpdates/main.cpp.s
+.PHONY : ProblemSolving/RangeSumQueriesWithoutUpdates/main.s
+
+# target to generate assembly for a file
+ProblemSolving/RangeSumQueriesWithoutUpdates/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_range_sum_queries_without_updates.dir/build.make CMakeFiles/test_range_sum_queries_without_updates.dir/ProblemSolving/RangeSumQueriesWithoutUpdates/main.cpp.s
+.PHONY : ProblemSolving/RangeSumQueriesWithoutUpdates/main.cpp.s
+
+ProblemSolving/ShortestPathInBinaryMatrix/main.o: ProblemSolving/ShortestPathInBinaryMatrix/main.cpp.o
+.PHONY : ProblemSolving/ShortestPathInBinaryMatrix/main.o
+
+# target to build an object file
+ProblemSolving/ShortestPathInBinaryMatrix/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shortest_path_in_binary_matrix.dir/build.make CMakeFiles/test_shortest_path_in_binary_matrix.dir/ProblemSolving/ShortestPathInBinaryMatrix/main.cpp.o
+.PHONY : ProblemSolving/ShortestPathInBinaryMatrix/main.cpp.o
+
+ProblemSolving/ShortestPathInBinaryMatrix/main.i: ProblemSolving/ShortestPathInBinaryMatrix/main.cpp.i
+.PHONY : ProblemSolving/ShortestPathInBinaryMatrix/main.i
+
+# target to preprocess a source file
+ProblemSolving/ShortestPathInBinaryMatrix/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shortest_path_in_binary_matrix.dir/build.make CMakeFiles/test_shortest_path_in_binary_matrix.dir/ProblemSolving/ShortestPathInBinaryMatrix/main.cpp.i
+.PHONY : ProblemSolving/ShortestPathInBinaryMatrix/main.cpp.i
+
+ProblemSolving/ShortestPathInBinaryMatrix/main.s: ProblemSolving/ShortestPathInBinaryMatrix/main.cpp.s
+.PHONY : ProblemSolving/ShortestPathInBinaryMatrix/main.s
+
+# target to generate assembly for a file
+ProblemSolving/ShortestPathInBinaryMatrix/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shortest_path_in_binary_matrix.dir/build.make CMakeFiles/test_shortest_path_in_binary_matrix.dir/ProblemSolving/ShortestPathInBinaryMatrix/main.cpp.s
+.PHONY : ProblemSolving/ShortestPathInBinaryMatrix/main.cpp.s
 
 # Help Target
 help:
@@ -397,13 +709,22 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... googletest"
-	@echo "... extra_long_factorial"
+	@echo "... binary_tree"
+	@echo "... binary_tree_main"
+	@echo "... extra_long_factorial_main"
 	@echo "... heap_sort"
-	@echo "... main"
 	@echo "... merge_sort"
+	@echo "... merge_sort_external_main"
+	@echo "... segment_tree"
+	@echo "... segment_tree_main"
 	@echo "... test_extra_long_factorial"
+	@echo "... test_find_largest_value_in_tree_row"
 	@echo "... test_heap_sort"
+	@echo "... test_longest_common_subsequence"
+	@echo "... test_longest_palindromic_substring"
 	@echo "... test_merge_sort"
+	@echo "... test_range_sum_queries_without_updates"
+	@echo "... test_shortest_path_in_binary_matrix"
 	@echo "... Algorithms/HeapSort/heap_sort.o"
 	@echo "... Algorithms/HeapSort/heap_sort.i"
 	@echo "... Algorithms/HeapSort/heap_sort.s"
@@ -416,15 +737,39 @@ help:
 	@echo "... Algorithms/MergeSort/test_merge_sort.o"
 	@echo "... Algorithms/MergeSort/test_merge_sort.i"
 	@echo "... Algorithms/MergeSort/test_merge_sort.s"
-	@echo "... ProblemSolving/ExtraLongFactorial/extra_long_factorial.o"
-	@echo "... ProblemSolving/ExtraLongFactorial/extra_long_factorial.i"
-	@echo "... ProblemSolving/ExtraLongFactorial/extra_long_factorial.s"
+	@echo "... Algorithms/MergeSortExternal/main.o"
+	@echo "... Algorithms/MergeSortExternal/main.i"
+	@echo "... Algorithms/MergeSortExternal/main.s"
+	@echo "... DataStructure/BinaryTree/binary_tree.o"
+	@echo "... DataStructure/BinaryTree/binary_tree.i"
+	@echo "... DataStructure/BinaryTree/binary_tree.s"
+	@echo "... DataStructure/BinaryTree/main.o"
+	@echo "... DataStructure/BinaryTree/main.i"
+	@echo "... DataStructure/BinaryTree/main.s"
+	@echo "... DataStructure/SegmentTree/main.o"
+	@echo "... DataStructure/SegmentTree/main.i"
+	@echo "... DataStructure/SegmentTree/main.s"
+	@echo "... DataStructure/SegmentTree/segment_tree.o"
+	@echo "... DataStructure/SegmentTree/segment_tree.i"
+	@echo "... DataStructure/SegmentTree/segment_tree.s"
 	@echo "... ProblemSolving/ExtraLongFactorial/main.o"
 	@echo "... ProblemSolving/ExtraLongFactorial/main.i"
 	@echo "... ProblemSolving/ExtraLongFactorial/main.s"
-	@echo "... ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.o"
-	@echo "... ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.i"
-	@echo "... ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.s"
+	@echo "... ProblemSolving/FindLargestValueInTreeRow/main.o"
+	@echo "... ProblemSolving/FindLargestValueInTreeRow/main.i"
+	@echo "... ProblemSolving/FindLargestValueInTreeRow/main.s"
+	@echo "... ProblemSolving/LongestComonSubsequence/main.o"
+	@echo "... ProblemSolving/LongestComonSubsequence/main.i"
+	@echo "... ProblemSolving/LongestComonSubsequence/main.s"
+	@echo "... ProblemSolving/LongestPalindromicSubstring/main.o"
+	@echo "... ProblemSolving/LongestPalindromicSubstring/main.i"
+	@echo "... ProblemSolving/LongestPalindromicSubstring/main.s"
+	@echo "... ProblemSolving/RangeSumQueriesWithoutUpdates/main.o"
+	@echo "... ProblemSolving/RangeSumQueriesWithoutUpdates/main.i"
+	@echo "... ProblemSolving/RangeSumQueriesWithoutUpdates/main.s"
+	@echo "... ProblemSolving/ShortestPathInBinaryMatrix/main.o"
+	@echo "... ProblemSolving/ShortestPathInBinaryMatrix/main.i"
+	@echo "... ProblemSolving/ShortestPathInBinaryMatrix/main.s"
 .PHONY : help
 
 

@@ -6,6 +6,8 @@ project(CPP-Core) # Set the project name
 # Specify the C++ standard
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+# Set cmake output
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ./bin/)
 
 
 # Third-party library
@@ -30,19 +32,29 @@ include_directories(${CMAKE_BINARY_DIR}/lib/installed/${CMAKE_INSTALL_INCLUDEDIR
 find_package(Threads REQUIRED)
 
 # Add definition for library
-add_library(extra_long_factorial ProblemSolving/ExtraLongFactorial/extra_long_factorial.cpp)
 add_library(merge_sort Algorithms/MergeSort/merge_sort.cpp)
 add_library(heap_sort Algorithms/HeapSort/heap_sort.cpp)
+add_library(binary_tree DataStructure/BinaryTree/binary_tree.cpp)
+add_library(segment_tree DataStructure/SegmentTree/segment_tree.cpp)
 
 
 # Add targets for main program
-add_executable(main ProblemSolving/ExtraLongFactorial/main.cpp)
-target_link_libraries(main extra_long_factorial)
+add_executable(extra_long_factorial_main ProblemSolving/ExtraLongFactorial/main.cpp)
+target_link_libraries(extra_long_factorial_main extra_long_factorial)
+
+add_executable(merge_sort_external_main Algorithms/MergeSortExternal/main.cpp)
+target_link_libraries(merge_sort_external_main merge_sort heap_sort)
+
+add_executable(binary_tree_main DataStructure/BinaryTree/main.cpp)
+target_link_libraries(binary_tree_main binary_tree gtest Threads::Threads)
+
+add_executable(segment_tree_main DataStructure/SegmentTree/main.cpp)
+target_link_libraries(segment_tree_main segment_tree)
 
 
 # Add targets for testing
-add_executable(test_extra_long_factorial ProblemSolving/ExtraLongFactorial/test_extra_long_factorial.cpp)
-target_link_libraries(test_extra_long_factorial extra_long_factorial gtest Threads::Threads)
+add_executable(test_extra_long_factorial ProblemSolving/ExtraLongFactorial/main.cpp)
+target_link_libraries(test_extra_long_factorial gtest Threads::Threads)
 
 add_executable(test_merge_sort Algorithms/MergeSort/test_merge_sort.cpp)
 target_link_libraries(test_merge_sort merge_sort gtest Threads::Threads)
@@ -50,10 +62,22 @@ target_link_libraries(test_merge_sort merge_sort gtest Threads::Threads)
 add_executable(test_heap_sort Algorithms/HeapSort/test_heap_sort.cpp)
 target_link_libraries(test_heap_sort heap_sort gtest Threads::Threads)
 
-# Make sure third-party is built before executable
-add_dependencies(test_extra_long_factorial googletest extra_long_factorial)
-set_target_properties(test_extra_long_factorial PROPERTIES EXCLUDE_FROM_ALL TRUE)
+add_executable(test_longest_common_subsequence ProblemSolving/LongestComonSubsequence/main.cpp)
+target_link_libraries(test_longest_common_subsequence gtest Threads::Threads)
 
+add_executable(test_longest_palindromic_substring ProblemSolving/LongestPalindromicSubstring/main.cpp)
+target_link_libraries(test_longest_palindromic_substring gtest Threads::Threads)
+
+add_executable(test_range_sum_queries_without_updates ProblemSolving/RangeSumQueriesWithoutUpdates/main.cpp)
+target_link_libraries(test_range_sum_queries_without_updates gtest Threads::Threads)
+
+add_executable(test_find_largest_value_in_tree_row ProblemSolving/FindLargestValueInTreeRow/main.cpp)
+target_link_libraries(test_find_largest_value_in_tree_row binary_tree gtest Threads::Threads)
+
+add_executable(test_shortest_path_in_binary_matrix ProblemSolving/ShortestPathInBinaryMatrix/main.cpp)
+target_link_libraries(test_shortest_path_in_binary_matrix gtest Threads::Threads)
+
+# Make sure third-party is built before executable
 add_dependencies(test_merge_sort googletest merge_sort)
 set_target_properties(test_merge_sort PROPERTIES EXCLUDE_FROM_ALL TRUE)
 

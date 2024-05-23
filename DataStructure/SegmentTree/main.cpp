@@ -1,14 +1,12 @@
 #include <iostream>
 #include <vector>
-#include "SegmentTree.h"
-#include "../../Common/UnitTests.h"
-using namespace mrroot501;
+#include "segment_tree.h"
 using namespace std;
 
 int main() {
     vector<int> arr = {3, 1, 53, 10, 11, -2, -10, -39, -43, 39};
     int n = arr.size();
-    MaxSegmentTree<int> segmentTree(arr);
+    mrroot501::SumSegmentTree<int> segmentTree(arr);
     cout << segmentTree.queryRanges(0, 0, n -1, 2, 5) << "\n";
     segmentTree.update(3,-100, 0, 0, n - 1);
     cout << segmentTree.queryRanges(0, 0, n -1, 2, 5) << "\n";

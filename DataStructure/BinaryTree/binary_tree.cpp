@@ -1,9 +1,8 @@
-#ifndef _BINARYTREE_
-#define _BINARYTREE_
-
 #include <iostream>
+#include <queue>
 
 namespace mrroot501 {
+
 template <typename T>
 class TreeNode {
 public:
@@ -23,7 +22,7 @@ public:
 };
 
 template <typename T>
-class BinaryTree{
+class BinaryTree {
 public:
     TreeNode<T>* root;
     BinaryTree() {}
@@ -55,7 +54,6 @@ public:
         } else if (value < current->data && current->left != NULL) {
             current->left = deleteNode(current->left, value);
         } else if (current->data == value) {
-            std::cout << "pppp\n";
             // Case: node has no childs
             if (current->left == NULL && current->right == NULL) {
                 return NULL;
@@ -159,6 +157,7 @@ public:
     }
 };
 
-} // namespace mrroot501
+template class TreeNode<int>;
+template class BinaryTree<int>;
 
-#endif
+} // namespace mrroot501

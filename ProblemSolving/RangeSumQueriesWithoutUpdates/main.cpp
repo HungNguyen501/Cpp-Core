@@ -1,7 +1,5 @@
 #include <iostream>
-#include <vector>
-#include <tuple>
-#include "../../Common/UnitTests.h"
+#include <gtest/gtest.h>
 using namespace std;
 
 int* preCals(int arr[], int n) {
@@ -19,19 +17,20 @@ int rangeSumQuery(int left, int right, int preCals[]) {
     return preCals[right] - preLeftHalf;
 }
 
-int main() {
+TEST(TestLongestPalindromicSubstring, tc1) {
     int arr[] =  {-2, 0, 3, -5, 2, -1};
     vector<tuple<vector<int>, int>> testCases;
     testCases.push_back({{0, 2}, 1});
     testCases.push_back({{2, 5}, -1});
     testCases.push_back({{0, 5}, -3});
-    int n = sizeof(arr)/ sizeof(arr[0]);
+    int n = sizeof(arr)/ sizeof(int);
     int* rangeSum = preCals(arr, n);
-    for (int tc = 0; tc < testCases.size(); tc++) {
-        int expected = get<1>(testCases[tc]);
-        int actual = rangeSumQuery(get<0>(testCases[tc])[0], get<0>(testCases[tc])[1], rangeSum);
-        runTest<int>(actual, expected);
-    }
-    
-    return 0;
+    EXPECT_EQ(rangeSumQuery(0, 2, rangeSum), 1);
+    EXPECT_EQ(rangeSumQuery(2, 5, rangeSum), -1);
+    EXPECT_EQ(rangeSumQuery(0, 5, rangeSum), -3);
+}
+
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }

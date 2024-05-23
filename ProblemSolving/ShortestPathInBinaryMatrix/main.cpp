@@ -1,7 +1,6 @@
 #include <iostream>
 #include <queue>
-#include <vector>
-#include "../../Common/UnitTests.h"
+#include <gtest/gtest.h>
 using namespace std;
 
 class Node {
@@ -51,7 +50,7 @@ int shortestPathUsingBFS(int grid[][1000], int n, int m, Node start, Node des) {
     return -1;
 }
 
-int main() {
+TEST(TestLongestPalindromicSubstring, tc1) {
     int tc1[][1000] = {
         {0, 0, 0, 0, 0},
         {1, 1, 1, 0, 1},
@@ -61,6 +60,10 @@ int main() {
     };
     Node start(0, 0, 1);
     Node des(4, 4);
-    runTest<int>(shortestPathUsingBFS(tc1, 5, 5, start, des), 7);
-    return 0;
+    EXPECT_EQ(shortestPathUsingBFS(tc1, 5, 5, start, des), 7);
+}
+
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }

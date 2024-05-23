@@ -2,19 +2,18 @@
 #include <fstream>
 #include <queue>
 #include <vector>
-#include "../../DataStructure/BinaryTree/BinaryTree.h"
+#include "../../DataStructure/BinaryTree/binary_tree.h"
 using namespace std;
-using namespace mrroot501;
 
-void findLargestValueInTreeRow(BinaryTree<int> btree) {
+void findLargestValueInTreeRow(mrroot501::BinaryTree<int> btree) {
     vector<int> result;
-    queue<TreeNode<int>*> row;
+    queue<mrroot501::TreeNode<int>*> row;
     row.push(btree.root);
     while (!row.empty()) {
         int max = row.front()->data;
         int length = row.size();
         for (int i = 0; i < length; i++) {
-            TreeNode<int> *node = row.front();
+            mrroot501::TreeNode<int> *node = row.front();
             row.pop();
             max = (max > node->data ? max : node->data);
             if (node->left != NULL)
@@ -45,10 +44,10 @@ void findLargestValueInTreeRow(BinaryTree<int> btree) {
 int main() {
     ifstream read;
     int n, data;
-    read.open("FindLargestValueInTreeRow/input.txt");
+    read.open("ProblemSolving/FindLargestValueInTreeRow/input.txt");
     read >> n;
     read >> data;
-    BinaryTree<int> btree(data);
+    mrroot501::BinaryTree<int> btree(data);
     for (int i = 0; i < n - 1; i++) {
         read >> data;
         btree.root = btree.insert(btree.root, data);
