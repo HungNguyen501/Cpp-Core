@@ -57,10 +57,10 @@ RM = /opt/homebrew/Cellar/cmake/3.29.3/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/lap14443/Projects/CPP-Core
+CMAKE_SOURCE_DIR = /Users/lap14443/Projects/Cpp-Core
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/lap14443/Projects/CPP-Core
+CMAKE_BINARY_DIR = /Users/lap14443/Projects/Cpp-Core
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lap14443/Projects/CPP-Core/CMakeFiles /Users/lap14443/Projects/CPP-Core//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lap14443/Projects/Cpp-Core/CMakeFiles /Users/lap14443/Projects/Cpp-Core//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lap14443/Projects/CPP-Core/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lap14443/Projects/Cpp-Core/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -130,17 +130,17 @@ googletest/fast:
 .PHONY : googletest/fast
 
 #=============================================================================
-# Target rules for targets named merge_sort
+# Target rules for targets named binary_tree
 
 # Build rule for target.
-merge_sort: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 merge_sort
-.PHONY : merge_sort
+binary_tree: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 binary_tree
+.PHONY : binary_tree
 
 # fast build rule for target.
-merge_sort/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/merge_sort.dir/build.make CMakeFiles/merge_sort.dir/build
-.PHONY : merge_sort/fast
+binary_tree/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/binary_tree.dir/build.make CMakeFiles/binary_tree.dir/build
+.PHONY : binary_tree/fast
 
 #=============================================================================
 # Target rules for targets named heap_sort
@@ -156,17 +156,43 @@ heap_sort/fast:
 .PHONY : heap_sort/fast
 
 #=============================================================================
-# Target rules for targets named binary_tree
+# Target rules for targets named linked_list
 
 # Build rule for target.
-binary_tree: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 binary_tree
-.PHONY : binary_tree
+linked_list: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 linked_list
+.PHONY : linked_list
 
 # fast build rule for target.
-binary_tree/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/binary_tree.dir/build.make CMakeFiles/binary_tree.dir/build
-.PHONY : binary_tree/fast
+linked_list/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/linked_list.dir/build.make CMakeFiles/linked_list.dir/build
+.PHONY : linked_list/fast
+
+#=============================================================================
+# Target rules for targets named merge_sort
+
+# Build rule for target.
+merge_sort: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 merge_sort
+.PHONY : merge_sort
+
+# fast build rule for target.
+merge_sort/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/merge_sort.dir/build.make CMakeFiles/merge_sort.dir/build
+.PHONY : merge_sort/fast
+
+#=============================================================================
+# Target rules for targets named mrroot501_hash_table
+
+# Build rule for target.
+mrroot501_hash_table: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mrroot501_hash_table
+.PHONY : mrroot501_hash_table
+
+# fast build rule for target.
+mrroot501_hash_table/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mrroot501_hash_table.dir/build.make CMakeFiles/mrroot501_hash_table.dir/build
+.PHONY : mrroot501_hash_table/fast
 
 #=============================================================================
 # Target rules for targets named segment_tree
@@ -180,6 +206,19 @@ segment_tree: cmake_check_build_system
 segment_tree/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/segment_tree.dir/build.make CMakeFiles/segment_tree.dir/build
 .PHONY : segment_tree/fast
+
+#=============================================================================
+# Target rules for targets named quick_sort
+
+# Build rule for target.
+quick_sort: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 quick_sort
+.PHONY : quick_sort
+
+# fast build rule for target.
+quick_sort/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quick_sort.dir/build.make CMakeFiles/quick_sort.dir/build
+.PHONY : quick_sort/fast
 
 #=============================================================================
 # Target rules for targets named extra_long_factorial_main
@@ -232,6 +271,45 @@ segment_tree_main: cmake_check_build_system
 segment_tree_main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/segment_tree_main.dir/build.make CMakeFiles/segment_tree_main.dir/build
 .PHONY : segment_tree_main/fast
+
+#=============================================================================
+# Target rules for targets named mrroot501_hash_table_main
+
+# Build rule for target.
+mrroot501_hash_table_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mrroot501_hash_table_main
+.PHONY : mrroot501_hash_table_main
+
+# fast build rule for target.
+mrroot501_hash_table_main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mrroot501_hash_table_main.dir/build.make CMakeFiles/mrroot501_hash_table_main.dir/build
+.PHONY : mrroot501_hash_table_main/fast
+
+#=============================================================================
+# Target rules for targets named linked_list_main
+
+# Build rule for target.
+linked_list_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 linked_list_main
+.PHONY : linked_list_main
+
+# fast build rule for target.
+linked_list_main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/linked_list_main.dir/build.make CMakeFiles/linked_list_main.dir/build
+.PHONY : linked_list_main/fast
+
+#=============================================================================
+# Target rules for targets named quick_sort_main
+
+# Build rule for target.
+quick_sort_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 quick_sort_main
+.PHONY : quick_sort_main
+
+# fast build rule for target.
+quick_sort_main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quick_sort_main.dir/build.make CMakeFiles/quick_sort_main.dir/build
+.PHONY : quick_sort_main/fast
 
 #=============================================================================
 # Target rules for targets named test_extra_long_factorial
@@ -457,6 +535,54 @@ Algorithms/MergeSortExternal/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/merge_sort_external_main.dir/build.make CMakeFiles/merge_sort_external_main.dir/Algorithms/MergeSortExternal/main.cpp.s
 .PHONY : Algorithms/MergeSortExternal/main.cpp.s
 
+Algorithms/QuickSort/main.o: Algorithms/QuickSort/main.cpp.o
+.PHONY : Algorithms/QuickSort/main.o
+
+# target to build an object file
+Algorithms/QuickSort/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quick_sort_main.dir/build.make CMakeFiles/quick_sort_main.dir/Algorithms/QuickSort/main.cpp.o
+.PHONY : Algorithms/QuickSort/main.cpp.o
+
+Algorithms/QuickSort/main.i: Algorithms/QuickSort/main.cpp.i
+.PHONY : Algorithms/QuickSort/main.i
+
+# target to preprocess a source file
+Algorithms/QuickSort/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quick_sort_main.dir/build.make CMakeFiles/quick_sort_main.dir/Algorithms/QuickSort/main.cpp.i
+.PHONY : Algorithms/QuickSort/main.cpp.i
+
+Algorithms/QuickSort/main.s: Algorithms/QuickSort/main.cpp.s
+.PHONY : Algorithms/QuickSort/main.s
+
+# target to generate assembly for a file
+Algorithms/QuickSort/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quick_sort_main.dir/build.make CMakeFiles/quick_sort_main.dir/Algorithms/QuickSort/main.cpp.s
+.PHONY : Algorithms/QuickSort/main.cpp.s
+
+Algorithms/QuickSort/quick_sort.o: Algorithms/QuickSort/quick_sort.cpp.o
+.PHONY : Algorithms/QuickSort/quick_sort.o
+
+# target to build an object file
+Algorithms/QuickSort/quick_sort.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quick_sort.dir/build.make CMakeFiles/quick_sort.dir/Algorithms/QuickSort/quick_sort.cpp.o
+.PHONY : Algorithms/QuickSort/quick_sort.cpp.o
+
+Algorithms/QuickSort/quick_sort.i: Algorithms/QuickSort/quick_sort.cpp.i
+.PHONY : Algorithms/QuickSort/quick_sort.i
+
+# target to preprocess a source file
+Algorithms/QuickSort/quick_sort.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quick_sort.dir/build.make CMakeFiles/quick_sort.dir/Algorithms/QuickSort/quick_sort.cpp.i
+.PHONY : Algorithms/QuickSort/quick_sort.cpp.i
+
+Algorithms/QuickSort/quick_sort.s: Algorithms/QuickSort/quick_sort.cpp.s
+.PHONY : Algorithms/QuickSort/quick_sort.s
+
+# target to generate assembly for a file
+Algorithms/QuickSort/quick_sort.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quick_sort.dir/build.make CMakeFiles/quick_sort.dir/Algorithms/QuickSort/quick_sort.cpp.s
+.PHONY : Algorithms/QuickSort/quick_sort.cpp.s
+
 DataStructure/BinaryTree/binary_tree.o: DataStructure/BinaryTree/binary_tree.cpp.o
 .PHONY : DataStructure/BinaryTree/binary_tree.o
 
@@ -504,6 +630,102 @@ DataStructure/BinaryTree/main.s: DataStructure/BinaryTree/main.cpp.s
 DataStructure/BinaryTree/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/binary_tree_main.dir/build.make CMakeFiles/binary_tree_main.dir/DataStructure/BinaryTree/main.cpp.s
 .PHONY : DataStructure/BinaryTree/main.cpp.s
+
+DataStructure/HashTable/main.o: DataStructure/HashTable/main.cpp.o
+.PHONY : DataStructure/HashTable/main.o
+
+# target to build an object file
+DataStructure/HashTable/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mrroot501_hash_table_main.dir/build.make CMakeFiles/mrroot501_hash_table_main.dir/DataStructure/HashTable/main.cpp.o
+.PHONY : DataStructure/HashTable/main.cpp.o
+
+DataStructure/HashTable/main.i: DataStructure/HashTable/main.cpp.i
+.PHONY : DataStructure/HashTable/main.i
+
+# target to preprocess a source file
+DataStructure/HashTable/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mrroot501_hash_table_main.dir/build.make CMakeFiles/mrroot501_hash_table_main.dir/DataStructure/HashTable/main.cpp.i
+.PHONY : DataStructure/HashTable/main.cpp.i
+
+DataStructure/HashTable/main.s: DataStructure/HashTable/main.cpp.s
+.PHONY : DataStructure/HashTable/main.s
+
+# target to generate assembly for a file
+DataStructure/HashTable/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mrroot501_hash_table_main.dir/build.make CMakeFiles/mrroot501_hash_table_main.dir/DataStructure/HashTable/main.cpp.s
+.PHONY : DataStructure/HashTable/main.cpp.s
+
+DataStructure/HashTable/mrroot501_hash_table.o: DataStructure/HashTable/mrroot501_hash_table.cpp.o
+.PHONY : DataStructure/HashTable/mrroot501_hash_table.o
+
+# target to build an object file
+DataStructure/HashTable/mrroot501_hash_table.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mrroot501_hash_table.dir/build.make CMakeFiles/mrroot501_hash_table.dir/DataStructure/HashTable/mrroot501_hash_table.cpp.o
+.PHONY : DataStructure/HashTable/mrroot501_hash_table.cpp.o
+
+DataStructure/HashTable/mrroot501_hash_table.i: DataStructure/HashTable/mrroot501_hash_table.cpp.i
+.PHONY : DataStructure/HashTable/mrroot501_hash_table.i
+
+# target to preprocess a source file
+DataStructure/HashTable/mrroot501_hash_table.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mrroot501_hash_table.dir/build.make CMakeFiles/mrroot501_hash_table.dir/DataStructure/HashTable/mrroot501_hash_table.cpp.i
+.PHONY : DataStructure/HashTable/mrroot501_hash_table.cpp.i
+
+DataStructure/HashTable/mrroot501_hash_table.s: DataStructure/HashTable/mrroot501_hash_table.cpp.s
+.PHONY : DataStructure/HashTable/mrroot501_hash_table.s
+
+# target to generate assembly for a file
+DataStructure/HashTable/mrroot501_hash_table.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mrroot501_hash_table.dir/build.make CMakeFiles/mrroot501_hash_table.dir/DataStructure/HashTable/mrroot501_hash_table.cpp.s
+.PHONY : DataStructure/HashTable/mrroot501_hash_table.cpp.s
+
+DataStructure/LinkedList/linked_list.o: DataStructure/LinkedList/linked_list.cpp.o
+.PHONY : DataStructure/LinkedList/linked_list.o
+
+# target to build an object file
+DataStructure/LinkedList/linked_list.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/linked_list.dir/build.make CMakeFiles/linked_list.dir/DataStructure/LinkedList/linked_list.cpp.o
+.PHONY : DataStructure/LinkedList/linked_list.cpp.o
+
+DataStructure/LinkedList/linked_list.i: DataStructure/LinkedList/linked_list.cpp.i
+.PHONY : DataStructure/LinkedList/linked_list.i
+
+# target to preprocess a source file
+DataStructure/LinkedList/linked_list.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/linked_list.dir/build.make CMakeFiles/linked_list.dir/DataStructure/LinkedList/linked_list.cpp.i
+.PHONY : DataStructure/LinkedList/linked_list.cpp.i
+
+DataStructure/LinkedList/linked_list.s: DataStructure/LinkedList/linked_list.cpp.s
+.PHONY : DataStructure/LinkedList/linked_list.s
+
+# target to generate assembly for a file
+DataStructure/LinkedList/linked_list.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/linked_list.dir/build.make CMakeFiles/linked_list.dir/DataStructure/LinkedList/linked_list.cpp.s
+.PHONY : DataStructure/LinkedList/linked_list.cpp.s
+
+DataStructure/LinkedList/main.o: DataStructure/LinkedList/main.cpp.o
+.PHONY : DataStructure/LinkedList/main.o
+
+# target to build an object file
+DataStructure/LinkedList/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/linked_list_main.dir/build.make CMakeFiles/linked_list_main.dir/DataStructure/LinkedList/main.cpp.o
+.PHONY : DataStructure/LinkedList/main.cpp.o
+
+DataStructure/LinkedList/main.i: DataStructure/LinkedList/main.cpp.i
+.PHONY : DataStructure/LinkedList/main.i
+
+# target to preprocess a source file
+DataStructure/LinkedList/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/linked_list_main.dir/build.make CMakeFiles/linked_list_main.dir/DataStructure/LinkedList/main.cpp.i
+.PHONY : DataStructure/LinkedList/main.cpp.i
+
+DataStructure/LinkedList/main.s: DataStructure/LinkedList/main.cpp.s
+.PHONY : DataStructure/LinkedList/main.s
+
+# target to generate assembly for a file
+DataStructure/LinkedList/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/linked_list_main.dir/build.make CMakeFiles/linked_list_main.dir/DataStructure/LinkedList/main.cpp.s
+.PHONY : DataStructure/LinkedList/main.cpp.s
 
 DataStructure/SegmentTree/main.o: DataStructure/SegmentTree/main.cpp.o
 .PHONY : DataStructure/SegmentTree/main.o
@@ -713,8 +935,14 @@ help:
 	@echo "... binary_tree_main"
 	@echo "... extra_long_factorial_main"
 	@echo "... heap_sort"
+	@echo "... linked_list"
+	@echo "... linked_list_main"
 	@echo "... merge_sort"
 	@echo "... merge_sort_external_main"
+	@echo "... mrroot501_hash_table"
+	@echo "... mrroot501_hash_table_main"
+	@echo "... quick_sort"
+	@echo "... quick_sort_main"
 	@echo "... segment_tree"
 	@echo "... segment_tree_main"
 	@echo "... test_extra_long_factorial"
@@ -740,12 +968,30 @@ help:
 	@echo "... Algorithms/MergeSortExternal/main.o"
 	@echo "... Algorithms/MergeSortExternal/main.i"
 	@echo "... Algorithms/MergeSortExternal/main.s"
+	@echo "... Algorithms/QuickSort/main.o"
+	@echo "... Algorithms/QuickSort/main.i"
+	@echo "... Algorithms/QuickSort/main.s"
+	@echo "... Algorithms/QuickSort/quick_sort.o"
+	@echo "... Algorithms/QuickSort/quick_sort.i"
+	@echo "... Algorithms/QuickSort/quick_sort.s"
 	@echo "... DataStructure/BinaryTree/binary_tree.o"
 	@echo "... DataStructure/BinaryTree/binary_tree.i"
 	@echo "... DataStructure/BinaryTree/binary_tree.s"
 	@echo "... DataStructure/BinaryTree/main.o"
 	@echo "... DataStructure/BinaryTree/main.i"
 	@echo "... DataStructure/BinaryTree/main.s"
+	@echo "... DataStructure/HashTable/main.o"
+	@echo "... DataStructure/HashTable/main.i"
+	@echo "... DataStructure/HashTable/main.s"
+	@echo "... DataStructure/HashTable/mrroot501_hash_table.o"
+	@echo "... DataStructure/HashTable/mrroot501_hash_table.i"
+	@echo "... DataStructure/HashTable/mrroot501_hash_table.s"
+	@echo "... DataStructure/LinkedList/linked_list.o"
+	@echo "... DataStructure/LinkedList/linked_list.i"
+	@echo "... DataStructure/LinkedList/linked_list.s"
+	@echo "... DataStructure/LinkedList/main.o"
+	@echo "... DataStructure/LinkedList/main.i"
+	@echo "... DataStructure/LinkedList/main.s"
 	@echo "... DataStructure/SegmentTree/main.o"
 	@echo "... DataStructure/SegmentTree/main.i"
 	@echo "... DataStructure/SegmentTree/main.s"

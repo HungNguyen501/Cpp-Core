@@ -1,15 +1,13 @@
-#ifndef _BINARYTREE_
-#define _BINARYTREE_
-
 #include <iostream>
 #include <vector>
-using namespace std;
+
+namespace mrroot501 {
 
 template<typename T>
 class Mrroot501HashTable {
 private:
-    hash<T> hasher;
-    vector<T> arr;
+    std::hash<T> hasher;
+    std::vector<T> arr;
     int* hashTable;
     int space;
 public:
@@ -69,4 +67,7 @@ public:
     }
 };
 
-#endif
+template class Mrroot501HashTable<int>;
+template class Mrroot501HashTable<std::string>;
+
+}

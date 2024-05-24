@@ -32,10 +32,13 @@ include_directories(${CMAKE_BINARY_DIR}/lib/installed/${CMAKE_INSTALL_INCLUDEDIR
 find_package(Threads REQUIRED)
 
 # Add definition for library
-add_library(merge_sort Algorithms/MergeSort/merge_sort.cpp)
-add_library(heap_sort Algorithms/HeapSort/heap_sort.cpp)
 add_library(binary_tree DataStructure/BinaryTree/binary_tree.cpp)
+add_library(heap_sort Algorithms/HeapSort/heap_sort.cpp)
+add_library(linked_list DataStructure/LinkedList/linked_list.cpp)
+add_library(merge_sort Algorithms/MergeSort/merge_sort.cpp)
+add_library(mrroot501_hash_table DataStructure/HashTable/mrroot501_hash_table.cpp)
 add_library(segment_tree DataStructure/SegmentTree/segment_tree.cpp)
+add_library(quick_sort Algorithms/QuickSort/quick_sort.cpp)
 
 
 # Add targets for main program
@@ -50,6 +53,15 @@ target_link_libraries(binary_tree_main binary_tree gtest Threads::Threads)
 
 add_executable(segment_tree_main DataStructure/SegmentTree/main.cpp)
 target_link_libraries(segment_tree_main segment_tree)
+
+add_executable(mrroot501_hash_table_main DataStructure/HashTable/main.cpp)
+target_link_libraries(mrroot501_hash_table_main mrroot501_hash_table)
+
+add_executable(linked_list_main DataStructure/LinkedList/main.cpp)
+target_link_libraries(linked_list_main linked_list)
+
+add_executable(quick_sort_main Algorithms/QuickSort/main.cpp)
+target_link_libraries(quick_sort_main quick_sort)
 
 
 # Add targets for testing
