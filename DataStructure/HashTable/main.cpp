@@ -1,9 +1,9 @@
 #include <iostream>
-#include "Mrroot501HashTable.h"
+#include "mrroot501_hash_table.h"
 using namespace std;
 
 int main() {
-    Mrroot501HashTable<string> myHT;
+    mrroot501::Mrroot501HashTable<string> myHT;
     myHT.add("abc");
     myHT.add("cdf");
     myHT.add("aa");

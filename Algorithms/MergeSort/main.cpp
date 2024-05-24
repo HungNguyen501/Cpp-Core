@@ -1,12 +1,22 @@
 #include <iostream>
 #include <fstream>
-#include "MergeSort.h"
-using namespace mrroot501;
+#include <tuple>
+#include "merge_sort.h"
 using namespace std;
+
+/*
+    MergeSort: https://www.programiz.com/dsa/merge-sort
+    Space complexity: O(n)
+    Time complexity
+        Best case: O(n*log n)
+        Worst case: O(n*log n)
+        Average case: O(n*log n)
+
+*/
 
 int main() {
     ifstream read;
-    read.open("MergeSort/input.txt");
+    read.open("./input.txt");
 
     int testcase;
     read >> testcase;
@@ -16,7 +26,7 @@ int main() {
         read >> n;
         for (int i = 0; i < n; i++)
             read >> a[i];
-        mergeSort(a, 0, n - 1);
+        mrroot501::mergeSort(a, 0, n - 1);
         
         for (int i = 0; i < n; i++) {
             cout << a[i] << " ";

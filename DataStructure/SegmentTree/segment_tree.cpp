@@ -1,7 +1,5 @@
-#ifndef _SEGMENTTREE_
-#define _SEGMENTTREE_
-
 #include <iostream>
+#include <vector>
 
 namespace mrroot501 {
 
@@ -184,6 +182,9 @@ public:
     }
 };
 
-} // namespace mrroot501
+template class SegmentTree<int>;
+template class MinSegmentTree<int>;
+template class MaxSegmentTree<int>;
+template class SumSegmentTree<int>;
 
-#endif
+} // namespace mrroot501

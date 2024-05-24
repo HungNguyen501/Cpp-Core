@@ -1,19 +1,4 @@
-#ifndef _MERGESORT_
-#define _MERGESORT_
-
-#include <iostream>
-
 namespace mrroot501 {
-
-/*
-    MergeSort: https://www.programiz.com/dsa/merge-sort
-    Space complexity: O(n)
-    Time complexity
-        Best case: O(n*log n)
-        Worst case: O(n*log n)
-        Average case: O(n*log n)
-
-*/
 
 template<typename T>
 void mergeHalfs(T arr[], int leftStart, int rightEnd) {
@@ -62,6 +47,8 @@ void mergeSort(T arr[], int leftStart, int rightEnd) {
     mergeHalfs(arr, leftStart, rightEnd);
 }
 
-} // namespace mrroot501
+template void mergeSort(int arr[], int leftStart, int rightEnd);
+template void mergeSort(float arr[], int leftStart, int rightEnd);
+template void mergeSort(long arr[], int leftStart, int rightEnd);
 
-#endif
+} // namespace mrroot501
