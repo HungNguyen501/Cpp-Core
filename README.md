@@ -6,8 +6,19 @@ All rights reserved.
 Development Guide
 ---
 
-# Prerequisites
-**Installations**<br>
+Agenda
+
+[1. Prerequisites](#1-prerequisites)<br>
+&emsp;[Coding convention](#coding-convention)<br>
+&emsp;[Gcc]( #gcc)<br>
+&emsp;[Cmake](#cmake)<br>
+[2. Run C++ files](#2-run-c-module)
+
+# 1. Prerequisites
+## Coding convention
+[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
+
+## Gcc
 ```bash
 $ clang++ --version
 Apple clang version 15.0.0 (clang-1500.3.9.4)
@@ -17,21 +28,24 @@ InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 
 $ clang++ -std=c++17 binary_tree.cpp main.cpp -o main.o && ./main.o
 ```
-
-**Coding convention**<br>
-[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
-
-# Makefile
+## Cmake
 ```bash
-$ make help
-Go to one of following modules and then type make help for helper: 
-.
-├── Algorithms
-├── DataStructure
-├── DynamicProgramming
-└── ProblemSolving
+$ cmake --version
+cmake version 3.29.3
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+```
 
-$ make clean # Clean CPP output files and dependencies
-$ make validateTargets # Verify all targets added to Makefile 
-$ make -B ${module_name} # Run a target coresponding to sub-module name
+
+# 2. Run C++ module
+Initial Cmake components:
+
+```bash
+$ cmake .
+$ cmake --build . --target test_merge_sort && ./bin/test_merge_sort # Install required libraries
+```
+
+Run executabl in cmake:
+
+```bash
+$ cmake --build . --target {executable} && ./bin/{executable}
 ```
