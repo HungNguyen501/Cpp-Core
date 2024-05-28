@@ -8,10 +8,11 @@ Development Guide
 
 Agenda
 
-[1. Prerequisites](#1-prerequisites)<br>
-&emsp;[Coding convention](#coding-convention)<br>
-&emsp;[Gcc]( #gcc)<br>
-&emsp;[Cmake](#cmake)<br>
+[1. Prerequisites](#1-prerequisites)
+* [Coding convention](#coding-convention)
+* [Gcc]( #gcc)
+* [Cmake](#cmake)
+
 [2. Run C++ files](#2-run-c-module)
 
 # 1. Prerequisites
@@ -41,7 +42,13 @@ Initial Cmake components:
 
 ```bash
 $ cmake .
-$ cmake --build . --target test_merge_sort && ./bin/test_merge_sort # Install required libraries
+$ cmake --build . --target test_merge_sort && ./bin/test_merge_sort  # Install required libraries
+```
+
+Run test in Cmake:
+```bash
+$ cmake .
+$ cmake --build . --target {test_target} && ./bin/{test_target}
 ```
 
 Run executabl in cmake:
