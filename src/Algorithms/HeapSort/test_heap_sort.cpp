@@ -2,8 +2,7 @@
 #include <gtest/gtest.h>
 #include "heap_sort.h"
 
-std::tuple<mrroot501::HeapNode<int> *, int> genTestCase() {
-    int arr[] = {9, 7, 11, 32, 45, 0, 1, 27, 28, 45, 9};
+std::tuple<mrroot501::HeapNode<int> *, int> genTestCase(int arr[]) {
     std::string expect = "";
     int n= sizeof(arr) / sizeof(int);
     mrroot501::HeapNode<int> *heapTree = new mrroot501::HeapNode<int>[n];
@@ -14,7 +13,8 @@ std::tuple<mrroot501::HeapNode<int> *, int> genTestCase() {
 }
 
 TEST(TestHeapSort, MinHeap) {
-    std::tuple<mrroot501::HeapNode<int> *, int> input = genTestCase();
+    int arr[] = {9, 7, 11, 32, 45, 0, 1, 27, 28, 45, 9};
+    std::tuple<mrroot501::HeapNode<int> *, int> input = genTestCase(arr);
     mrroot501::HeapNode<int> *heapTree = std::get<0>(input);
     int n= std::get<1>(input);
     std::string expect = "";
@@ -27,7 +27,8 @@ TEST(TestHeapSort, MinHeap) {
 }
 
 TEST(TestHeapSort, MaxHeap) {
-    std::tuple<mrroot501::HeapNode<int> *, int> input = genTestCase();
+    int arr[] = {9, 7, 11, 32, 45, 0, 1, 27, 28, 9};
+    std::tuple<mrroot501::HeapNode<int> *, int> input = genTestCase(arr);
     mrroot501::HeapNode<int> *heapTree = std::get<0>(input);
     int n= std::get<1>(input);
     std::string expect = "";
@@ -36,7 +37,7 @@ TEST(TestHeapSort, MaxHeap) {
     for (int i = 0; i < maxHeap->getSize(); i++) {
         expect += (std::to_string(maxHeap->getPointer()[i].data) + " ");
     }
-    EXPECT_EQ(expect, "0 1 7 9 9 11 27 28 32 45 45 ");
+    EXPECT_EQ(expect, "0 1 7 9 9 11 27 28 32 45 ");
 }
 
 int main(int argc, char **argv) {

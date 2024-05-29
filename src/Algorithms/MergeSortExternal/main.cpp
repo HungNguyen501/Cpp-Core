@@ -5,7 +5,7 @@
 #include "../MergeSort/merge_sort.h"
 using namespace std;
 
-string DATA_PATH = "Algorithms/MergeSortExternal/data/";
+string DATA_PATH = "src/Algorithms/MergeSortExternal/data/";
 string INPUT_FILE = DATA_PATH + "input.txt";
 string OUTPUT_FILE = DATA_PATH + "output.txt";
 string PARTITION_FILE_FORMAT = DATA_PATH + "partition=%d.txt";

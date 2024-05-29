@@ -41,18 +41,21 @@ CMake suite maintained and supported by Kitware (kitware.com/cmake).
 Initial Cmake components:
 
 ```bash
-$ cmake .
-$ cmake --build . --target test_merge_sort && ./bin/test_merge_sort  # Install required libraries
+$ make init
 ```
 
-Run test in Cmake:
+List all executable targets in Cmake:
 ```bash
-$ cmake .
-$ cmake --build . --target {test_target} && ./bin/{test_target}
+$ make list
 ```
 
-Run executabl in cmake:
+Build target in Cmake:
+```bash
+$ make build t={target}
+```
+
+Run an executable in cmake:
 
 ```bash
-$ cmake --build . --target {executable} && ./bin/{executable}
+$ make run t={target}
 ```

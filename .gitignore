@@ -3,7 +3,7 @@ __test__
 .vscode/
 main.dSYM
 main.o.dSYM
-Algorithms/MergeSortExternal/data/*.txt
+src/Algorithms/MergeSortExternal/data/*.txt
 bin/*
 !bin/dummy
 
