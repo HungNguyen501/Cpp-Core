@@ -5,7 +5,7 @@ using namespace std;
 
 TEST(TestStack, testStringType) {
     mrroot501::Stack <string> s;
-    EXPECT_EQ(s.size(), -255);
+    EXPECT_EQ(s.size(), 0);
     s.pop();
     s.push("a");
     s.push("a");
@@ -20,7 +20,7 @@ TEST(TestStack, testStringType) {
 
 TEST(TestStack, testIntType) {
     mrroot501::Stack <int> s;
-    EXPECT_EQ(s.size(), -255);
+    EXPECT_EQ(s.size(), 0);
     s.pop();
     s.push(1);
     s.push(2);
