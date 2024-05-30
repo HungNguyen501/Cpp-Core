@@ -1,0 +1,24 @@
+name: Cpp-Core
+  
+on:
+  push
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Validate ref_name
+      run: make check_ref_name REF_TYPE=${{ github.ref_type }} REF_NAME=${{ github.ref_name }}
+
+    - name: Install dependencies
+      run: make init
+
+    - name: Run tests
+      run: make test
