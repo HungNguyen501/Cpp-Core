@@ -1,5 +1,4 @@
-check_list.md
-__test__
+config/lib/*
 .vscode/
 main.dSYM
 main.o.dSYM
