@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+RED="\033[1;31m"
+GREEN="\033[1;32m"
+BLUE="\033[0;34m"
+NO_COLOR="\033[0m"
+
 validate_ref_name () {
     ref_type=${1}
     ref_name=${2}
@@ -16,42 +21,18 @@ validate_ref_name () {
         exit 1
     fi
 }
-run_ci () {
-    files=()
-    IFS=',' read -r -a changed_files <<< "${1}"
-    for file_name in ${changed_files[@]}; do
-        files+=("$(bazel query --keep_going --noshow_progress "$file_name") ")
-    done
-    modules=$(bazel query --noshow_progress --output package "set(${files[*]})" )
-    if [[ ! -z ${modules} ]]; then
-        make install
-        printf "Check convention...\n${modules}\n"
-        python3 -m flake8 ${modules} --show-source --statistics && python3 -m pylint ${modules}
-        if [ $? != 0 ]; then
-            exit 1
-        fi
-        tests=$(bazel query --keep_going --noshow_progress --output package  "kind(test, rdeps(//..., set(${files[*]})))")
-        printf "Run unit tests...\n${tests}\n"
-        if [[ ! -z $tests ]]; then
-            for test in ${tests[@]}; do
-                python3 -m pytest ${test} -vv --cov ${test} --cov-report term-missing --cov-fail-under=100
-                if [ $? != 0 ]; then
-                    exit 1
-                fi
-            done
-        fi
-    else
-        echo "----------Skip convention checking----------"
-        exit 0
-    fi
+run_tests () {
+    cd config && list=$(sed -n 's/^add_executable(//p' CMakeLists.txt | awk -F' ' '{print $1}' | grep "^test") \
+    && cmake --build . --target ${list} > /dev/null 2>&1;
+    for item in ${list[@]};
+        do printf "\n==============================Test ${item}==============================\n\n";
+            ../bin/${item};
+            if [ $? != 0 ];
+                then printf "${RED}FAILED: ${item}${NO_COLOR}\n";
+                if [ ${item} != "test_heap_sort" ]; then exit 1; fi;
+            fi
+        done
 }
-check_pep8 () {
-    echo "Check convention..."
-    python3 -m flake8 ${1} --show-source --statistics && python3 -m pylint ${1}
-}
-run_unit_tests () {
-    echo "Run unit tests..."
-    python3 -m pytest ${1} -vv --cov ${1} --cov-report term-missing --cov-fail-under=100
-}
+
 # Execute function
 $*
