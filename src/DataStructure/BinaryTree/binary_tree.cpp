@@ -61,12 +61,10 @@ public:
             // Case: node has only one child
             if (current->left == NULL) {
                 TreeNode<T>* rightFollower = current->right;
-                std::cout << "aaa\n";
                 // delete current;
                 return rightFollower;
             } else if (current->right == NULL) {
                 TreeNode<T>* leftFollower = current->left;
-                std::cout << "bbb\n";
                 // delete current;
                 return leftFollower;
             }

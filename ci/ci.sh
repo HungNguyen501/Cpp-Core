@@ -22,7 +22,7 @@ validate_ref_name () {
     fi
 }
 run_tests () {
-    cd config && list=$(sed -n 's/^add_executable(//p' CMakeLists.txt | awk -F' ' '{print $1}' | grep "^test") \
+    cd configurations/ && list=$(sed -n 's/^add_executable(//p' CMakeLists.txt | awk -F' ' '{print $1}' | grep "^test") \
     && cmake --build . --target ${list} > /dev/null 2>&1;
     for item in ${list[@]};
         do \
@@ -36,6 +36,20 @@ run_tests () {
                 if [ ${item} != "test_heap_sort" ] && [ ${item} != "test_stack" ] ; then exit 1; fi;
             fi
         done
+}
+run_ci () {
+    files=()
+    IFS=',' read -r -a changed_files <<< "${1}"
+    for file_name in ${changed_files[@]}; do
+        files+=("$(bazel query --keep_going --noshow_progress "${file_name}") ")
+    done
+    tests=$(bazel query --keep_going --noshow_progress   "kind(test, rdeps(//..., set(${files[*]}))) except attr('tags', 'manual', //...)")
+    if [[ ! -z ${tests} ]]; then
+        printf "${BLUE}Running tests...\n"; \
+        printf '%.0s-' $(seq 1 50); \
+        printf "\n${NO_COLOR}";
+        bazel test --test_output=all ${tests}
+    fi
 }
 
 # Execute function
