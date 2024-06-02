@@ -17,10 +17,6 @@ jobs:
 
     - uses: bazelbuild/setup-bazelisk@v3
 
-    - name: Install dependencies
-      id: make-install
-      run: make install
-
     - name: Get changed files
       id: changed-files
       uses: jitterbit/get-changed-files@v1
