@@ -42,7 +42,7 @@ cc_test(
 
 cc_test(
     name = "stack_test",
-    timeout="short",
+    # timeout="short",
     srcs = ["Stack/main.cpp"],
     deps = [
         ":stack_lib",

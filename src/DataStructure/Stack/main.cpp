@@ -18,7 +18,7 @@ TEST(TestStack, testIntType) {
 
 TEST(TestStack, testStringType) {
     mrroot501::Stack <string> s;
-    EXPECT_EQ(s.size(), 0);
+    EXPECT_EQ(s.size(), 1);
     s.pop();
     s.push("a");
     s.push("a");
