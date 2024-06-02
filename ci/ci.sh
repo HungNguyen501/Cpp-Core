@@ -38,7 +38,7 @@ run_cmake_tests () {
         done
 }
 run_bazel_tests () {
-    tests=$(bazel query --keep_going --noshow_progress   "kind(test, ... - //configurations/lib/...)")
+    tests=$(bazel query --keep_going --noshow_progress   "kind(test, ... - //configurations/lib/...)" 2>/dev/null)
     if [[ ! -z ${tests} ]];
     then
         printf "${GREEN}Running all tests...\n"; \
@@ -58,9 +58,9 @@ run_ci () {
     files=()
     IFS=',' read -r -a changed_files <<< "${1}"
     for file_name in ${changed_files[@]}; do
-        files+=("$(bazel query --keep_going --noshow_progress "${file_name}") ")
+        files+=("$(bazel query --keep_going --noshow_progress "${file_name}" 2>/dev/null) ")
     done
-    tests=$(bazel query --keep_going --noshow_progress   "kind(test, rdeps(//..., set(${files[*]})))")
+    tests=$(bazel query --keep_going --noshow_progress   "kind(test, rdeps(//..., set(${files[*]})))" 2>/dev/null)
     if [[ ! -z ${tests} ]];
     then
         printf "${GREEN}Running tests...\n"; \
