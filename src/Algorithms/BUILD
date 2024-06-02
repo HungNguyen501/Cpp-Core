@@ -65,6 +65,7 @@ cc_binary(
 # Tests
 cc_test(
     name = "heap_sort_test",
+    timeout="short",
     srcs = ["HeapSort/test_heap_sort.cpp"],
     deps = [
         ":heap_sort_lib",
@@ -78,6 +79,7 @@ cc_test(
 
 cc_test(
     name = "merge_sort_test",
+    timeout="short",
     srcs = ["MergeSort/test_merge_sort.cpp"],
     deps = [
         ":merge_sort_lib",
@@ -90,6 +92,7 @@ cc_test(
 
 cc_test(
     name = "quick_sort_test",
+    timeout="short",
     srcs = ["QuickSort/test_quick_sort.cpp"],
     deps = [
         ":quick_sort_lib",
@@ -101,6 +104,7 @@ cc_test(
 
 cc_test(
     name = "merge_sort_external_test",
+    timeout="short",
     srcs = ["MergeSortExternal/test_merge_sort_external.cpp"],
     deps = [
         ":merge_sort_external",

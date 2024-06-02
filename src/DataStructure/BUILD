@@ -30,6 +30,7 @@ cc_library(
 # Tests
 cc_test(
     name = "binary_tree_test",
+    timeout="short",
     srcs = ["BinaryTree/main.cpp"],
     deps = [
         ":binary_tree_lib",
@@ -41,6 +42,7 @@ cc_test(
 
 cc_test(
     name = "stack_test",
+    timeout="short",
     srcs = ["Stack/main.cpp"],
     deps = [
         ":stack_lib",

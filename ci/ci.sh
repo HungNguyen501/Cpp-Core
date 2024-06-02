@@ -45,10 +45,14 @@ run_ci () {
     done
     tests=$(bazel query --keep_going --noshow_progress   "kind(test, rdeps(//..., set(${files[*]}))) except attr('tags', 'manual', //...)")
     if [[ ! -z ${tests} ]]; then
-        printf "${BLUE}Running tests...\n"; \
+        printf "${GREEN}Running tests...\n"; \
         printf '%.0s-' $(seq 1 50); \
         printf "\n${NO_COLOR}";
-        bazel test --test_output=all ${tests}
+        bazel test --test_output=all --sandbox_debug --test_verbose_timeout_warnings ${tests}
+    else
+        printf "${BLUE}Skipped tests\n"; \
+        printf '%.0s-' $(seq 1 50); \
+        printf "\n${NO_COLOR}";
     fi
 }
 
