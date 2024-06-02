@@ -46,7 +46,7 @@ run_bazel_tests () {
         printf "\n${NO_COLOR}";
         bazel test --test_output=all \
             --test_verbose_timeout_warnings \
-            --incompatible_sandbox_hermetic_tmp \
+            --sandbox_add_mount_pair=/tmp \
             ${tests}
     else
         printf "${BLUE}No tests found\n"; \
@@ -69,7 +69,7 @@ run_ci () {
         bazel test --test_output=all \
             --test_arg=-test.v \
             --test_verbose_timeout_warnings \
-            --incompatible_sandbox_hermetic_tmp \
+            --sandbox_add_mount_pair=/tmp \
             ${tests}
     else
         printf "${BLUE}No tests found\n"; \
