@@ -53,11 +53,9 @@ run_bazel_tests () {
         printf '%.0s-' $(seq 1 50); \
         printf "\n${NO_COLOR}";
     fi
-    echo "++++++++++++++++++++"
-    cat /home/runner/.cache/bazel/_bazel_runner/ecf5e8a03863f6a1e34be666f35a4cad/execroot/_main/bazel-out/k8-fastbuild/testlogs/src/DataStructure/stack_test/test.log
-    echo "++++++++++++++++++++"
 }
 run_ci () {
+    bazel --version
     files=()
     IFS=',' read -r -a changed_files <<< "${1}"
     for file_name in ${changed_files[@]}; do
@@ -79,9 +77,6 @@ run_ci () {
         printf '%.0s-' $(seq 1 50); \
         printf "\n${NO_COLOR}";
     fi
-    echo "++++++++++++++++++++"
-    cat /home/runner/.cache/bazel/_bazel_runner/ecf5e8a03863f6a1e34be666f35a4cad/execroot/_main/bazel-out/k8-fastbuild/testlogs/src/DataStructure/stack_test/test.log
-    echo "++++++++++++++++++++"
 }
 
 # Execute function
