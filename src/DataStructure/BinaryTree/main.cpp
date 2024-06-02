@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include "binary_tree.h"
 #include <gtest/gtest.h>
 using namespace std;
@@ -15,22 +14,18 @@ using namespace std;
 */
 
 TEST(TestBinaryTree, tc1) {
-    ifstream input;
-    int n;
-    int data;
-    input.open("DataStructure/BinaryTree/input.txt");
-    input >> n >> data;
-    mrroot501::BinaryTree<int> btree(data);
-    for (int i = 0; i < n - 1; i++) {
-        input >> data;
-        btree.root = btree.insert(btree.root, data);
+    int input[] = {7, 3, 5, 2, 1, 4, 6, 7};
+    int n = input[0];
+    mrroot501::BinaryTree<int> btree(input[1]);
+    for (int i = 2; i <= n; i++) {
+        btree.root = btree.insert(btree.root, input[i]);
     }
     EXPECT_EQ(btree.getHeight(btree.root), 4);
-    // EXPECT_EQ(btree.find(btree.root, 6)->data, 6);
-    // EXPECT_EQ(btree.getHeight(btree.root), 4);
+    EXPECT_EQ(btree.find(btree.root, 6)->data, 6);
     // btree.levelOrder();
-    // mrroot501::TreeNode<int>* temp = btree.deleteNode(btree.root, 5);
+    btree.deleteNode(btree.root, 6);
     // btree.levelOrder();
+    EXPECT_EQ(btree.getHeight(btree.root), 3);
 }
 
 int main(int argc, char **argv) {

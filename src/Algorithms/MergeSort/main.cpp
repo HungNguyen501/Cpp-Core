@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <tuple>
 #include "merge_sort.h"
 using namespace std;
@@ -15,24 +14,31 @@ using namespace std;
 */
 
 int main() {
-    ifstream read;
-    read.open("./input.txt");
-
-    int testcase;
-    read >> testcase;
+    int input[] = {
+        3,
+        5,
+        1, 1, 1, 2, 2,
+        5,
+        2, 1, 3, 1, 2,
+        10,
+        816783332, 961989300, 1897270484, 1587833932, 2093097502, 760094607, 1677327493, 825340682, 903966401, 1663982729
+    };
+    int t = 0;
+    int testcase = input[t];
+    t++;
     for (int tc = 0; tc < testcase; tc++) {
-        int n;
+        int n = input[t];
+        t++;
         int *a = new int[100009];
-        read >> n;
-        for (int i = 0; i < n; i++)
-            read >> a[i];
+        for (int i = 0; i < n; i++) {
+            a[i] = input[t];
+            t++;
+        }
         mrroot501::mergeSort(a, 0, n - 1);
-        
         for (int i = 0; i < n; i++) {
             cout << a[i] << " ";
         }
-        cout << endl;
+        cout << "\n";
     }
-    
     return 0;
 }

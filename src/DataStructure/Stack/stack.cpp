@@ -29,8 +29,7 @@ public:
     }
     void pop();
     bool isEmpty() {
-        if (pointer == -1) return true;
-        return false;
+        return (pointer == -1);
     }
     int size() {
         return this->pointer + 1;
@@ -45,7 +44,7 @@ public:
 };
 
 template<> void Stack<int>::pop() {
-    if (this->pointer == -1) {
+    if (this->isEmpty()) {
         std::cout << "Cannot pop an element from stack beacause it is empty\n";
         return;
     }
@@ -55,7 +54,7 @@ template<> void Stack<int>::pop() {
 
 template <>
 void Stack<std::string>::pop() {
-    if (this->pointer == -1) {
+    if (this->isEmpty()) {
         std::cout << "Cannot pop an element from stack beacause it is empty\n";
         return;
     }

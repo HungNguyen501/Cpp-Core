@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "../HeapSort/heap_sort.h"
 #include "../MergeSort/merge_sort.h"
+#include "../HeapSort/heap_sort.h"
 using namespace std;
 
 string DATA_PATH = "src/Algorithms/MergeSortExternal/data/";

@@ -26,9 +26,6 @@ public:
     HeapNode<T> *pointer;
     int size;
     virtual void heapify(int n, int rootElement) = 0;
-    HeapNode<T> getRoot() {
-        return pointer[0];
-    }
     void heapSort() {
         for (int i = this->size - 1; i >= 0; i--) {
             std::swap(this->pointer[0], this->pointer[i]); // Move root node of heap tree to right side of array as an elemination
@@ -61,6 +58,9 @@ public:
     HeapNode<T> *getPointer() {
         return this->pointer;
     }
+    HeapNode<T> getRoot() {
+        return this->pointer[0];
+    }
     void heapify(int n, int rootElementIndex) {
         int largestElementIndex = rootElementIndex;
         int leftChildIndex = 2 * rootElementIndex + 1;
@@ -91,6 +91,9 @@ public:
         for (int i = this->size / 2 - 1; i >= 0; i--) {
             heapify(this->size, i);
         }
+    }
+    HeapNode<T> getRoot() {
+        return this->pointer[0];
     }
     int getSize() {
         return this->size;

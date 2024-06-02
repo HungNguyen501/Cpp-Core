@@ -38,10 +38,10 @@ CMake suite maintained and supported by Kitware (kitware.com/cmake).
 
 
 # 2. Run C++ module
-Initial Cmake components:
+Install Cmake components:
 
 ```bash
-$ make init
+$ make install
 ```
 
 List all executable targets in Cmake:

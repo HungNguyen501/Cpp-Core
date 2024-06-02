@@ -23,6 +23,7 @@ public:
     MaxHeap(HeapNode<T> arr[], int size);
     int getSize();
     HeapNode<T> *getPointer();
+    HeapNode<T> getRoot();
     void heapify(int n, int rootElementIndex);
 };
 
@@ -32,6 +33,7 @@ public:
     MinHeap(HeapNode<T> arr[], int size);
     int getSize();
     HeapNode<T> *getPointer();
+    HeapNode<T> getRoot();
     void heapify(int n, int rootElementIndex);
 };
 
