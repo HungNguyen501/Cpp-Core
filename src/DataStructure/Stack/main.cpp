@@ -12,6 +12,7 @@ TEST(TestStack, testIntType) {
     s.push(3);
     s.pop();
     cout << "size=" << s.size() << "\n";
+    EXPECT_EQ(int(s.size()), 2);
     s.printStack();
     EXPECT_EQ(0, 0);
 }
