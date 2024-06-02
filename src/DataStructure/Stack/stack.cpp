@@ -10,12 +10,12 @@ private:
     int pointer;
 public:
     Stack() {
-        this->pointer = -1;
+        this->pointer = 0;
         this->space = 1000;
         this->stack = new T[1000];
     }
     Stack(int space) {
-        this->pointer = -1;
+        this->pointer = 0;
         this->space = space;
         this->stack = new T[space];
     }
@@ -24,20 +24,18 @@ public:
             std::cout << "Cannot add an element from stack beacause it's space is full\n";
             return;
         }
-        this->pointer++;
         this->stack[pointer] = value;
+        this->pointer++;
     }
     void pop();
     bool isEmpty() {
-        if (pointer == -1) return true;
-        return false;
+        return (this->size() == 0);
     }
     int size() {
-        if (this->pointer == -1) return 0;
-        return this->pointer + 1;
+        return this->pointer;
     }
     void printStack() {
-        for (int i = 0; i <= this->pointer; i++) {
+        for (int i = 0; i < this->pointer; i++) {
             std::cout << this->stack[i] << " ";
         }
         std::cout << "\n";
@@ -46,22 +44,22 @@ public:
 };
 
 template<> void Stack<int>::pop() {
-    if (this->pointer == -1) {
+    if (this->isEmpty()) {
         std::cout << "Cannot pop an element from stack beacause it is empty\n";
         return;
     }
-    this->stack[pointer] = 0;
     this->pointer--;
+    this->stack[pointer] = 0;
 };
 
 template <>
 void Stack<std::string>::pop() {
-    if (this->pointer == -1) {
+    if (this->isEmpty()) {
         std::cout << "Cannot pop an element from stack beacause it is empty\n";
         return;
     }
-    this->stack[pointer] = "";
     this->pointer--;
+    this->stack[pointer] = "";
 }
 
 template class Stack<std::string>;
