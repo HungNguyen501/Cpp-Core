@@ -55,7 +55,6 @@ run_bazel_tests () {
     fi
 }
 run_ci () {
-    bazel --version
     files=()
     IFS=',' read -r -a changed_files <<< "${1}"
     for file_name in ${changed_files[@]}; do

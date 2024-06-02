@@ -13,6 +13,7 @@ check_ref_name:
 install:
 	@cd configurations/ && cmake .
 	@cd configurations/ && cmake --build . --target hello_world && ../bin/hello_world
+	@bazel --version
 
 clean:
 	@cmake --build configurations/ --target clean
