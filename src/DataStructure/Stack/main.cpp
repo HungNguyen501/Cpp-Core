@@ -6,7 +6,9 @@ using namespace std;
 TEST(TestStack, testIntType) {
     mrroot501::Stack <int> tc1;
     cout << "size=" << tc1.size() << "\n";
-    EXPECT_EQ(tc1.size(), 0);
+    int actual = tc1.size();
+    cout << "size=" << actual << "\n";
+    EXPECT_EQ(actual, 0);
     tc1.pop();
     tc1.push(1);
     tc1.push(2);
