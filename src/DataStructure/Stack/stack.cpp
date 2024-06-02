@@ -33,6 +33,7 @@ public:
         return false;
     }
     int size() {
+        if (this->pointer == -1) return 0;
         return this->pointer + 1;
     }
     void printStack() {
