@@ -10,7 +10,7 @@ NO_COLOR := \033[0m
 check_ref_name:
 	@bash $(CiScript) validate_ref_name $(REF_TYPE) $(REF_NAME)
 
-init:
+install:
 	@cd configurations/ && cmake .
 	@cd configurations/ && cmake --build . --target hello_world && ../bin/hello_world
 
@@ -28,8 +28,12 @@ list:
 	@echo "---------------------------"
 	@sed -n 's/^add_executable(//p' configurations/CMakeLists.txt | awk -F' ' '{print $$1}'
 
-test:
+cmake_test:
 	@bash $(CiScript) run_tests
+
+test:
+	@bash $(CiScript) run_bazel_tests
+	@bazel clean --async
 
 run_ci:
 	@bash $(CiScript) run_ci $(CHANGES)

@@ -7,8 +7,8 @@ package(default_visibility = ["//visibility:public"])
 cc_test(
     name = "extra_long_factorial_test",
     timeout="short",
+    srcs = ["ExtraLongFactorial/main.cpp"],
     deps = [
-        ":extra_long_factorial",
         "@gtest",
         "@gtest//:gtest_main",
     ],
