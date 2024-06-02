@@ -45,9 +45,7 @@ run_bazel_tests () {
         printf '%.0s-' $(seq 1 50); \
         printf "\n${NO_COLOR}";
         bazel test --test_output=all \
-            --sandbox_debug \
             --test_verbose_timeout_warnings \
-            --verbose_failures \
             --noincompatible_sandbox_hermetic_tmp \
             ${tests}
     else
@@ -68,7 +66,10 @@ run_ci () {
         printf "${GREEN}Running tests...\n"; \
         printf '%.0s-' $(seq 1 50); \
         printf "\n${NO_COLOR}";
-        bazel test --test_output=all --sandbox_debug --test_verbose_timeout_warnings --noincompatible_sandbox_hermetic_tmp ${tests}
+        bazel test --test_output=all \
+            --test_verbose_timeout_warnings \
+            --noincompatible_sandbox_hermetic_tmp \
+            ${tests}
     else
         printf "${BLUE}No tests found\n"; \
         printf '%.0s-' $(seq 1 50); \
