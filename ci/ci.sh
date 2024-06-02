@@ -67,6 +67,7 @@ run_ci () {
         printf '%.0s-' $(seq 1 50); \
         printf "\n${NO_COLOR}";
         bazel test --test_output=all \
+            --test_arg=-test.v \
             --test_verbose_timeout_warnings \
             --noincompatible_sandbox_hermetic_tmp \
             ${tests}
