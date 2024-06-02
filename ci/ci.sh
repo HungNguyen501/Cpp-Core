@@ -71,7 +71,9 @@ run_ci () {
             --test_verbose_timeout_warnings \
             --noincompatible_sandbox_hermetic_tmp \
             ${tests}
+        echo "++++++++++++++++++++"
         cat /home/runner/.cache/bazel/_bazel_runner/ecf5e8a03863f6a1e34be666f35a4cad/execroot/_main/bazel-out/k8-fastbuild/testlogs/src/DataStructure/stack_test/test.log
+        echo "++++++++++++++++++++"
     else
         printf "${BLUE}No tests found\n"; \
         printf '%.0s-' $(seq 1 50); \
