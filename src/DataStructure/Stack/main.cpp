@@ -10,6 +10,10 @@ TEST(TestStack, testIntType) {
     s.push(1);
     s.push(2);
     s.push(3);
+    s.push(3);
+    s.push(3);
+    s.push(3);
+    s.push(3);
     EXPECT_EQ(s.size(), 3);
     s.pop();
     EXPECT_EQ(s.size(), 2);
