@@ -16,6 +16,12 @@ cc_library(
     hdrs = ["Stack/stack.h"],
 )
 
+cc_library(
+    name = "queue_lib",
+    srcs = ["Queue/queue.cpp"],
+    hdrs = ["Queue/queue.h"],
+)
+
 # Excutable binaries
 # cc_binary(
 #     name = "binary_tree",
@@ -46,6 +52,16 @@ cc_test(
     srcs = ["Stack/main.cpp"],
     deps = [
         ":stack_lib",
+        "@gtest",
+        "@gtest//:gtest_main",
+    ],
+)
+cc_test(
+    name = "queue_test",
+    timeout="short",
+    srcs = ["Queue/queue_test.cpp"],
+    deps = [
+        ":queue_lib",
         "@gtest",
         "@gtest//:gtest_main",
     ],

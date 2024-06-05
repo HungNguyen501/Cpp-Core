@@ -36,6 +36,7 @@ find_package(Threads REQUIRED)
 add_library(binary_tree ${SRC_PATH}/DataStructure/BinaryTree/binary_tree.cpp)
 add_library(linked_list ${SRC_PATH}/DataStructure/LinkedList/linked_list.cpp)
 add_library(mrroot501_hash_table ${SRC_PATH}/DataStructure/HashTable/mrroot501_hash_table.cpp)
+add_library(queue ${SRC_PATH}/DataStructure/Queue/queue.cpp)
 add_library(segment_tree ${SRC_PATH}/DataStructure/SegmentTree/segment_tree.cpp)
 add_library(stack ${SRC_PATH}/DataStructure/Stack/stack.cpp)
 
@@ -67,6 +68,9 @@ target_link_libraries(linked_list_main linked_list)
 
 add_executable(quick_sort_main ${SRC_PATH}/Algorithms/QuickSort/main.cpp)
 target_link_libraries(quick_sort_main quick_sort)
+
+add_executable(queue_main ${SRC_PATH}/DataStructure/Queue/main.cpp)
+target_link_libraries(queue_main queue)
 
 
 # Add targets for testing

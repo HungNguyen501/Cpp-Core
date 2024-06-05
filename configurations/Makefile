@@ -169,6 +169,19 @@ mrroot501_hash_table/fast:
 .PHONY : mrroot501_hash_table/fast
 
 #=============================================================================
+# Target rules for targets named queue
+
+# Build rule for target.
+queue: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 queue
+.PHONY : queue
+
+# fast build rule for target.
+queue/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/queue.dir/build.make CMakeFiles/queue.dir/build
+.PHONY : queue/fast
+
+#=============================================================================
 # Target rules for targets named segment_tree
 
 # Build rule for target.
@@ -336,6 +349,19 @@ quick_sort_main: cmake_check_build_system
 quick_sort_main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/quick_sort_main.dir/build.make CMakeFiles/quick_sort_main.dir/build
 .PHONY : quick_sort_main/fast
+
+#=============================================================================
+# Target rules for targets named queue_main
+
+# Build rule for target.
+queue_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 queue_main
+.PHONY : queue_main
+
+# fast build rule for target.
+queue_main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/queue_main.dir/build.make CMakeFiles/queue_main.dir/build
+.PHONY : queue_main/fast
 
 #=============================================================================
 # Target rules for targets named test_extra_long_factorial
@@ -777,6 +803,54 @@ Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/linked_list_main.dir/build.make CMakeFiles/linked_list_main.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.cpp.s
 .PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.cpp.s
 
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.o: Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.cpp.o
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.o
+
+# target to build an object file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/queue_main.dir/build.make CMakeFiles/queue_main.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.cpp.o
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.cpp.o
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.i: Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.cpp.i
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.i
+
+# target to preprocess a source file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/queue_main.dir/build.make CMakeFiles/queue_main.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.cpp.i
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.cpp.i
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.s: Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.cpp.s
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.s
+
+# target to generate assembly for a file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/queue_main.dir/build.make CMakeFiles/queue_main.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.cpp.s
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.cpp.s
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.o: Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.cpp.o
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.o
+
+# target to build an object file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/queue.dir/build.make CMakeFiles/queue.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.cpp.o
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.cpp.o
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.i: Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.cpp.i
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.i
+
+# target to preprocess a source file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/queue.dir/build.make CMakeFiles/queue.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.cpp.i
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.cpp.i
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.s: Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.cpp.s
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.s
+
+# target to generate assembly for a file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/queue.dir/build.make CMakeFiles/queue.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.cpp.s
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.cpp.s
+
 Users/lap14443/Projects/Cpp-Core/src/DataStructure/SegmentTree/main.o: Users/lap14443/Projects/Cpp-Core/src/DataStructure/SegmentTree/main.cpp.o
 .PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/SegmentTree/main.o
 
@@ -1016,6 +1090,8 @@ help:
 	@echo "... merge_sort_external_main"
 	@echo "... mrroot501_hash_table"
 	@echo "... mrroot501_hash_table_main"
+	@echo "... queue"
+	@echo "... queue_main"
 	@echo "... quick_sort"
 	@echo "... quick_sort_main"
 	@echo "... segment_tree"
@@ -1071,6 +1147,12 @@ help:
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.o"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.i"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.s"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.o"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.i"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.s"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.o"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.i"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.s"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/SegmentTree/main.o"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/SegmentTree/main.i"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/SegmentTree/main.s"

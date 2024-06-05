@@ -22,7 +22,7 @@ build:
 	@cd configurations/ && cmake --build . --target $(t)
 
 run:
-	@./bin/$(t)
+	@cd configurations/ && cmake --build . --target $(t) 1>/dev/null && ../bin/$(t)
 
 list:
 	@echo "List of executable targets:"

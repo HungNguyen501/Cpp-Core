@@ -55,26 +55,30 @@ run_bazel_tests () {
     fi
 }
 run_ci () {
+    if [[ -z ${1} ]];
+    then
+        printf "${RED}Input(CHANGES) is empty.${NO_COLOR}\n";
+        return 0
+    fi
     files=()
     IFS=',' read -r -a changed_files <<< "${1}"
     for file_name in ${changed_files[@]}; do
         files+=("$(bazel query --keep_going --noshow_progress "${file_name}" 2>/dev/null) ")
     done
-    tests=$(bazel query --keep_going --noshow_progress   "kind(test, rdeps(//..., set(${files[*]})))" 2>/dev/null)
+    tests=$(bazel query --keep_going --noshow_progress "kind(test, rdeps(//..., set(${files[*]})))" 2>/dev/null)
     if [[ ! -z ${tests} ]];
     then
         printf "${GREEN}Running tests...\n"; \
         printf '%.0s-' $(seq 1 50); \
-        printf "\n${NO_COLOR}";
+        printf "${NO_COLOR}\n";
         bazel test --test_output=all \
-            --test_arg=-test.v \
             --test_verbose_timeout_warnings \
             --noincompatible_sandbox_hermetic_tmp \
             ${tests}
     else
         printf "${BLUE}No tests found\n"; \
         printf '%.0s-' $(seq 1 50); \
-        printf "\n${NO_COLOR}";
+        printf "${NO_COLOR}\n";
     fi
 }
 
