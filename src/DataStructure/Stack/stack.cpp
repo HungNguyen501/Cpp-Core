@@ -4,11 +4,10 @@ namespace mrroot501 {
 
 template <typename T>
 class Stack{
-private:
+public:
     T* stack;
     int space;
     int pointer;
-public:
     Stack() {
         this->pointer = -1;
         this->space = 1000;

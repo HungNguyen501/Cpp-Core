@@ -5,15 +5,14 @@ using namespace std;
 
 TEST(TestStack, testIntType) {
     mrroot501::Stack <int> tc1;
-    cout << "size=" << tc1.size() << "\n";
+    EXPECT_EQ(tc1.size(), 0);
     tc1.pop();
     tc1.push(1);
     tc1.push(2);
     tc1.push(3);
     tc1.pop();
-    cout << "size=" << tc1.size() << "\n";
+    EXPECT_EQ(tc1.size(), 2);
     tc1.printStack();
-    EXPECT_EQ(0, 0);
 }
 
 int main(int argc, char **argv) {

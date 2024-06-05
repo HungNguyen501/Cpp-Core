@@ -4,10 +4,10 @@ namespace mrroot501 {
 
 template <typename T>
 class Mrroot501Queue {
-private:
-    unsigned int capacity, size, head, tail;
-    T *arr;
 public:
+    unsigned int capacity, size;
+    int head, tail;
+    T *arr;
     Mrroot501Queue(unsigned int capacity) {
         this->capacity = capacity;
         this->head = this->tail = this->size = 0;

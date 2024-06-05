@@ -15,10 +15,10 @@ validate_ref_name () {
         };
     then
         echo "Branch name is qualified: ${ref_name}"
-        exit 0
+        return 0
     else
         echo "Branch name is denied: ${ref_name}. It should be started with [feature/]"
-        exit 1
+        return 1
     fi
 }
 run_cmake_tests () {
@@ -33,7 +33,7 @@ run_cmake_tests () {
             ../bin/${item};
             if [ $? != 0 ];
                 then printf "${RED}FAILED: ${item}${NO_COLOR}\n";
-                if [ ${item} != "test_heap_sort" ] && [ ${item} != "test_stack" ] ; then exit 1; fi;
+                if [ ${item} != "test_heap_sort" ] && [ ${item} != "test_stack" ] ; then return 1; fi;
             fi
         done
 }
