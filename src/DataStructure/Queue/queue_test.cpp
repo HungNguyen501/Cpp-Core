@@ -6,14 +6,14 @@ using namespace std;
 TEST(TestQueue, tc1) {
     mrroot501::Mrroot501Queue<int> int_q(1);
     EXPECT_EQ(int_q.dequeue(), -1);
-    // EXPECT_EQ(int_q.isEmpty(), true);
+    EXPECT_EQ(int_q.isEmpty(), true);
     int_q.enqueue(1);
     int_q.enqueue(2);
     int_q.enqueue(3);
     EXPECT_EQ(int_q.print(), "1 ");
     EXPECT_EQ(int_q.isEmpty(), false);
-    // EXPECT_EQ(int_q.dequeue(), 1);
-    // EXPECT_EQ(int_q.isEmpty(), true);
+    EXPECT_EQ(int_q.dequeue(), 1);
+    EXPECT_EQ(int_q.isEmpty(), true);
 }
 
 TEST(TestQueue, tc2) {
