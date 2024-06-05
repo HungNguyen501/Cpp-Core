@@ -4,20 +4,17 @@
 using namespace std;	
 
 int main() {
-    ifstream read;
-    read.open("DataStructure/LinkedList/input.txt");
-
-	mrroot501::Node<int>* head=NULL;
-  	mrroot501::LinkedList<int> mylist;
-    int T,data;
-    read >> T;
-    while(T-->0){
-        read >> data;
-        head=mylist.insert(head,data);
+    int input[] = {4, 2, 3, 4, 1};
+    int tc = 0;
+    int n = input[tc++];
+  	mrroot501::LinkedList<int> mylist(mrroot501::Node<int>(10));
+    while(n-- > 0){
+        mrroot501::Node<int> node(input[tc++]);
+        mylist.append(node);
     }	
-	mylist.display(head);
+	// mylist.show();
 
-    mrroot501::Node<int> *reverseNode = mylist.reverse(head);
-    mylist.display(reverseNode);
+    // mrroot501::Node<int> *reverseNode = mylist.reverse(head);
+    // mylist.display(reverseNode);
     return 0;
 }

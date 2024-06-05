@@ -14,10 +14,11 @@ public:
 template<typename T>
 class LinkedList {
 public:
-    Node<T>* insert(Node<T> *head, T data);
-    Node<T>* reverse(Node<T>* node);
-    void del(Node<T> *head, T data);
-    void display(Node<T> *head);
+    LinkedList(Node<T> node);
+    void append(Node<T> node);
+    // void reverse();
+    // void del(Node<T> *head, T data);
+    void show();
 };
 
 } // namespace mrroot501
