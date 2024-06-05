@@ -5,7 +5,8 @@ namespace mrroot501 {
 template <typename T>
 class Mrroot501Queue {
 private:
-    unsigned int capacity, size, head, tail;
+    unsigned int capacity, size;
+    int head, tail;
     T *arr;
 public:
     Mrroot501Queue(unsigned int capacity) {
