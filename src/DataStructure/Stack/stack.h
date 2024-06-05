@@ -5,6 +5,9 @@ namespace mrroot501 {
 
 template <typename T> class Stack{
 public:
+    T* stack;
+    int space;
+    int pointer;
     Stack();
     Stack(int size);
     void push(T value);
