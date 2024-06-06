@@ -34,7 +34,7 @@ jobs:
     - name: Run all tests
       id: run-all-tests
       run: |
-        if [ ${{ github.event.head_commit.message }} == "[run-all-tests]" ];
+        if [ "${{ github.event.head_commit.message }}" == "[run-all-tests]" ];
         then
           make test
         fi
