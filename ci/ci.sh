@@ -45,7 +45,6 @@ run_bazel_tests () {
         printf '%.0s-' $(seq 1 50); \
         printf "\n${NO_COLOR}";
         bazel test --test_output=all \
-            --test_arg=--verbose \
             --test_verbose_timeout_warnings \
             --noincompatible_sandbox_hermetic_tmp \
             ${tests}
@@ -73,7 +72,6 @@ run_ci () {
         printf '%.0s-' $(seq 1 50); \
         printf "${NO_COLOR}\n";
         bazel test --test_output=all \
-            --test_arg=--verbose \
             --test_verbose_timeout_warnings \
             --noincompatible_sandbox_hermetic_tmp \
             ${tests}
@@ -82,7 +80,6 @@ run_ci () {
         printf '%.0s-' $(seq 1 50); \
         printf "${NO_COLOR}\n";
     fi
-    cat /home/runner/.cache/bazel/_bazel_runner/ecf5e8a03863f6a1e34be666f35a4cad/execroot/_main/bazel-out/k8-fastbuild/testlogs/src/DataStructure/doubly_linked_list_test/test.log
 }
 
 # Execute function

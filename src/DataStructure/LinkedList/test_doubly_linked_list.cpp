@@ -27,6 +27,19 @@ TEST(TestDoublyLinkedList, testStringType) {
     EXPECT_EQ(my_list.print(), "b c d e f g h ");
 }
 
+TEST(TestDoublyLinkedList, testLLWithOneElement) {
+    string str_input[] = {"a"};
+    mrroot501::DoublyLinkedList<string> my_list = mrroot501::DoublyLinkedList<string>();
+    for (int i = 0; i < 1; i++) {
+        mrroot501::DLLNode<string> *node = new mrroot501::DLLNode<string>(str_input[i]);
+        my_list.append(node);
+    }
+    my_list.remove("b");
+    EXPECT_EQ(my_list.print(), "a ");
+    my_list.remove("a");
+    EXPECT_EQ(my_list.print(), "");
+}
+
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
