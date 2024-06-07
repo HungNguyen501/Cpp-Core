@@ -38,8 +38,7 @@ test:
 	@bazel clean --async
 
 run_ci:
-	@bash $(CiScript) run_ci $(CHANGES)
-	@bazel clean --async
+	@bash $(CiScript) run_ci $(CHANGES); bazel clean --async
 
 .PHONY: help
 all: help

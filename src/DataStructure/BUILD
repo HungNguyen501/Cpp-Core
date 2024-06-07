@@ -22,6 +22,12 @@ cc_library(
     hdrs = ["Queue/queue.h"],
 )
 
+cc_library(
+    name = "doubly_linked_list_lib",
+    srcs = ["LinkedList/doubly_linked_list.cpp", "LinkedList/ll_node.cpp"],
+    hdrs = ["LinkedList/doubly_linked_list.h", "LinkedList/ll_node.h"],
+)
+
 # Excutable binaries
 # cc_binary(
 #     name = "binary_tree",
@@ -56,12 +62,24 @@ cc_test(
         "@gtest//:gtest_main",
     ],
 )
+
 cc_test(
     name = "queue_test",
     timeout="short",
     srcs = ["Queue/queue_test.cpp"],
     deps = [
         ":queue_lib",
+        "@gtest",
+        "@gtest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "doubly_linked_list_test",
+    timeout="short",
+    srcs = ["LinkedList/test_doubly_linked_list.cpp"],
+    deps = [
+        ":doubly_linked_list_lib",
         "@gtest",
         "@gtest//:gtest_main",
     ],
