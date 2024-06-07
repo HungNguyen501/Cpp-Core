@@ -17,13 +17,20 @@ def fetch_deps():
     Bazel will only lazy-download the ones needed for requested targets.
     """
     http_archive(
-    name = "aspect_gcc_toolchain",
-    sha256 = "3341394b1376fb96a87ac3ca01c582f7f18e7dc5e16e8cf40880a31dd7ac0e1e",
-    strip_prefix = "gcc-toolchain-0.4.2",
-    urls = [
-        "https://github.com/aspect-build/gcc-toolchain/archive/refs/tags/0.4.2.tar.gz",
-    ],
-)
+        name = "aspect_gcc_toolchain",
+        sha256 = "3341394b1376fb96a87ac3ca01c582f7f18e7dc5e16e8cf40880a31dd7ac0e1e",
+        strip_prefix = "gcc-toolchain-0.4.2",
+        urls = [
+            "https://github.com/aspect-build/gcc-toolchain/archive/refs/tags/0.4.2.tar.gz",
+        ],
+    )
+
+    http_archive(
+        name = "catch2",
+        url = "https://github.com/catchorg/Catch2/archive/refs/tags/v3.4.0.zip",
+        sha256 = "cd175f5b7e62c29558d4c17d2b94325ee0ab6d0bf1a4b3d61bc8dbcc688ea3c2",
+        strip_prefix = "Catch2-3.4.0",
+    )
 
     http_archive(
         name = "gtest",
