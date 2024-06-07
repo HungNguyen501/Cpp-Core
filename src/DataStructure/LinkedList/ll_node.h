@@ -6,6 +6,8 @@ namespace mrroot501 {
 template<typename T>
 class LLNode {
 public:
+    T data;
+    LLNode *next;
     LLNode();
     LLNode(T d);
 };
@@ -17,15 +19,6 @@ public:
     DLLNode *next, *prev;
     DLLNode();
     DLLNode(T d);
-};
-
-template<typename T>
-class SLLNode {
-public:
-    T data;
-    SLLNode *next;
-    SLLNode();
-    SLLNode(T d);
 };
 
 } // namespace mrroot501

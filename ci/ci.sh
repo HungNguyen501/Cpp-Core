@@ -80,6 +80,7 @@ run_ci () {
         printf '%.0s-' $(seq 1 50); \
         printf "${NO_COLOR}\n";
     fi
+    cat /home/runner/.cache/bazel/_bazel_runner/ecf5e8a03863f6a1e34be666f35a4cad/execroot/_main/bazel-out/k8-fastbuild/testlogs/src/DataStructure/doubly_linked_list_test/test.log
 }
 
 # Execute function
