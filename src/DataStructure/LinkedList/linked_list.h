@@ -1,23 +1,20 @@
 #ifndef _LINKED_LIST_H_
 #define _LINKED_LIST_H_
 
-namespace mrroot501 {
+#include "ll_node.h"
 
-template<typename T>
-class Node {
-public:
-    T data;
-    Node *next;
-    Node(T d);
-};
+namespace mrroot501 {
 
 template<typename T>
 class LinkedList {
 public:
-    Node<T>* insert(Node<T> *head, T data);
-    Node<T>* reverse(Node<T>* node);
-    void del(Node<T> *head, T data);
-    void display(Node<T> *head);
+    LLNode<T> *head;
+    LinkedList();
+    LinkedList(T data);
+    void append(LLNode<T> *node);
+    void reverse();
+    void remove(T data);
+    std::string print();
 };
 
 } // namespace mrroot501

@@ -1,72 +1,81 @@
 #include <iostream>
+#include "ll_node.h"
 
 namespace mrroot501 {
 
 template<typename T>
-class Node {
-public:
-    T data;
-    Node *next;
-    Node(T d) {
-        data=d;
-        next=NULL;
-    }
-};
-
-template<typename T>
 class LinkedList {
 public:
-    Node<T>* insert(Node<T> *head, T data) {
-        if (head == NULL) {
-            return new Node<T>(data);
-        } else {
-            Node<T> *cur = insert(head->next, data);
-            head->next = cur;
-            return head;
-        }
+    LLNode<T> *head;
+    LinkedList();
+    LinkedList(T data) {
+        this->head = new LLNode<T>(data);
     }
-
-    Node<T>* reverse(Node<T>* node) {
-        Node<T>* cur = node;
-        Node<T>* prev = NULL;
-        while(cur) {
-            Node<T>* nextNode = cur->next;
-            cur->next = prev;
-            prev = cur;
-            cur = nextNode;
+    void append(LLNode<T> *node) {
+        LLNode<T> *cur_node = this->head;
+        while (cur_node->next != NULL) {
+            cur_node = cur_node->next;
         }
-        return prev;
+        cur_node->next = node;
     }
-
-    void del(Node<T> *head, T data) {
-        if (head->data == data) {
-            head = head->next;
-            return;
+    void reverse() {
+        LLNode<T> *cur_node = this->head->next;
+        LLNode<T> *prev_node = NULL;
+        while(cur_node) {
+            LLNode<T> *next_node = cur_node->next;
+            cur_node->next = prev_node;
+            prev_node = cur_node;
+            cur_node = next_node;
         }
-        Node<T> *r = head->next;
-        Node<T> *last_node = head;
-        while (r) {
-            if (r->data == data) {
-                last_node->next = r->next;
-                r = nullptr;
-                return;
+        this->head->next = prev_node;
+    }
+    void remove(T data) {
+        LLNode<T> *cur_node = this->head->next;
+        LLNode<T> *prev_node = this->head;
+        while (cur_node) {
+            if (cur_node->data == data) {
+                LLNode<T> *next_node = cur_node->next;
+                prev_node->next = next_node;
+                delete cur_node;
+                cur_node = next_node;
+                continue;
             }
-            last_node = r;
-            r = r->next;
+            prev_node = cur_node;
+            cur_node = cur_node->next;
         }
     }
-
-    void display(Node<T> *head) {
-        Node<T> *start=head;
-        while(start) {
-            std::cout<<start->data<<" ";
-            start=start->next;
-        }
-        std::cout << std::endl;
-    }
+    std::string print();
 };
 
-template class Node<int>;
 template class LinkedList<int>;
+template class LinkedList<std::string>;
+
+template <> LinkedList<int>::LinkedList() {
+    this->head = new LLNode<int>();
+}
+
+template <> LinkedList<std::string>::LinkedList() {
+    this->head = new LLNode<std::string>();
+}
+
+template <> std::string LinkedList<int>::print()  {
+    std::string result = "";
+    LLNode<int> *node = this->head->next;
+    while(node) {
+        result += (std::to_string(node->data) + " ");
+        node = node->next;
+    }
+    return result;
+}
+
+template <> std::string LinkedList<std::string>::print()  {
+    std::string result = "";
+    LLNode<std::string> *node = this->head->next;
+    while(node) {
+        result += (node->data + " ");
+        node = node->next;
+    }
+    return result;
+}
 
 } // namespace mrroot501

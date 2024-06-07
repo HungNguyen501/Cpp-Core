@@ -34,7 +34,7 @@ find_package(Threads REQUIRED)
 
 # Add definition for library
 add_library(binary_tree ${SRC_PATH}/DataStructure/BinaryTree/binary_tree.cpp)
-add_library(linked_list ${SRC_PATH}/DataStructure/LinkedList/linked_list.cpp)
+add_library(doubly_linked_list ${SRC_PATH}/DataStructure/LinkedList/doubly_linked_list.cpp ${SRC_PATH}/DataStructure/LinkedList/ll_node.cpp)
 add_library(mrroot501_hash_table ${SRC_PATH}/DataStructure/HashTable/mrroot501_hash_table.cpp)
 add_library(queue ${SRC_PATH}/DataStructure/Queue/queue.cpp)
 add_library(segment_tree ${SRC_PATH}/DataStructure/SegmentTree/segment_tree.cpp)
@@ -62,9 +62,6 @@ target_link_libraries(segment_tree_main segment_tree)
 
 add_executable(mrroot501_hash_table_main ${SRC_PATH}/DataStructure/HashTable/main.cpp)
 target_link_libraries(mrroot501_hash_table_main mrroot501_hash_table)
-
-add_executable(linked_list_main ${SRC_PATH}/DataStructure/LinkedList/main.cpp)
-target_link_libraries(linked_list_main linked_list)
 
 add_executable(quick_sort_main ${SRC_PATH}/Algorithms/QuickSort/main.cpp)
 target_link_libraries(quick_sort_main quick_sort)
@@ -97,6 +94,9 @@ target_link_libraries(test_shortest_path_in_binary_matrix gtest Threads::Threads
 
 add_executable(test_stack ${SRC_PATH}/DataStructure/Stack/main.cpp)
 target_link_libraries(test_stack stack gtest Threads::Threads)
+
+add_executable(doubly_linked_list_main ${SRC_PATH}/DataStructure/LinkedList/test_doubly_linked_list.cpp)
+target_link_libraries(doubly_linked_list_main doubly_linked_list gtest Threads::Threads)
 
 # Make sure third-party is built before executable
 add_dependencies(hello_world googletest)

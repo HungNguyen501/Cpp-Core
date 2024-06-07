@@ -143,17 +143,17 @@ binary_tree/fast:
 .PHONY : binary_tree/fast
 
 #=============================================================================
-# Target rules for targets named linked_list
+# Target rules for targets named doubly_linked_list
 
 # Build rule for target.
-linked_list: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 linked_list
-.PHONY : linked_list
+doubly_linked_list: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 doubly_linked_list
+.PHONY : doubly_linked_list
 
 # fast build rule for target.
-linked_list/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/linked_list.dir/build.make CMakeFiles/linked_list.dir/build
-.PHONY : linked_list/fast
+doubly_linked_list/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doubly_linked_list.dir/build.make CMakeFiles/doubly_linked_list.dir/build
+.PHONY : doubly_linked_list/fast
 
 #=============================================================================
 # Target rules for targets named mrroot501_hash_table
@@ -325,19 +325,6 @@ mrroot501_hash_table_main/fast:
 .PHONY : mrroot501_hash_table_main/fast
 
 #=============================================================================
-# Target rules for targets named linked_list_main
-
-# Build rule for target.
-linked_list_main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 linked_list_main
-.PHONY : linked_list_main
-
-# fast build rule for target.
-linked_list_main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/linked_list_main.dir/build.make CMakeFiles/linked_list_main.dir/build
-.PHONY : linked_list_main/fast
-
-#=============================================================================
 # Target rules for targets named quick_sort_main
 
 # Build rule for target.
@@ -466,6 +453,19 @@ test_stack: cmake_check_build_system
 test_stack/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_stack.dir/build.make CMakeFiles/test_stack.dir/build
 .PHONY : test_stack/fast
+
+#=============================================================================
+# Target rules for targets named doubly_linked_list_main
+
+# Build rule for target.
+doubly_linked_list_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 doubly_linked_list_main
+.PHONY : doubly_linked_list_main
+
+# fast build rule for target.
+doubly_linked_list_main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doubly_linked_list_main.dir/build.make CMakeFiles/doubly_linked_list_main.dir/build
+.PHONY : doubly_linked_list_main/fast
 
 Users/lap14443/Projects/Cpp-Core/src/Algorithms/HeapSort/heap_sort.o: Users/lap14443/Projects/Cpp-Core/src/Algorithms/HeapSort/heap_sort.cpp.o
 .PHONY : Users/lap14443/Projects/Cpp-Core/src/Algorithms/HeapSort/heap_sort.o
@@ -755,53 +755,77 @@ Users/lap14443/Projects/Cpp-Core/src/DataStructure/HashTable/mrroot501_hash_tabl
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mrroot501_hash_table.dir/build.make CMakeFiles/mrroot501_hash_table.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/HashTable/mrroot501_hash_table.cpp.s
 .PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/HashTable/mrroot501_hash_table.cpp.s
 
-Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.o: Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.cpp.o
-.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.o
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.o: Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.cpp.o
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.o
 
 # target to build an object file
-Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/linked_list.dir/build.make CMakeFiles/linked_list.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.cpp.o
-.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.cpp.o
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doubly_linked_list.dir/build.make CMakeFiles/doubly_linked_list.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.cpp.o
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.cpp.o
 
-Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.i: Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.cpp.i
-.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.i
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.i: Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.cpp.i
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.i
 
 # target to preprocess a source file
-Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/linked_list.dir/build.make CMakeFiles/linked_list.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.cpp.i
-.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.cpp.i
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doubly_linked_list.dir/build.make CMakeFiles/doubly_linked_list.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.cpp.i
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.cpp.i
 
-Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.s: Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.cpp.s
-.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.s
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.s: Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.cpp.s
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.s
 
 # target to generate assembly for a file
-Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/linked_list.dir/build.make CMakeFiles/linked_list.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.cpp.s
-.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.cpp.s
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doubly_linked_list.dir/build.make CMakeFiles/doubly_linked_list.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.cpp.s
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.cpp.s
 
-Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.o: Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.cpp.o
-.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.o
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.o: Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.cpp.o
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.o
 
 # target to build an object file
-Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/linked_list_main.dir/build.make CMakeFiles/linked_list_main.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.cpp.o
-.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.cpp.o
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doubly_linked_list.dir/build.make CMakeFiles/doubly_linked_list.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.cpp.o
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.cpp.o
 
-Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.i: Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.cpp.i
-.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.i
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.i: Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.cpp.i
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.i
 
 # target to preprocess a source file
-Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/linked_list_main.dir/build.make CMakeFiles/linked_list_main.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.cpp.i
-.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.cpp.i
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doubly_linked_list.dir/build.make CMakeFiles/doubly_linked_list.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.cpp.i
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.cpp.i
 
-Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.s: Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.cpp.s
-.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.s
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.s: Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.cpp.s
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.s
 
 # target to generate assembly for a file
-Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/linked_list_main.dir/build.make CMakeFiles/linked_list_main.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.cpp.s
-.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.cpp.s
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doubly_linked_list.dir/build.make CMakeFiles/doubly_linked_list.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.cpp.s
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.cpp.s
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.o: Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.o
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.o
+
+# target to build an object file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doubly_linked_list_main.dir/build.make CMakeFiles/doubly_linked_list_main.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.o
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.o
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.i: Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.i
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.i
+
+# target to preprocess a source file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doubly_linked_list_main.dir/build.make CMakeFiles/doubly_linked_list_main.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.i
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.i
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.s: Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.s
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.s
+
+# target to generate assembly for a file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doubly_linked_list_main.dir/build.make CMakeFiles/doubly_linked_list_main.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.s
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.s
 
 Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.o: Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.cpp.o
 .PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.o
@@ -1081,11 +1105,11 @@ help:
 	@echo "... googletest"
 	@echo "... binary_tree"
 	@echo "... binary_tree_main"
+	@echo "... doubly_linked_list"
+	@echo "... doubly_linked_list_main"
 	@echo "... extra_long_factorial_main"
 	@echo "... heap_sort"
 	@echo "... hello_world"
-	@echo "... linked_list"
-	@echo "... linked_list_main"
 	@echo "... merge_sort"
 	@echo "... merge_sort_external_main"
 	@echo "... mrroot501_hash_table"
@@ -1141,12 +1165,15 @@ help:
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/HashTable/mrroot501_hash_table.o"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/HashTable/mrroot501_hash_table.i"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/HashTable/mrroot501_hash_table.s"
-	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.o"
-	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.i"
-	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/linked_list.s"
-	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.o"
-	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.i"
-	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/main.s"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.o"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.i"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/doubly_linked_list.s"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.o"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.i"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/ll_node.s"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.o"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.i"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.s"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.o"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.i"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.s"
