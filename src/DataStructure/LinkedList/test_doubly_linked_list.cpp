@@ -10,11 +10,9 @@ TEST(TestDoublyLinkedList, testIntType) {
         mrroot501::DLLNode<int> *node = new mrroot501::DLLNode<int>(int_input[i]);
         my_list.append(node);
     }
-    cout << my_list.print() << "\n";
-    // EXPECT_EQ(my_list.print(), "0 2 3 4 5 6 1 1 1 7 8 9 1 1 10 ");
+    EXPECT_EQ(my_list.print(), "0 2 3 4 5 6 1 1 1 7 8 9 1 1 10 ");
     my_list.remove(1);
-    // EXPECT_EQ(my_list.print(), "0 2 3 4 5 6 7 8 9 10 ");
-    cout << my_list.print() << "\n";
+    EXPECT_EQ(my_list.print(), "0 2 3 4 5 6 7 8 9 10 ");
 }
 
 TEST(TestDoublyLinkedList, testStringType) {
@@ -24,11 +22,9 @@ TEST(TestDoublyLinkedList, testStringType) {
         mrroot501::DLLNode<string> *node = new mrroot501::DLLNode<string>(str_input[i]);
         my_list.append(node);
     }
-    // EXPECT_EQ(my_list.print(), "a b c d e f g h a ");
-    cout << my_list.print() << "\n";
+    EXPECT_EQ(my_list.print(), "a b c d e f g h a ");
     my_list.remove("a");
-    // EXPECT_EQ(my_list.print(), "b c d e f g h ");
-    cout << my_list.print() << "\n";
+    EXPECT_EQ(my_list.print(), "b c d e f g h ");
 }
 
 int main(int argc, char **argv) {
