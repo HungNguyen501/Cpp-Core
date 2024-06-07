@@ -8,32 +8,36 @@ cc_library(
     name = "binary_tree_lib",
     srcs = ["BinaryTree/binary_tree.cpp"],
     hdrs = ["BinaryTree/binary_tree.h"],
+    visibility = ["//visibility:public"],
 )
 
 cc_library(
     name = "stack_lib",
     srcs = ["Stack/stack.cpp"],
     hdrs = ["Stack/stack.h"],
+    visibility = ["//visibility:public"],
 )
 
 cc_library(
     name = "queue_lib",
     srcs = ["Queue/queue.cpp"],
     hdrs = ["Queue/queue.h"],
+    visibility = ["//visibility:public"],
 )
 
 cc_library(
     name = "doubly_linked_list_lib",
     srcs = ["LinkedList/doubly_linked_list.cpp", "LinkedList/ll_node.cpp"],
     hdrs = ["LinkedList/doubly_linked_list.h", "LinkedList/ll_node.h"],
+    visibility = ["//visibility:public"],
 )
 
 # Excutable binaries
 # cc_binary(
-#     name = "binary_tree",
-#     srcs = ["BinaryTree/main.cpp"],
+#     name = "doubly_linked_list_main",
+#     srcs = ["LinkedList/test_doubly_linked_list.cpp"],
 #     deps = [
-#         ":binary_tree_lib",
+#         ":doubly_linked_list_lib",
 #         "@gtest",
 #         "@gtest//:gtest_main",
 #     ],
