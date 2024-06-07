@@ -8,6 +8,8 @@ namespace mrroot501 {
 template<typename T>
 class DoublyLinkedList {
 public:
+    DLLNode<T> *head, *tail;
+    unsigned int size;
     DoublyLinkedList();
     void append(DLLNode<T> *node);
     void remove(T data);
