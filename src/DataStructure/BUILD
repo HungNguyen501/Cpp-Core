@@ -26,11 +26,12 @@ cc_library(
     name = "doubly_linked_list_lib",
     srcs = ["LinkedList/doubly_linked_list.cpp", "LinkedList/ll_node.cpp"],
     hdrs = ["LinkedList/doubly_linked_list.h", "LinkedList/ll_node.h"],
-    visibility = [
-        "//main:__pkg__",
-        "//test:__pkg__",
-        "//benchmark:__pkg__"
-    ],
+)
+
+cc_library(
+    name = "linked_list_lib",
+    srcs = ["LinkedList/linked_list.cpp", "LinkedList/ll_node.cpp"],
+    hdrs = ["LinkedList/linked_list.h", "LinkedList/ll_node.h"],
 )
 
 # Excutable binaries
@@ -85,6 +86,17 @@ cc_test(
     srcs = ["LinkedList/test_doubly_linked_list.cpp"],
     deps = [
         ":doubly_linked_list_lib",
+        "@gtest",
+        "@gtest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "linked_list_test",
+    timeout="short",
+    srcs = ["LinkedList/test_linked_list.cpp"],
+    deps = [
+        ":linked_list_lib",
         "@gtest",
         "@gtest//:gtest_main",
     ],
