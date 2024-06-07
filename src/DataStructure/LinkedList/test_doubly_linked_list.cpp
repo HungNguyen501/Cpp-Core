@@ -25,6 +25,7 @@ TEST(TestDoublyLinkedList, testStringType) {
     EXPECT_EQ(my_list.print(), "a b c d e f g h a ");
     my_list.remove("a");
     EXPECT_EQ(my_list.print(), "b c d e f g h ");
+    
 }
 
 int main(int argc, char **argv) {
