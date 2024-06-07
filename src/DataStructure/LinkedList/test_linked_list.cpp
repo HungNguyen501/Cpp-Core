@@ -13,6 +13,8 @@ TEST(TestLinkedList, testIntType) {
     EXPECT_EQ(my_list.print(), "0 2 3 4 5 6 1 1 1 7 8 9 1 1 10 ");
     my_list.remove(1);
     EXPECT_EQ(my_list.print(), "0 2 3 4 5 6 7 8 9 10 ");
+    my_list.reverse();
+    EXPECT_EQ(my_list.print(), "10 9 8 7 6 5 4 3 2 0 ");
 }
 
 TEST(TestLinkedList, testStringType) {
@@ -25,6 +27,8 @@ TEST(TestLinkedList, testStringType) {
     EXPECT_EQ(my_list.print(), "a b c d e f g h a ");
     my_list.remove("a");
     EXPECT_EQ(my_list.print(), "b c d e f g h ");
+    my_list.reverse();
+    EXPECT_EQ(my_list.print(), "h g f e d c b ");
 }
 
 TEST(TestLinkedList, testLLWithOneElement) {
@@ -36,7 +40,11 @@ TEST(TestLinkedList, testLLWithOneElement) {
     }
     my_list.remove("b");
     EXPECT_EQ(my_list.print(), "a ");
+    my_list.reverse();
+    EXPECT_EQ(my_list.print(), "a ");
     my_list.remove("a");
+    EXPECT_EQ(my_list.print(), "");
+    my_list.reverse();
     EXPECT_EQ(my_list.print(), "");
 }
 
