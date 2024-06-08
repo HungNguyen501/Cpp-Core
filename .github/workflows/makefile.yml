@@ -23,13 +23,13 @@ jobs:
 
     - name: Get changed files
       id: changed-files
+      continue-on-error: true
       uses: jitterbit/get-changed-files@v1
       with:
         format: 'csv'
 
     - name: Run CI
       id: run-ci
-      if: always()
       run: |
         pattern="^test-all-v.*"
         if [ "${{ github.ref_type }}" == "tag" ] && [[ "${{ github.ref_name }}" =~ ${pattern} ]];
