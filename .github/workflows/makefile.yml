@@ -31,7 +31,8 @@ jobs:
       id: run-ci
       if: always()
       run: |
-        if [ "${{ github.ref_type }}" == "tag" ] && [ "${{ github.ref_name }}" == test-all-v* ];
+        pattern="^test-all-v.*"
+        if [ "${{ github.ref_type }}" == "tag" ] && [[ "${{ github.ref_name }}" =~ ${pattern} ]];
         then
           make test
         else
