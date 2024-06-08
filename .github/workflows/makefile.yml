@@ -31,10 +31,10 @@ jobs:
       id: run-ci
       run: make run_ci CHANGES=${{ steps.changed-files.outputs.all }}
     
-    - name: Run all tests
-      id: run-all-tests
+    - name: Run all tests by tag
+      id: run-all-tests-by-tag
       run: |
-        if [ "${{ github.event.head_commit.message }}" == "[run-all-tests]" ];
+        if [ "${{ github.ref_type }}" == "tag" ] && [ "${{ github.ref_name }}" == "test-all" ];
         then
           make test
         fi
