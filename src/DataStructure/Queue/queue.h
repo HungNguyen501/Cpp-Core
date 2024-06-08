@@ -9,6 +9,7 @@ public:
     unsigned int capacity, size;
     int head, tail;
     T *arr;
+    Mrroot501Queue();
     Mrroot501Queue(unsigned int capacity);
     unsigned int getSize();
     bool isEmpty();

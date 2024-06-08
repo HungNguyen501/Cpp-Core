@@ -8,6 +8,7 @@ public:
     unsigned int capacity, size;
     int head, tail;
     T *arr;
+    Mrroot501Queue() {};
     Mrroot501Queue(unsigned int capacity) {
         this->capacity = capacity;
         this->head = this->tail = this->size = 0;
