@@ -29,13 +29,10 @@ jobs:
 
     - name: Run CI
       id: run-ci
-      run: make run_ci CHANGES=${{ steps.changed-files.outputs.all }}
-    
-    - name: Run all tests by tag
-      id: run-all-tests-by-tag
       run: |
-        if [ "${{ github.ref_type }}" == "tag" ] && [ "${{ github.ref_name }}" == "test-all" ];
-        then
-          make test
-        fi
-        
+      if [ "${{ github.ref_type }}" == "tag" ] && [ "${{ github.ref_name }}" == "test-all" ];
+      then
+        make test
+      else
+        make run_ci CHANGES=${{ steps.changed-files.outputs.all }}
+      fi
