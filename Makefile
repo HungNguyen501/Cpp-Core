@@ -20,7 +20,7 @@ clean:
 	@cmake --build configurations/ --target clean
 
 build:
-	@cd configurations/ && cmake --build . --target $(t)
+	@cd configurations/ && cmake . && cmake --build . --target $(t)
 
 run:
 	@cd configurations/ && cmake --build . --target $(t) 1>/dev/null && ../bin/$(t)

@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    mrroot501::Mrroot501HashTable<string> myHT;
+    mrroot501::Mrroot501HashTable<string> myHT(10000);
     myHT.add("abc");
     myHT.add("cdf");
     myHT.add("aa");

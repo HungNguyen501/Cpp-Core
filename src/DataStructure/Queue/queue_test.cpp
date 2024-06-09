@@ -1,9 +1,9 @@
 #include <iostream>
-#include "queue.h"
 #include <gtest/gtest.h>
+#include "queue.h"
 using namespace std;
 
-TEST(TestQueue, tc1) {
+TEST(TestQueue, tcInt) {
     mrroot501::Mrroot501Queue<int> int_q(1);
     EXPECT_EQ(int_q.dequeue(), -1);
     EXPECT_EQ(int_q.isEmpty(), true);
@@ -16,7 +16,7 @@ TEST(TestQueue, tc1) {
     EXPECT_EQ(int_q.isEmpty(), true);
 }
 
-TEST(TestQueue, tc2) {
+TEST(TestQueue, tcString) {
     mrroot501::Mrroot501Queue<std::string> str_q(5);
     str_q.enqueue("1");
     str_q.enqueue("2");

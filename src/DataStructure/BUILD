@@ -18,8 +18,8 @@ cc_library(
 
 cc_library(
     name = "queue_lib",
-    srcs = ["Queue/queue.cpp"],
-    hdrs = ["Queue/queue.h"],
+    srcs = ["Queue/queue.cpp",],
+    hdrs = ["Queue/queue.h",],
 )
 
 cc_library(
@@ -32,6 +32,12 @@ cc_library(
     name = "linked_list_lib",
     srcs = ["LinkedList/linked_list.cpp", "LinkedList/ll_node.cpp"],
     hdrs = ["LinkedList/linked_list.h", "LinkedList/ll_node.h"],
+)
+
+cc_library(
+    name = "message_queue_lib",
+    srcs = ["MessageQueue/message_queue.cpp", "MessageQueue/message.cpp"],
+    hdrs = ["MessageQueue/message_queue.h", "MessageQueue/message.h"],
 )
 
 # Excutable binaries
@@ -97,6 +103,17 @@ cc_test(
     srcs = ["LinkedList/test_linked_list.cpp"],
     deps = [
         ":linked_list_lib",
+        "@gtest",
+        "@gtest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "message_queue_test",
+    timeout="short",
+    srcs = ["MessageQueue/message_queue_test.cpp"],
+    deps = [
+        ":message_queue_lib",
         "@gtest",
         "@gtest//:gtest_main",
     ],

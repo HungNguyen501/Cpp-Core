@@ -182,6 +182,19 @@ queue/fast:
 .PHONY : queue/fast
 
 #=============================================================================
+# Target rules for targets named message_queue
+
+# Build rule for target.
+message_queue: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 message_queue
+.PHONY : message_queue
+
+# fast build rule for target.
+message_queue/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/message_queue.dir/build.make CMakeFiles/message_queue.dir/build
+.PHONY : message_queue/fast
+
+#=============================================================================
 # Target rules for targets named segment_tree
 
 # Build rule for target.
@@ -455,17 +468,43 @@ test_stack/fast:
 .PHONY : test_stack/fast
 
 #=============================================================================
-# Target rules for targets named doubly_linked_list_main
+# Target rules for targets named test_doubly_linked_list
 
 # Build rule for target.
-doubly_linked_list_main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 doubly_linked_list_main
-.PHONY : doubly_linked_list_main
+test_doubly_linked_list: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_doubly_linked_list
+.PHONY : test_doubly_linked_list
 
 # fast build rule for target.
-doubly_linked_list_main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/doubly_linked_list_main.dir/build.make CMakeFiles/doubly_linked_list_main.dir/build
-.PHONY : doubly_linked_list_main/fast
+test_doubly_linked_list/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_doubly_linked_list.dir/build.make CMakeFiles/test_doubly_linked_list.dir/build
+.PHONY : test_doubly_linked_list/fast
+
+#=============================================================================
+# Target rules for targets named test_queue
+
+# Build rule for target.
+test_queue: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_queue
+.PHONY : test_queue
+
+# fast build rule for target.
+test_queue/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_queue.dir/build.make CMakeFiles/test_queue.dir/build
+.PHONY : test_queue/fast
+
+#=============================================================================
+# Target rules for targets named test_message_queue
+
+# Build rule for target.
+test_message_queue: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_message_queue
+.PHONY : test_message_queue
+
+# fast build rule for target.
+test_message_queue/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_message_queue.dir/build.make CMakeFiles/test_message_queue.dir/build
+.PHONY : test_message_queue/fast
 
 Users/lap14443/Projects/Cpp-Core/src/Algorithms/HeapSort/heap_sort.o: Users/lap14443/Projects/Cpp-Core/src/Algorithms/HeapSort/heap_sort.cpp.o
 .PHONY : Users/lap14443/Projects/Cpp-Core/src/Algorithms/HeapSort/heap_sort.o
@@ -808,7 +847,7 @@ Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked
 
 # target to build an object file
 Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/doubly_linked_list_main.dir/build.make CMakeFiles/doubly_linked_list_main.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_doubly_linked_list.dir/build.make CMakeFiles/test_doubly_linked_list.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.o
 .PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.o
 
 Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.i: Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.i
@@ -816,7 +855,7 @@ Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked
 
 # target to preprocess a source file
 Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/doubly_linked_list_main.dir/build.make CMakeFiles/doubly_linked_list_main.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_doubly_linked_list.dir/build.make CMakeFiles/test_doubly_linked_list.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.i
 .PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.i
 
 Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.s: Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.s
@@ -824,8 +863,80 @@ Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked
 
 # target to generate assembly for a file
 Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/doubly_linked_list_main.dir/build.make CMakeFiles/doubly_linked_list_main.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_doubly_linked_list.dir/build.make CMakeFiles/test_doubly_linked_list.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.s
 .PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.cpp.s
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.o: Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.cpp.o
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.o
+
+# target to build an object file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/message_queue.dir/build.make CMakeFiles/message_queue.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.cpp.o
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.cpp.o
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.i: Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.cpp.i
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.i
+
+# target to preprocess a source file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/message_queue.dir/build.make CMakeFiles/message_queue.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.cpp.i
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.cpp.i
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.s: Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.cpp.s
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.s
+
+# target to generate assembly for a file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/message_queue.dir/build.make CMakeFiles/message_queue.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.cpp.s
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.cpp.s
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.o: Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.cpp.o
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.o
+
+# target to build an object file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/message_queue.dir/build.make CMakeFiles/message_queue.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.cpp.o
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.cpp.o
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.i: Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.cpp.i
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.i
+
+# target to preprocess a source file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/message_queue.dir/build.make CMakeFiles/message_queue.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.cpp.i
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.cpp.i
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.s: Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.cpp.s
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.s
+
+# target to generate assembly for a file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/message_queue.dir/build.make CMakeFiles/message_queue.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.cpp.s
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.cpp.s
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.o: Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.cpp.o
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.o
+
+# target to build an object file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_message_queue.dir/build.make CMakeFiles/test_message_queue.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.cpp.o
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.cpp.o
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.i: Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.cpp.i
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.i
+
+# target to preprocess a source file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_message_queue.dir/build.make CMakeFiles/test_message_queue.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.cpp.i
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.cpp.i
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.s: Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.cpp.s
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.s
+
+# target to generate assembly for a file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_message_queue.dir/build.make CMakeFiles/test_message_queue.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.cpp.s
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.cpp.s
 
 Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.o: Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.cpp.o
 .PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.o
@@ -874,6 +985,30 @@ Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.s: Users/lap14443
 Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/queue.dir/build.make CMakeFiles/queue.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.cpp.s
 .PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.cpp.s
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.o: Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.cpp.o
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.o
+
+# target to build an object file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_queue.dir/build.make CMakeFiles/test_queue.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.cpp.o
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.cpp.o
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.i: Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.cpp.i
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.i
+
+# target to preprocess a source file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_queue.dir/build.make CMakeFiles/test_queue.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.cpp.i
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.cpp.i
+
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.s: Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.cpp.s
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.s
+
+# target to generate assembly for a file
+Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_queue.dir/build.make CMakeFiles/test_queue.dir/Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.cpp.s
+.PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.cpp.s
 
 Users/lap14443/Projects/Cpp-Core/src/DataStructure/SegmentTree/main.o: Users/lap14443/Projects/Cpp-Core/src/DataStructure/SegmentTree/main.cpp.o
 .PHONY : Users/lap14443/Projects/Cpp-Core/src/DataStructure/SegmentTree/main.o
@@ -1106,12 +1241,12 @@ help:
 	@echo "... binary_tree"
 	@echo "... binary_tree_main"
 	@echo "... doubly_linked_list"
-	@echo "... doubly_linked_list_main"
 	@echo "... extra_long_factorial_main"
 	@echo "... heap_sort"
 	@echo "... hello_world"
 	@echo "... merge_sort"
 	@echo "... merge_sort_external_main"
+	@echo "... message_queue"
 	@echo "... mrroot501_hash_table"
 	@echo "... mrroot501_hash_table_main"
 	@echo "... queue"
@@ -1121,11 +1256,14 @@ help:
 	@echo "... segment_tree"
 	@echo "... segment_tree_main"
 	@echo "... stack"
+	@echo "... test_doubly_linked_list"
 	@echo "... test_extra_long_factorial"
 	@echo "... test_heap_sort"
 	@echo "... test_longest_common_subsequence"
 	@echo "... test_longest_palindromic_substring"
 	@echo "... test_merge_sort"
+	@echo "... test_message_queue"
+	@echo "... test_queue"
 	@echo "... test_range_sum_queries_without_updates"
 	@echo "... test_shortest_path_in_binary_matrix"
 	@echo "... test_stack"
@@ -1174,12 +1312,24 @@ help:
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.o"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.i"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/LinkedList/test_doubly_linked_list.s"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.o"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.i"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message.s"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.o"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.i"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue.s"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.o"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.i"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/MessageQueue/message_queue_test.s"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.o"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.i"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/main.s"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.o"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.i"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue.s"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.o"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.i"
+	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/Queue/queue_test.s"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/SegmentTree/main.o"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/SegmentTree/main.i"
 	@echo "... Users/lap14443/Projects/Cpp-Core/src/DataStructure/SegmentTree/main.s"
