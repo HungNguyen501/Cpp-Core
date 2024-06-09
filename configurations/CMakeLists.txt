@@ -37,6 +37,7 @@ add_library(binary_tree ${SRC_PATH}/DataStructure/BinaryTree/binary_tree.cpp)
 add_library(doubly_linked_list ${SRC_PATH}/DataStructure/LinkedList/doubly_linked_list.cpp ${SRC_PATH}/DataStructure/LinkedList/ll_node.cpp)
 add_library(mrroot501_hash_table ${SRC_PATH}/DataStructure/HashTable/mrroot501_hash_table.cpp)
 add_library(queue ${SRC_PATH}/DataStructure/Queue/queue.cpp)
+add_library(message_queue ${SRC_PATH}/DataStructure/MessageQueue/message.cpp ${SRC_PATH}/DataStructure/MessageQueue/message_queue.cpp)
 add_library(segment_tree ${SRC_PATH}/DataStructure/SegmentTree/segment_tree.cpp)
 add_library(stack ${SRC_PATH}/DataStructure/Stack/stack.cpp)
 
@@ -95,8 +96,14 @@ target_link_libraries(test_shortest_path_in_binary_matrix gtest Threads::Threads
 add_executable(test_stack ${SRC_PATH}/DataStructure/Stack/main.cpp)
 target_link_libraries(test_stack stack gtest Threads::Threads)
 
-add_executable(doubly_linked_list_main ${SRC_PATH}/DataStructure/LinkedList/test_doubly_linked_list.cpp)
-target_link_libraries(doubly_linked_list_main doubly_linked_list gtest Threads::Threads)
+add_executable(test_doubly_linked_list ${SRC_PATH}/DataStructure/LinkedList/test_doubly_linked_list.cpp)
+target_link_libraries(test_doubly_linked_list doubly_linked_list gtest Threads::Threads)
+
+add_executable(test_queue ${SRC_PATH}/DataStructure/Queue/queue_test.cpp)
+target_link_libraries(test_queue queue gtest Threads::Threads)
+
+add_executable(test_message_queue ${SRC_PATH}/DataStructure/MessageQueue/message_queue_test.cpp)
+target_link_libraries(test_message_queue message_queue gtest Threads::Threads)
 
 # Make sure third-party is built before executable
 add_dependencies(hello_world googletest)
