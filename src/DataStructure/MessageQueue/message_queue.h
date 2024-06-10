@@ -8,9 +8,6 @@ namespace mrroot501 {
 template <class T>
 class MessageQueue : public Mrroot501Queue<Message<int>> {
 public:
-    // unsigned int max_length, length;
-    // int head, tail;
-    // T *arr;
     long byte_size, byte_capacity;
     MessageQueue();
     MessageQueue(int max_length, int byte_capacity);

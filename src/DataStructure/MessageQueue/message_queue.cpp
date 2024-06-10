@@ -5,9 +5,6 @@ namespace mrroot501 {
 template <class T>
 class MessageQueue : public Mrroot501Queue<Message<int>> {
 public:
-    // unsigned int max_length, length;
-    // int head, tail;
-    // T *arr;
     long byte_size, byte_capacity;
     MessageQueue() {};
     MessageQueue(int max_length, int byte_capacity) {
@@ -23,9 +20,6 @@ public:
     bool isFull() {
         return (this->max_length == this->length || this->byte_capacity <= this->byte_size);
     }
-    // bool isEmpty() {
-    //     return (this->length == 0);
-    // }
     void enqueue(T value) {
         if (isFull() || this->byte_size + value.byte_size > this->byte_capacity) {
             std::cout << "Cannot enqueue beacause queue is full.\n";
