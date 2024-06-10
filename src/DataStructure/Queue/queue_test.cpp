@@ -48,6 +48,27 @@ TEST(TestQueue, tcString) {
     EXPECT_EQ(str_q.isEmpty(), true);
 }
 
+TEST(TestQueue, testMessageType) {
+    mrroot501::Mrroot501Queue<mrroot501::Message<int>> m_q(4);
+    EXPECT_EQ(m_q.dequeue().isNull(), true);
+    EXPECT_EQ(m_q.isEmpty(), true);
+    m_q.enqueue(mrroot501::Message<int>());
+    m_q.enqueue(mrroot501::Message<int>(mrroot501::Header<int>(), "dummy"));
+    m_q.enqueue(mrroot501::Message<int>(mrroot501::Header<int>(-1), "foo"));
+    m_q.enqueue(mrroot501::Message<int>(mrroot501::Header<int>(-1, 3513515351), "zombie"));
+    m_q.enqueue(mrroot501::Message<int>(mrroot501::Header<int>(-1), "full"));
+    m_q.enqueue(mrroot501::Message<int>(mrroot501::Header<int>(-1), "full"));
+    EXPECT_EQ(m_q.isFull(), true);
+    EXPECT_EQ(m_q.getSize(), 4);
+    EXPECT_EQ(m_q.isEmpty(), false);
+    EXPECT_EQ(m_q.dequeue().payload, "");
+    EXPECT_EQ(m_q.dequeue().payload, "dummy");
+    EXPECT_EQ(m_q.dequeue().payload, "foo");
+    mrroot501::Message<int> m1 = m_q.dequeue();
+    EXPECT_EQ(m1.payload, "zombie");
+    EXPECT_EQ(m1.header.timestamp, 3513515351);
+}
+
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

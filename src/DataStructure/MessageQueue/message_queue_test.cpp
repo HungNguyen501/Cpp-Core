@@ -5,7 +5,7 @@ using namespace std;
 using namespace mrroot501;
 
 TEST(TestMessageQueue, tc1) {
-    MessageQueue<int> mq = MessageQueue<int>(4, 3);
+    MessageQueue<Message<int>> mq = MessageQueue<Message<int>>(4, 3);
     EXPECT_EQ(mq.isEmpty(), true);
     EXPECT_EQ(mq.dequeue().isNull(), true);
     mq.enqueue(Message<int>(Header<int>(), "ab"));

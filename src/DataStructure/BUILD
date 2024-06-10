@@ -18,8 +18,8 @@ cc_library(
 
 cc_library(
     name = "queue_lib",
-    srcs = ["Queue/queue.cpp",],
-    hdrs = ["Queue/queue.h",],
+    srcs = ["Queue/queue.cpp", "Queue/message.cpp",],
+    hdrs = ["Queue/queue.h", "Queue/message.h",],
 )
 
 cc_library(
@@ -36,8 +36,8 @@ cc_library(
 
 cc_library(
     name = "message_queue_lib",
-    srcs = ["MessageQueue/message_queue.cpp", "MessageQueue/message.cpp"],
-    hdrs = ["MessageQueue/message_queue.h", "MessageQueue/message.h"],
+    srcs = ["Queue/message.cpp", "Queue/queue.cpp", "MessageQueue/message_queue.cpp",],
+    hdrs = ["Queue/message.h", "Queue/queue.h", "MessageQueue/message_queue.h",],
 )
 
 # Excutable binaries

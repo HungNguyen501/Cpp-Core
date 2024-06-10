@@ -1,4 +1,5 @@
 #include <iostream>
+#include "message.h"
 
 namespace mrroot501 {
 
@@ -38,6 +39,7 @@ public:
 
 template class Mrroot501Queue<int>;
 template class Mrroot501Queue<std::string>;
+template class Mrroot501Queue<Message<int>>;
 
 template <> int Mrroot501Queue<int>::dequeue() {
     if (this->isEmpty()) {
@@ -57,6 +59,17 @@ template <> std::string Mrroot501Queue<std::string>::dequeue() {
     }
     this->length--;
     std::string temp = this->arr[this->head];
+    this->head = (this->head + 1) % this->max_length;
+    return temp;
+}
+
+template <> Message<int> Mrroot501Queue<Message<int>>::dequeue() {
+    if (this->isEmpty()) {
+        std::cout << "Queue is empty.\n";
+        return Message<int>();
+    }
+    this->length--;
+    Message<int> temp = this->arr[this->head];
     this->head = (this->head + 1) % this->max_length;
     return temp;
 }
@@ -91,6 +104,11 @@ template <> std::string Mrroot501Queue<std::string>::print() {
         i = (i + 1) % this->max_length;
     }
     return result;
+}
+
+template <> std::string Mrroot501Queue<Message<int>>::print() {
+    std::cout << "This function is not implemented yet.\n";
+    return "";
 }
 
 } // namespace mrroot501

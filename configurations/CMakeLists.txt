@@ -36,8 +36,13 @@ find_package(Threads REQUIRED)
 add_library(binary_tree ${SRC_PATH}/DataStructure/BinaryTree/binary_tree.cpp)
 add_library(doubly_linked_list ${SRC_PATH}/DataStructure/LinkedList/doubly_linked_list.cpp ${SRC_PATH}/DataStructure/LinkedList/ll_node.cpp)
 add_library(mrroot501_hash_table ${SRC_PATH}/DataStructure/HashTable/mrroot501_hash_table.cpp)
-add_library(queue ${SRC_PATH}/DataStructure/Queue/queue.cpp)
-add_library(message_queue ${SRC_PATH}/DataStructure/MessageQueue/message.cpp ${SRC_PATH}/DataStructure/MessageQueue/message_queue.cpp)
+add_library(queue ${SRC_PATH}/DataStructure/Queue/queue.cpp ${SRC_PATH}/DataStructure/Queue/message.cpp )
+add_library(
+    message_queue
+    ${SRC_PATH}/DataStructure/Queue/queue.cpp
+    ${SRC_PATH}/DataStructure/Queue/message.cpp
+    ${SRC_PATH}/DataStructure/MessageQueue/message_queue.cpp
+)
 add_library(segment_tree ${SRC_PATH}/DataStructure/SegmentTree/segment_tree.cpp)
 add_library(stack ${SRC_PATH}/DataStructure/Stack/stack.cpp)
 

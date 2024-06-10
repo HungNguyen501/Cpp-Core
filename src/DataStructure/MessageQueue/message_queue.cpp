@@ -1,14 +1,13 @@
-#include <iostream>
-#include "message.h"
+#include "../Queue/queue.h"
 
 namespace mrroot501 {
 
-template <typename T>
-class MessageQueue {
+template <class T>
+class MessageQueue : public Mrroot501Queue<Message<int>> {
 public:
-    int max_length, length;
-    int head, tail;
-    Message<T> *arr;
+    // unsigned int max_length, length;
+    // int head, tail;
+    // T *arr;
     long byte_size, byte_capacity;
     MessageQueue() {};
     MessageQueue(int max_length, int byte_capacity) {
@@ -16,7 +15,7 @@ public:
         this->byte_capacity = byte_capacity;
         this->head = this->tail = this->length = 0;
         this->byte_size = 0;
-        this->arr = new Message<T>[1000000];
+        this->arr = new T[1000000];
     }
     long getByteSize() {
         return this->byte_size;
@@ -24,10 +23,10 @@ public:
     bool isFull() {
         return (this->max_length == this->length || this->byte_capacity <= this->byte_size);
     }
-    bool isEmpty() {
-        return (this->length == 0);
-    }
-    void enqueue(Message<T> value) {
+    // bool isEmpty() {
+    //     return (this->length == 0);
+    // }
+    void enqueue(T value) {
         if (isFull() || this->byte_size + value.byte_size > this->byte_capacity) {
             std::cout << "Cannot enqueue beacause queue is full.\n";
             return;
@@ -37,18 +36,18 @@ public:
         this->arr[this->tail % this->max_length] = value;
         this->tail = this->tail % this->max_length + 1;
     };
-    Message<T> front() {
+    T front() {
         if (this->isEmpty()) {
-            return Message<T>();
+            return T();
         }
         return this->arr[this->head];
     }
-    Message<T> dequeue() {
+    T dequeue() {
         if (this->isEmpty()) {
             std::cout << "Queue is empty.\n";
-            return Message<T>();
+            return T();
         }
-        Message<T> temp = this->front();
+        T temp = this->front();
         this->length--;
         this->byte_size -= temp.byte_size;
         this->head = (this->head + 1) % this->max_length;
@@ -56,6 +55,6 @@ public:
     }
 };
 
-template class MessageQueue<int>;
+template class MessageQueue<Message<int>>;
 
 } // namespace mrroot501

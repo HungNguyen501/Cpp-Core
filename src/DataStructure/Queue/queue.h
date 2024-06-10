@@ -2,11 +2,11 @@
 #define _MRROOT501_QUEUE_H_
 
 #include <iostream>
-// #include "message.h"
+#include "message.h"
 
 namespace mrroot501 {
 
-template <typename T>
+template <class T>
 class Mrroot501Queue {
 public:
     unsigned int max_length, length;
