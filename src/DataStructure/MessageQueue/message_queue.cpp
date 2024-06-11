@@ -1,3 +1,4 @@
+#include <stdexcept>
 #include "../Queue/queue.h"
 
 namespace mrroot501 {
@@ -20,8 +21,17 @@ public:
     bool isFull() {
         return (this->max_length == this->length || this->byte_capacity <= this->byte_size);
     }
-    void enqueue(T value) {
-        if (isFull() || this->byte_size + value.byte_size > this->byte_capacity) {
+    void enqueue(T value, bool forced = false) {
+        if (value.byte_size > this->byte_capacity) {
+            throw std::invalid_argument("Message size is larger than queue capacity.");
+        }
+        if (forced) {
+            while (isFull() || this->byte_size + value.byte_size > this->byte_capacity) {
+                Message<int> temp = this->dequeue();
+                std::cout << "size=" << this->getSize() << ", byte_size=" << this->byte_size << "\n";
+            }
+        }
+        else if (isFull() || this->byte_size + value.byte_size > this->byte_capacity) {
             std::cout << "Cannot enqueue beacause queue is full.\n";
             return;
         }

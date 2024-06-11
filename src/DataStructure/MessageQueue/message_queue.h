@@ -14,7 +14,7 @@ public:
     long getByteSize();
     bool isFull();
     // bool isEmpty();
-    void enqueue(T value);
+    void enqueue(T value, bool forced = false);
     T front();
     T dequeue();
 };
