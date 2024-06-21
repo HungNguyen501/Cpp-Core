@@ -41,7 +41,9 @@ run_ci:
 	@bash $(CiScript) run_ci $(CHANGES)
 	@bazel clean --async
 
+.DEFAULT_GOAL := help
 .PHONY: help
 all: help
 help: Makefile
-	@echo "Run 'make list' to show target list"
+	@echo "Hello World!"
+

@@ -4,6 +4,9 @@ main.o.dSYM
 src/Algorithms/MergeSortExternal/data/*.txt
 bin/*
 !bin/dummy
+configurations/Makefile
+configurations/lib/*
+MODULE.bazel.lock
 
 # Ignore backup files.
 *~
