@@ -52,14 +52,17 @@ add_library(quick_sort ${SRC_PATH}/Algorithms/QuickSort/quick_sort.cpp)
 
 
 # Add targets for main program
-add_executable(hello_world ${SRC_PATH}/Basics/HelloWorld/main.cpp)
-
-add_executable(extra_long_factorial_main ${SRC_PATH}/ProblemSolving/ExtraLongFactorial/main.cpp)
-target_link_libraries(extra_long_factorial_main extra_long_factorial)
-
+## Algorithms module
 add_executable(merge_sort_external_main ${SRC_PATH}/Algorithms/MergeSortExternal/main.cpp)
 target_link_libraries(merge_sort_external_main merge_sort heap_sort)
 
+add_executable(quick_sort_main ${SRC_PATH}/Algorithms/QuickSort/main.cpp)
+target_link_libraries(quick_sort_main quick_sort)
+
+## Basics module
+add_executable(hello_world ${SRC_PATH}/Basics/HelloWorld/main.cpp)
+
+## DataStructure module
 add_executable(binary_tree_main ${SRC_PATH}/DataStructure/BinaryTree/main.cpp)
 target_link_libraries(binary_tree_main binary_tree gtest Threads::Threads)
 
@@ -69,11 +72,12 @@ target_link_libraries(segment_tree_main segment_tree)
 add_executable(mrroot501_hash_table_main ${SRC_PATH}/DataStructure/HashTable/main.cpp)
 target_link_libraries(mrroot501_hash_table_main mrroot501_hash_table)
 
-add_executable(quick_sort_main ${SRC_PATH}/Algorithms/QuickSort/main.cpp)
-target_link_libraries(quick_sort_main quick_sort)
-
 add_executable(queue_main ${SRC_PATH}/DataStructure/Queue/main.cpp)
 target_link_libraries(queue_main queue)
+
+## ProblemSolving module
+add_executable(leetcode_count_number_of_consistent_strings_main ${SRC_PATH}/ProblemSolving/LeetCode-CountNumberOfConsistentStrings/main.cpp)
+add_executable(maximum_sum_sub_array_main ${SRC_PATH}/ProblemSolving/MaximumSumSubarray/main.cpp)
 
 
 # Add targets for testing

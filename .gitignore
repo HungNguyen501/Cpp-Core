@@ -5,6 +5,7 @@ src/Algorithms/MergeSortExternal/data/*.txt
 bin/*
 !bin/dummy
 configurations/Makefile
+configurations/lib/src/googletest
 configurations/lib/*
 MODULE.bazel.lock
 
