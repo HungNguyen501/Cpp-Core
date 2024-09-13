@@ -109,5 +109,5 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ## 2. Cmake Config
 Config file: `$ configurations/CMakeLists.txt`<br>
 List all executable targets in Cmake: `$ make list`<br>
-Build target in Cmake: `$ make build t={target}`<br>
-Run an executable in cmake: `$ make run t={target}`<br>
+Build target in Cmake: `$ make cmake_build t={target}`<br>
+Run an executable in cmake: `$ make cmake_run t={target}`<br>

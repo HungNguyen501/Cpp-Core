@@ -51,6 +51,7 @@ add_library(merge_sort ${SRC_PATH}/Algorithms/MergeSort/merge_sort.cpp)
 add_library(quick_sort ${SRC_PATH}/Algorithms/QuickSort/quick_sort.cpp)
 
 add_library(leetcode_count_number_of_consistent_strings ${SRC_PATH}/ProblemSolving/LeetCode-CountNumberOfConsistentStrings/solution.cpp)
+add_library(merge_intervals_lib ${SRC_PATH}/ProblemSolving/LeetCode-MergeIntervals/solution.cpp)
 
 
 # Add targets for main program
@@ -78,10 +79,13 @@ add_executable(queue_main ${SRC_PATH}/DataStructure/Queue/main.cpp)
 target_link_libraries(queue_main queue)
 
 ## ProblemSolving module
+add_executable(maximum_sum_sub_array_main ${SRC_PATH}/ProblemSolving/MaximumSumSubarray/main.cpp)
+
 add_executable(leetcode_count_number_of_consistent_strings_main ${SRC_PATH}/ProblemSolving/LeetCode-CountNumberOfConsistentStrings/main.cpp)
 target_link_libraries(leetcode_count_number_of_consistent_strings_main leetcode_count_number_of_consistent_strings)
 
-add_executable(maximum_sum_sub_array_main ${SRC_PATH}/ProblemSolving/MaximumSumSubarray/main.cpp)
+add_executable(merge_intervals_main ${SRC_PATH}/ProblemSolving/LeetCode-MergeIntervals/main.cpp)
+target_link_libraries(merge_intervals_main merge_intervals_lib)
 
 
 # Add targets for testing
@@ -120,6 +124,9 @@ target_link_libraries(test_message_queue message_queue gtest Threads::Threads)
 
 add_executable(test_leetcode_count_number_of_consistent_strings ${SRC_PATH}/ProblemSolving/LeetCode-CountNumberOfConsistentStrings/test.cpp)
 target_link_libraries(test_leetcode_count_number_of_consistent_strings leetcode_count_number_of_consistent_strings gtest Threads::Threads)
+
+add_executable(test_merge_intervals ${SRC_PATH}/ProblemSolving/LeetCode-MergeIntervals/test.cpp)
+target_link_libraries(test_merge_intervals merge_intervals_lib gtest Threads::Threads)
 
 # Make sure third-party is built before executable
 add_dependencies(hello_world googletest)

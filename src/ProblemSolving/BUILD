@@ -10,6 +10,12 @@ cc_library(
     hdrs = ["LeetCode-CountNumberOfConsistentStrings/header.h"],
 )
 
+cc_library(
+    name = "merge_intervals_lib",
+    srcs = ["LeetCode-MergeIntervals/solution.cpp"],
+    hdrs = ["LeetCode-MergeIntervals/header.h"],
+)
+
 # Tests
 cc_test(
     name = "extra_long_factorial_test",
@@ -91,5 +97,16 @@ cc_test(
         "@gtest",
         "@gtest//:gtest_main",
         "//src/ProblemSolving:leetcode_count_number_of_consistent_strings_lib",
+    ],
+)
+
+cc_test(
+    name = "merge_intervals_test",
+    timeout="short",
+    srcs = ["LeetCode-MergeIntervals/test.cpp"],
+    deps = [
+        "@gtest",
+        "@gtest//:gtest_main",
+        "//src/ProblemSolving:merge_intervals_lib",
     ],
 )
