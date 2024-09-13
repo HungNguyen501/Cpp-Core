@@ -3,6 +3,13 @@ load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library", "cc_test")
 
 package(default_visibility = ["//visibility:public"])
 
+# Libraries
+cc_library(
+    name = "leetcode_count_number_of_consistent_strings_lib",
+    srcs = ["LeetCode-CountNumberOfConsistentStrings/solution.cpp"],
+    hdrs = ["LeetCode-CountNumberOfConsistentStrings/header.h"],
+)
+
 # Tests
 cc_test(
     name = "extra_long_factorial_test",
@@ -73,5 +80,16 @@ cc_test(
         "//src/Algorithms:heap_sort_lib",
         "@gtest",
         "@gtest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "leetcode_count_number_of_consistent_strings_test",
+    timeout="short",
+    srcs = ["LeetCode-CountNumberOfConsistentStrings/test.cpp"],
+    deps = [
+        "@gtest",
+        "@gtest//:gtest_main",
+        "//src/ProblemSolving:leetcode_count_number_of_consistent_strings_lib",
     ],
 )

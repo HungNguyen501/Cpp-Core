@@ -1,14 +1,12 @@
 ProjectName := Cpp-Core
 
 CiScript := ci/ci.sh
+GithookScript := ci/githooks.sh
 
 RED := \033[1;31m
 GREEN := \033[1;32m
 BLUE := \033[0;34m
 NO_COLOR := \033[0m
-
-check_ref_name:
-	@bash $(CiScript) validate_ref_name $(REF_TYPE) $(REF_NAME)
 
 install:
 	@cd configurations/ && cmake .
@@ -16,22 +14,28 @@ install:
 	@bazel --version
 	@g++ --version
 
-clean:
+githook:
+	@bash ./$(GithookScript) create_pre_commit_file
+
+check_ref_name:
+	@bash $(CiScript) validate_ref_name $(REF_TYPE) $(REF_NAME)
+
+cmake_clean:
 	@cmake --build configurations/ --target clean
 
-build:
+cmake_build:
 	@cd configurations/ && cmake . && cmake --build . --target $(t)
 
-run:
+cmake_run:
 	@cd configurations/ && cmake --build . --target $(t) 1>/dev/null && ../bin/$(t)
+
+cmake_test:
+	@bash $(CiScript) run_cmake_tests
 
 list:
 	@echo "List of executable targets:"
 	@echo "---------------------------"
 	@sed -n 's/^add_executable(//p' configurations/CMakeLists.txt | awk -F' ' '{print $$1}'
-
-cmake_test:
-	@bash $(CiScript) run_tests
 
 test:
 	@bash $(CiScript) run_bazel_tests

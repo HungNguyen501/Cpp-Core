@@ -50,6 +50,8 @@ add_library(heap_sort ${SRC_PATH}/Algorithms/HeapSort/heap_sort.cpp)
 add_library(merge_sort ${SRC_PATH}/Algorithms/MergeSort/merge_sort.cpp)
 add_library(quick_sort ${SRC_PATH}/Algorithms/QuickSort/quick_sort.cpp)
 
+add_library(leetcode_count_number_of_consistent_strings ${SRC_PATH}/ProblemSolving/LeetCode-CountNumberOfConsistentStrings/solution.cpp)
+
 
 # Add targets for main program
 ## Algorithms module
@@ -77,6 +79,8 @@ target_link_libraries(queue_main queue)
 
 ## ProblemSolving module
 add_executable(leetcode_count_number_of_consistent_strings_main ${SRC_PATH}/ProblemSolving/LeetCode-CountNumberOfConsistentStrings/main.cpp)
+target_link_libraries(leetcode_count_number_of_consistent_strings_main leetcode_count_number_of_consistent_strings)
+
 add_executable(maximum_sum_sub_array_main ${SRC_PATH}/ProblemSolving/MaximumSumSubarray/main.cpp)
 
 
@@ -113,6 +117,9 @@ target_link_libraries(test_queue queue gtest Threads::Threads)
 
 add_executable(test_message_queue ${SRC_PATH}/DataStructure/MessageQueue/message_queue_test.cpp)
 target_link_libraries(test_message_queue message_queue gtest Threads::Threads)
+
+add_executable(test_leetcode_count_number_of_consistent_strings ${SRC_PATH}/ProblemSolving/LeetCode-CountNumberOfConsistentStrings/test.cpp)
+target_link_libraries(test_leetcode_count_number_of_consistent_strings leetcode_count_number_of_consistent_strings gtest Threads::Threads)
 
 # Make sure third-party is built before executable
 add_dependencies(hello_world googletest)
