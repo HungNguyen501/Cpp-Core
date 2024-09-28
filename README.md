@@ -9,7 +9,8 @@ All rights reserved.<br>
 
 **Agenda**<br>
 [1. Prerequisites](#1-prerequisites)<br>
-[2. Cmake Config](#2-cmake-config)<br>
+[2. How to configure C++ file by Cmake](#2-how-to-configure-c-file-by-cmake)<br>
+[3. How to configure Bazel](#3-how-to-configure-bazel)<br>
 
 ## 1. Prerequisites
 - Coding convention: [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
@@ -106,8 +107,41 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 </details>
 
-## 2. Cmake Config
-Config file: `$ configurations/CMakeLists.txt`<br>
-List all executable targets in Cmake: `$ make list`<br>
-Build target in Cmake: `$ make cmake_build t={target}`<br>
-Run an executable in cmake: `$ make cmake_run t={target}`<br>
+## 2. How to configure C++ file by Cmake
+- Add `main.cpp` file in to `configurations/CMakeLists.txt`:
+```bash
+$ vim configurations/CMakeLists.txt
+: '
+# Add definition for library
+add_library(lib_name path_to_files)
+
+# Add targets for main program
+add_executable(executable_file path_to_file)
+target_link_libraries(executable_file lib_name)
+
+# Add targets for testing
+add_executable(test_name path_to_test_file)
+target_link_libraries(test_name gtest Threads::Threads)
+'
+```
+
+- List all executable targets in Cmake:
+```bash
+$ make list
+: '
+leetcode_count_number_of_consistent_strings_main
+merge_intervals_main
+find_an_element_in_array_sum_of_left_equal_sum_of_right_main
+test_extra_long_factorial
+'
+```
+- Build target in Cmake:
+```bash
+$ make cmake_build t={target}
+```
+- Run an executable in cmake:
+```bash
+$ make cmake_run t={target}
+```
+
+## 3. How to configure Bazel
