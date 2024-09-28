@@ -52,6 +52,10 @@ add_library(quick_sort ${SRC_PATH}/Algorithms/QuickSort/quick_sort.cpp)
 
 add_library(leetcode_count_number_of_consistent_strings ${SRC_PATH}/ProblemSolving/LeetCode-CountNumberOfConsistentStrings/solution.cpp)
 add_library(merge_intervals_lib ${SRC_PATH}/ProblemSolving/LeetCode-MergeIntervals/solution.cpp)
+add_library(
+    find_an_element_in_array_sum_of_left_equal_sum_of_right_lib 
+    ${SRC_PATH}/ProblemSolving/FindAnElementInArraySuchThatSumOfLeftArrayIsEqualToSumOfRightArray/solution.cpp
+)
 
 
 # Add targets for main program
@@ -86,6 +90,9 @@ target_link_libraries(leetcode_count_number_of_consistent_strings_main leetcode_
 
 add_executable(merge_intervals_main ${SRC_PATH}/ProblemSolving/LeetCode-MergeIntervals/main.cpp)
 target_link_libraries(merge_intervals_main merge_intervals_lib)
+
+add_executable(find_an_element_in_array_sum_of_left_equal_sum_of_right_main ${SRC_PATH}/ProblemSolving/FindAnElementInArraySuchThatSumOfLeftArrayIsEqualToSumOfRightArray/main.cpp)
+target_link_libraries(find_an_element_in_array_sum_of_left_equal_sum_of_right_main find_an_element_in_array_sum_of_left_equal_sum_of_right_lib)
 
 
 # Add targets for testing
@@ -127,6 +134,9 @@ target_link_libraries(test_leetcode_count_number_of_consistent_strings leetcode_
 
 add_executable(test_merge_intervals ${SRC_PATH}/ProblemSolving/LeetCode-MergeIntervals/test.cpp)
 target_link_libraries(test_merge_intervals merge_intervals_lib gtest Threads::Threads)
+
+add_executable(test_find_an_element_in_array_sum_of_left_equal_sum_of_right ${SRC_PATH}/ProblemSolving/FindAnElementInArraySuchThatSumOfLeftArrayIsEqualToSumOfRightArray/test.cpp)
+target_link_libraries(test_find_an_element_in_array_sum_of_left_equal_sum_of_right find_an_element_in_array_sum_of_left_equal_sum_of_right_lib gtest Threads::Threads)
 
 # Make sure third-party is built before executable
 add_dependencies(hello_world googletest)

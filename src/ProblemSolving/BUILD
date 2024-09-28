@@ -16,6 +16,12 @@ cc_library(
     hdrs = ["LeetCode-MergeIntervals/header.h"],
 )
 
+cc_library(
+    name = "find_an_element_in_array_sum_of_left_equal_sum_of_right_lib",
+    srcs = ["FindAnElementInArraySuchThatSumOfLeftArrayIsEqualToSumOfRightArray/solution.cpp"],
+    hdrs = ["FindAnElementInArraySuchThatSumOfLeftArrayIsEqualToSumOfRightArray/header.h"],
+)
+
 # Tests
 cc_test(
     name = "extra_long_factorial_test",
@@ -108,5 +114,16 @@ cc_test(
         "@gtest",
         "@gtest//:gtest_main",
         "//src/ProblemSolving:merge_intervals_lib",
+    ],
+)
+
+cc_test(
+    name = "find_an_element_in_array_sum_of_left_equal_sum_of_right_test",
+    timeout="short",
+    srcs = ["FindAnElementInArraySuchThatSumOfLeftArrayIsEqualToSumOfRightArray/test.cpp"],
+    deps = [
+        "@gtest",
+        "@gtest//:gtest_main",
+        "//src/ProblemSolving:find_an_element_in_array_sum_of_left_equal_sum_of_right_lib",
     ],
 )
