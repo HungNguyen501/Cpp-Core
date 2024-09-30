@@ -28,13 +28,13 @@ jobs:
       with:
         format: 'csv'
 
-    - name: Run CI
-      id: run-ci
+    - name: Verify changes
+      id: verify-changes
       run: |
         pattern="^test-all-v.*"
         if [ "${{ github.ref_type }}" == "tag" ] && [[ "${{ github.ref_name }}" =~ ${pattern} ]];
         then
           make test
         else
-          make run_ci CHANGES=${{ steps.changed-files.outputs.all }}
+          make verify_changes CHANGES=${{ steps.changed-files.outputs.all }}
         fi
