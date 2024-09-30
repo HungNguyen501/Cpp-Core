@@ -108,7 +108,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 </details>
 
 ## 2. How to configure C++ file by Cmake
-- Add `main.cpp` file in to `configurations/CMakeLists.txt`:
+- Add `main.cpp` file to `configurations/CMakeLists.txt`:
 ```bash
 $ vim configurations/CMakeLists.txt
 : '
