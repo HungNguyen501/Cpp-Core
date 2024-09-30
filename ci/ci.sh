@@ -62,12 +62,7 @@ run_bazel_tests () {
         printf "\n${NO_COLOR}";
     fi
 }
-run_ci () {
-    if [[ -z ${1} ]];
-    then
-        printf "${BLUE}Input(CHANGES) is empty.${NO_COLOR}\n";
-        return 0
-    fi
+verify_changes () {
     files=()
     IFS=',' read -r -a changed_files <<< "${1}"
     for file_name in ${changed_files[@]}; do

@@ -41,8 +41,8 @@ test:
 	@bash $(CiScript) run_bazel_tests
 	@bazel clean --async
 
-run_ci:
-	@bash $(CiScript) run_ci $(CHANGES)
+verify_changes:
+	@bash $(CiScript) verify_changes $(CHANGES)
 	@bazel clean --async
 
 .DEFAULT_GOAL := help
