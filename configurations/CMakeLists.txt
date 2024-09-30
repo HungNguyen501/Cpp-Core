@@ -36,6 +36,7 @@ find_package(Threads REQUIRED)
 add_library(binary_tree ${SRC_PATH}/DataStructure/BinaryTree/binary_tree.cpp)
 add_library(doubly_linked_list ${SRC_PATH}/DataStructure/LinkedList/doubly_linked_list.cpp ${SRC_PATH}/DataStructure/LinkedList/ll_node.cpp)
 add_library(mrroot501_hash_table ${SRC_PATH}/DataStructure/HashTable/mrroot501_hash_table.cpp)
+add_library(interval_tree ${SRC_PATH}/DataStructure/IntervalTree/interval_tree.cpp)
 add_library(queue ${SRC_PATH}/DataStructure/Queue/queue.cpp ${SRC_PATH}/DataStructure/Queue/message.cpp )
 add_library(
     message_queue
@@ -81,6 +82,9 @@ target_link_libraries(mrroot501_hash_table_main mrroot501_hash_table)
 
 add_executable(queue_main ${SRC_PATH}/DataStructure/Queue/main.cpp)
 target_link_libraries(queue_main queue)
+
+add_executable(interval_tree_main ${SRC_PATH}/DataStructure/IntervalTree/main.cpp)
+target_link_libraries(interval_tree_main interval_tree)
 
 ## ProblemSolving module
 add_executable(maximum_sum_sub_array_main ${SRC_PATH}/ProblemSolving/MaximumSumSubarray/main.cpp)
@@ -137,6 +141,10 @@ target_link_libraries(test_merge_intervals merge_intervals_lib gtest Threads::Th
 
 add_executable(test_find_an_element_in_array_sum_of_left_equal_sum_of_right ${SRC_PATH}/ProblemSolving/FindAnElementInArraySuchThatSumOfLeftArrayIsEqualToSumOfRightArray/test.cpp)
 target_link_libraries(test_find_an_element_in_array_sum_of_left_equal_sum_of_right find_an_element_in_array_sum_of_left_equal_sum_of_right_lib gtest Threads::Threads)
+
+add_executable(test_interval_tree ${SRC_PATH}/DataStructure/IntervalTree/test.cpp)
+target_link_libraries(test_interval_tree interval_tree gtest Threads::Threads)
+
 
 # Make sure third-party is built before executable
 add_dependencies(hello_world googletest)

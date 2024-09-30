@@ -40,6 +40,12 @@ cc_library(
     hdrs = ["Queue/message.h", "Queue/queue.h", "MessageQueue/message_queue.h",],
 )
 
+cc_library(
+    name = "interval_tree_lib",
+    srcs = ["IntervalTree/interval_tree.cpp",],
+    hdrs = ["IntervalTree/interval_tree.h",],
+)
+
 # Excutable binaries
 # cc_binary(
 #     name = "doubly_linked_list_main",
@@ -114,6 +120,17 @@ cc_test(
     srcs = ["MessageQueue/message_queue_test.cpp"],
     deps = [
         ":message_queue_lib",
+        "@gtest",
+        "@gtest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "interval_tree_test",
+    timeout="short",
+    srcs = ["IntervalTree/test.cpp"],
+    deps = [
+        ":interval_tree_lib",
         "@gtest",
         "@gtest//:gtest_main",
     ],
