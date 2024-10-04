@@ -33,7 +33,10 @@ CMake suite maintained and supported by Kitware (kitware.com/cmake).
 $ bazel --version
 bazel 7.2.1
 ```
-- Install Cmake components: `$ make install`
+- Install Cmake components:
+```bash
+$ make install
+```
 <details>
 <summary>See output</summary>
 
